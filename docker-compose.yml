@@ -1,0 +1,25 @@
+version: '3'
+
+services:
+  proxy:
+    image: nginx:1.17-alpine
+    volumes:
+      - output:/usr/share/nginx/html
+    ports:
+      - 7000:80
+  website:
+    build:
+      context: '.'
+      dockerfile: ./Dockerfile.python
+    working_dir: /code/website
+    volumes:
+      - .:/code
+      - websitedeps:/root/.local
+      - output:/code/website/output
+    command: make regenerate
+    environment:
+      DEBUG: 1
+
+volumes:
+  websitedeps:
+  output:
