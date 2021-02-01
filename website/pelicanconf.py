@@ -19,7 +19,7 @@ TRANSLATION_FEED_ATOM = None
 AUTHOR_FEED_ATOM = None
 AUTHOR_FEED_RSS = None
 
-SITEURL = 'http://localhost:8000'
+SITEURL = 'http://localhost:7000'
 
 DEFAULT_PAGINATION = False
 
