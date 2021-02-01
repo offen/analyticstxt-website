@@ -18,4 +18,4 @@ jobs:
           publish_dir: ./output
           user_name: hioffen
           user_email: hioffen@posteo.de
-          cname: analyticstxt.org
+          cname: www.analyticstxt.org
