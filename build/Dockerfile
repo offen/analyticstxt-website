@@ -12,4 +12,4 @@ COPY ./website /code/website
 ARG siteurl
 ENV SITEURL=$siteurl
 
-RUN make publish && rm -rf output/theme/.webassets-cache
+RUN make publish
