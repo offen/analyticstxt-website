@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% set title = page.title %}
+{% set description = page.description %}
+{% set href = page.save_as.replace('index.html', '') %}
+{% set image_url = page.image_url %}
+{% set no_stats = page.no_stats %}
+{% set template = page.template %}
+
+
+{% block content %}
+  <main class="">
+    <div class="">
+      <div class="">
+        {{ page.content }}
+      </div>
+    </div>
+  </main>
+{% endblock %}

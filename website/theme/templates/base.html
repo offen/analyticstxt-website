@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+{% block head %}
+  <head>
+    <title>
+      {% block title %}{{ title }}{% endblock %}
+    </title>
+    <meta charset="UTF-8">
+    <!--
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' *.offen.dev; frame-src 'self' *.offen.dev; style-src 'self' 'unsafe-inline'">
+    <meta name="referrer" content="origin">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+    <meta name="description" content="{{ description }}">
+    <!--
+    <meta property="og:site_name" content="{{ SITENAME }}">
+    <meta property="og:locale" content="{{ DEFAULT_LANG }}">
+    <meta property="og:title" content="{{ title }}">
+    <meta property="og:description" content="{{ description }}">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ SITEURL }}/{{ href }}">
+    <meta property="og:image" content="{{ SITEURL }}{{ image_url or '/theme/images/offen-logo-social-media.jpg' }}">
+    <meta name="twitter:image:alt" content="Offen logo">
+    <meta name="twitter:card" content="summary_large_image">
+  -->
+    <link rel="canonical" href="{{ SITEURL }}/{{ href }}">
+    <!--
+    <link rel="shortcut icon" type="image/x-icon" href="/theme/images/favicon.ico">
+  -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,400;0,800;1,400&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="theme/css/tachyons.min.css">
+    <link rel="stylesheet" href="theme/css/fix.css">
+    <link rel="stylesheet" href="theme/css/fonts-temp.css">
+<!--
+    <link rel="preload" href="/theme/fonts/rubik-v9-latin-regular.woff2" as="font" crossorigin>
+    <link rel="preload" href="/theme/fonts/rubik-v9-latin-500.woff2" as="font" crossorigin>
+    {% if OFFEN_ACCOUNT_ID and not no_stats %}
+      <script async src="https://offen.offen.dev/script.js" data-account-id="{{ OFFEN_ACCOUNT_ID }}"></script>
+    {% endif %}
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="/feeds/all.rss.xml">
+    <link rel="alternate" type="application/atom+xml" title="Atom" href="/feeds/all.atom.xml">
+    -->
+  </head>
+{% endblock %}
+<body class="rubik">
+  <header>
+  </header>
+
+  {% block content %}{% endblock %}
+
+  <footer>
+  </footer>
+</body>
+</html>
