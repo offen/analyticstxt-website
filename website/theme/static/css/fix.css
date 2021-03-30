@@ -1,0 +1,78 @@
+/* ---------------------------------------------------
+COLORS
+----------------------------------------------------*/
+/* Red */
+.clr-fnt-red-mid {
+	 color: #B52561;
+}
+/* Blue */
+.clr-fnt-blue-mid {
+	 color: #6358E8;
+}
+/* Yellow */
+.clr-bg-yellow-bright {
+	 background-color: #FDE28C;
+}
+/* Black */
+.clr-fnt-black-mid {
+	 color: #39352A;
+}
+/* Gray */
+
+/* White */
+.clr-bg-white-dark {
+	 background-color: #F9F7F2;
+}
+.clr-bg-white-very-dark {
+	 background-color: #F3F1EC;
+}
+/* ---------------------------------------------------
+FONTS
+----------------------------------------------------*/
+/* Red */
+.fnt-size-logo {
+	font-size: 5rem;
+}
+.fnt-bold-big,
+.fnt-bold-mid {
+	font-weight: 800;
+}
+.fnt-bold-big {
+	letter-spacing: -3px;
+}
+.fnt-bold-mid {
+	letter-spacing: -1px;
+}
+.fnt-italic-big,
+.fnt-italic-mid {
+	font-weight: 400;
+	font-style: italic;
+}
+.fnt-italic-big {
+	letter-spacing: 16px;
+}
+.fnt-italic-mid {
+	letter-spacing: 8px;
+}
+/* ---------------------------------------------------
+TYPO ELEMENTS
+----------------------------------------------------*/
+.highlight{
+  position:relative;
+}
+.highlight:before{
+	content: "";
+	background-color: #FDE28C;
+	width: 100%;
+	height: 0.75em;
+	position: absolute;
+	z-index: -1;
+	top: 0.22em;
+}
+
+/* ---------------------------------------------------
+LAYOUT
+----------------------------------------------------*/
+.claim-mw {
+	max-width: 36rem;
+}
