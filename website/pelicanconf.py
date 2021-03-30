@@ -60,4 +60,5 @@ MARKDOWN = {
 
 DECORATE_CONTENT = {
     'h1': ['f1', 'normal', 'ma0'],
+    'h2': ['f2', 'normal', 'ma0'],
 }
