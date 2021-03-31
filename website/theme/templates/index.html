@@ -3,18 +3,33 @@
 
 {% block content %}
 
-  <div class="mw8 center bg-1 ph3">
-    <header>
-      <a class="link dim" href="/"><p class="fnt-size-logo tr ma0 clr-fnt-red-mid"><span class="fnt-bold-big">analytics </span><span class="fnt-italic-big">.txt</span></p></a>
-    </header>
-    <div class="claim-mw">
-      <h1 class="f3 f2-l normal ma0 clr-fnt-blue-mid">
-        <span class="fnt-italic-mid">A proposed standard</span> which allows websites and services <span class="db fnt-bold-mid">to disclose information</span> about their usage of analytics software and user tracking.
-      </h1>
-      <a class="f3 f2-l normal link dim ma0 clr-fnt-blue-mid" href="/"><span class="highlight">Learn more~</span></a>
+  <div class="mw8 center">
+    <div class="bg-title-claim ph3">
+      <!-- TITLE-->
+      <header>
+        <a class="link" href="/"><p class="fnt-size-logo tr ma0 clr-fnt-red-mid"><span class="fnt-bold-big">analytics </span><span class="fnt-italic-big">.txt</span></p></a>
+      </header>
+      <!-- CLAIM -->
+      <div class="claim-mw">
+        <h1 class="f3 f2-l normal ma0 clr-fnt-blue-mid">
+          <span class="fnt-italic-mid">A proposed standard</span> which allows websites and services <span class="db fnt-bold-mid">to disclose information</span> about their usage of analytics software and user tracking.
+        </h1>
+        <a class="hilght-yellow f3 f2-l normal ma0 clr-fnt-blue-mid" href="/"><span class="hilght-txt">Learn more~</span></a>
+      </div>
     </div>
-    {{ page.content }}
+    <!-- SUMMARY-->
+    <div class="bg-summary ph3">
+      <h2 class="normal ma0">
+        SUMMARY
+      </h2>
+    </div>
+
+
   </div>
+
+<!--
+  {{ page.content }}
+-->
 
 {% endblock %}
 

@@ -81,17 +81,25 @@ FONTS
 /* ---------------------------------------------------
 TYPO ELEMENTS
 ----------------------------------------------------*/
-.highlight{
+.hilght-yellow {
+	text-decoration: none;
   position:relative;
 }
-.highlight:before{
+.hilght-yellow::before {
 	content: "";
 	background-color: #FDE28C;
 	width: 100%;
 	height: 0.75em;
 	position: absolute;
-	z-index: -10;
+	z-index: 10;
 	top: 0.22em;
+}
+a:hover.hilght-yellow::before {
+  width: 0;
+}
+.hilght-txt {
+	position: relative;
+	z-index: 20;
 }
 
 
@@ -110,8 +118,10 @@ LAYOUT
 /* ---------------------------------------------------
 BACKROUND IMAGES
 ----------------------------------------------------*/
-.bg-1 {
-  background: url(/theme/images/bg-1.svg) top right / 73% auto repeat-y;
-	z-index: -20;
-  position: relative;
+
+.bg-title-claim {
+  background: url(/theme/images/bg-white.svg) top right / 73% auto repeat-y;
+}
+.bg-summary {
+  background: url(/theme/images/bg-dark.svg) top left / 73% auto repeat-y;
 }
