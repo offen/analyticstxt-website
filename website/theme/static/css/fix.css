@@ -34,8 +34,13 @@ FONTS
 .fnt-size-logo {
 	font-size: 1.75rem;
 }
+.linehight-copy {
+	line-height: 2.25em;
+}
+/* style */
 .fnt-bold-big,
-.fnt-bold-mid {
+.fnt-bold-mid,
+.fnt-bold-small {
 	font-weight: 800;
 }
 .fnt-bold-big {
@@ -44,8 +49,12 @@ FONTS
 .fnt-bold-mid {
 	letter-spacing: -0.5px;
 }
+.fnt-bold-small {
+	letter-spacing: 0.5px;
+}
 .fnt-italic-big,
-.fnt-italic-mid {
+.fnt-italic-mid,
+.fnt-italic-small {
 	font-weight: 400;
 	font-style: italic;
 }
@@ -53,7 +62,10 @@ FONTS
 	letter-spacing: 8px;
 }
 .fnt-italic-mid {
-	letter-spacing: 6px;
+	letter-spacing: 4px;
+}
+.fnt-italic-small {
+	letter-spacing: 2px;
 }
 @media only screen and (min-width: 30em) {
 	.fnt-size-logo {
@@ -61,6 +73,7 @@ FONTS
 	}
 }
 @media only screen and (min-width: 60em) {
+	/* style */
 	.fnt-size-logo {
 		font-size: 4rem;
 	}
@@ -74,14 +87,15 @@ FONTS
 		letter-spacing: 16px;
 	}
 	.fnt-italic-mid {
-		letter-spacing: 8px;
+		letter-spacing: 6px;
 	}
 }
 
 /* ---------------------------------------------------
 TYPO ELEMENTS
 ----------------------------------------------------*/
-.hilght-yellow {
+.hilght-yellow,
+.hilght-white {
 	text-decoration: none;
   position:relative;
 }
@@ -97,11 +111,19 @@ TYPO ELEMENTS
 a:hover.hilght-yellow::before {
   width: 0;
 }
+.hilght-white::before {
+	content: "";
+	background-color: #FFFFFF;
+	width: 100%;
+	height: 1.5em;
+	padding-top: 0.75em;
+	position: absolute;
+	z-index: 10;
+}
 .hilght-txt {
 	position: relative;
 	z-index: 20;
 }
-
 
 /* ---------------------------------------------------
 LAYOUT
@@ -124,4 +146,26 @@ BACKROUND IMAGES
 }
 .bg-summary {
   background: url(/theme/images/bg-dark.svg) top left / 73% auto repeat-y;
+}
+.bg-status {
+  background-image: url(/theme/images/bg-white.svg);
+	background-position:  top left;
+	background-size: 100%;
+	background-repeat: repeat-y;
+}
+@media only screen and (min-width: 30em) {
+	.bg-status {
+	  background-image: url(/theme/images/bg-white.svg);
+		background-position:  top right calc(100% - 9rem);
+		background-size: 73%;
+		background-repeat: repeat-y;
+	}
+}
+@media only screen and (min-width: 60em) {
+	.bg-status {
+	  background-image: url(/theme/images/bg-white.svg);
+		background-position:  top right calc(100% - 9rem);
+		background-size: 50%;
+		background-repeat: repeat-y;
+	}
 }
