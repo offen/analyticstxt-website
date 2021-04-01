@@ -141,11 +141,14 @@ ul li {
 	margin-left: -1.5rem;
 }
 ul {
-  list-style-type: ">   ";
+  list-style-type: ">    ";
+}
+.word-break {
+	word-break: break-all;
 }
 
 /* ---------------------------------------------------
-BACKROUND IMAGES
+BACKROUNDS
 ----------------------------------------------------*/
 .bg-title-claim {
   background: url(/theme/images/gfx-bg-white.svg) top right / 73% auto repeat-y;
@@ -155,26 +158,40 @@ BACKROUND IMAGES
 }
 .bg-status {
   background-image: url(/theme/images/gfx-bg-white.svg);
-	background-position:  top left;
+	background-position: top left;
 	background-size: 100%;
 	background-repeat: repeat-y;
 }
 @media only screen and (min-width: 30em) {
 	.bg-status {
-	  background-image: url(/theme/images/gfx-bg-white.svg);
-		background-position:  top right calc(100% - 9rem);
+		background-position: top right calc(100% - 9rem);
 		background-size: 73%;
-		background-repeat: repeat-y;
 	}
 }
 @media only screen and (min-width: 60em) {
 	.bg-status {
-	  background-image: url(/theme/images/gfx-bg-white.svg);
-		background-position:  top right calc(100% - 9rem);
+		background-position: top right calc(100% - 9rem);
 		background-size: 50%;
-		background-repeat: repeat-y;
 	}
 }
-.bg-faqA {
+.bg-faq {
   background: url(/theme/images/gfx-bg-white-very-dark.svg) top right / 73% auto repeat-y;
+}
+.bg-preview {
+  background-image: url(/theme/images/gfx-bg-white.svg);
+	background-position: top left;
+	background-size: 100%;
+	background-repeat: repeat-y;
+}
+@media only screen and (min-width: 30em) {
+	.bg-preview {
+		background-position: top right calc(100% - 9rem);
+		background-size: 100%;
+	}
+}
+@media only screen and (min-width: 60em) {
+	.bg-preview {
+		background-position: top right calc(100% - 9rem);
+		background-size: 73%;
+	}
 }

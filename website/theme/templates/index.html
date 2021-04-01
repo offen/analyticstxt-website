@@ -52,7 +52,7 @@
       </div>
     </div>
     <!-- FAQ A -->
-    <div class="bg-faqA ph3">
+    <div class="bg-faq ph3">
       <div class="cf">
         <div class="fr mr5-ns">
           <div class="mw6">
@@ -60,34 +60,86 @@
               Why should I use <span class="hilight-white-mid">analytics.txt</span> on my website?
             </h2>
           </div>
-          <ul class="mw6 ma0 ml5-ns">
-            <li>
-              <p class="linehight-copy ma0 mt3">
-                Regulations around the handling of user data on websites are evolving quickly and mandate certain practices. An <span class="hilight-white-small">analytics.txt</span> file can give auditors instant insights on what is in use and how this maps to the applicable regulations.
-              </p>
-            </li>
-            <li>
-              <p class="linehight-copy ma0 mt3">
-                Users value websites that are transparent about the privacy implications that using them brings. <span class="hilight-white-small">analytics.txt</span> can disclose such information to your users without hiding behind the legalese walls of text that have become a practice.
-              </p>
-            </li>
-            <li>
-              <p class="linehight-copy ma0 mt3">
-                Tools like crawlers or Browser extensions can read and parse the data in <span class="hilight-white-small">analytics.txt</span> and use it to signal privacy metrics to users and other third parties.
-              </p>
-            </li>
-          </ul>
+          <div class="mw6 ma0 ml5-ns">
+            <ul class="ml2">
+              <li>
+                <p class="linehight-copy ma0 mt3">
+                  Regulations around the handling of user data on websites are evolving quickly and mandate certain practices. An <span class="hilight-white-small">analytics.txt</span> file can give auditors instant insights on what is in use and how this maps to the applicable regulations.
+                </p>
+              </li>
+              <li>
+                <p class="linehight-copy ma0 mt3">
+                  Users value websites that are transparent about the privacy implications that using them brings. <span class="hilight-white-small">analytics.txt</span> can disclose such information to your users without hiding behind the legalese walls of text that have become a practice.
+                </p>
+              </li>
+              <li>
+                <p class="linehight-copy ma0 mt3">
+                  Tools like crawlers or Browser extensions can read and parse the data in <span class="hilight-white-small">analytics.txt</span> and use it to signal privacy metrics to users and other third parties.
+                </p>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
     <!-- PREVIEW -->
-    <div class="bg-status ph3">
-      <div class="ml5-ns mw6">
+    <div class="bg-preview ph0 ph3-ns">
+      <div class="ml5-ns mw6 ph0-ns ph3">
         <h2 class="f3 f2-l normal ma0 fnt-italic-mid">
           How a typical <span class="hilight-white-very-dark-mid">analytics.txt</span> file looks like.
         </h2>
       </div>
-      
+      <div class="mw7 ba bw1 b--moon-gray ml5-ns mt3">
+        <div class="h1 bg-moon-gray"></div>
+        <div class="f6 f5-ns code pv4 ph3 ph4-ns bg-near-white clr-fnt-black">
+          <p class="ma0"># analytics.txt file for https://www.analyticstxt.org</p>
+          <p class="ma0 mt2">Author: Frederik Ring <hioffen@posteo.de></p>
+          <!-- -->
+          <p class="ma0 mt4">Collects: url, referrer, device-type</p>
+          <p class="ma0 mt2">Stores: first-party-cookies, local-storage</p>
+          <p class="ma0 mt2"># Data is encrypted end-to-end</p>
+          <p class="ma0 mt2">Uses: javascript</p>
+          <p class="ma0 mt2"># Users can also delete their usage data only without opting out</p>
+          <p class="ma0 mt2">Allows: opt-in, opt-out</p>
+          <p class="ma0 mt2"># Data is retained for 6 months</p>
+          <p class="ma0 mt2">Retains: P6M</p>
+          <!-- -->
+          <p class="ma0 mt4"># Optional fields</p>
+          <p class="ma0 mt2">Session: user</p>
+          <p class="ma0 mt2">Visibility: user</p>
+          <p class="ma0 mt2">Compliance: gdpr</p>
+          <p class="ma0 mt2">Vendors: offen</p>
+        </div>
+      </div>
+    </div>
+    <!-- FAQ B -->
+    <div class="bg-faq ph3">
+      <div class="cf">
+        <div class="fr mr5-ns">
+          <div class="mw6">
+            <h2 class="f3 f2-l normal ma0 fnt-italic-mid">
+              Where should I put an <span class="hilight-white-mid">analytics.txt</span> file?
+            </h2>
+          </div>
+          <div class="mw6 ma0 ml5-ns">
+            <p class="linehight-copy ma0 mt3">
+              The preferred default location for your <span class="hilight-white-small">analytics.txt</span> file is the <span class="hilight-white-small">/.well-known/</span> path of your web server. If this is not ideal or possible for you, there are two alternatives:
+            </p>
+            <ul class="ml2">
+              <li>
+                <p class="linehight-copy ma0 mt3">
+                  Use a <span class="hilight-white-small">(link rel="analytics.txt" href="/path/to/analytics.txt")</span> in the <span class="hilight-white-small">head</span> of your document.
+                </p>
+              </li>
+              <li>
+                <p class="linehight-copy ma0 mt3">
+                  Send an <span class="hilight-white-small word-break">X-Analytics-Txt: https://www.example.com/path/to/analytics.txt</span> header in your responses.
+                </p>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
     </div>
 
 
