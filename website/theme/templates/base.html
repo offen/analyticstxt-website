@@ -30,7 +30,7 @@
   -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,400;0,800;1,400&display=swap" rel="stylesheet">
-
+<!-- ccs einbinden! -->
     <link rel="stylesheet" href="theme/css/tachyons.min.css">
     <link rel="stylesheet" href="theme/css/fix.css">
     <link rel="stylesheet" href="theme/css/fonts-temp.css">
@@ -48,11 +48,45 @@
 <body class="f5 rubik lh-copy clr-fnt-red clr-bg-white-dark">
   <div class="mw8 center">
     <!-- MENU -->
+    <div class="bg-menu pt3 ph3-l">
+      <nav>
+        <div class="nav-mobile"><span id="nav-toggle"><span></span></span></div>
+        <ul class="nav-list">
+          <li>
+            <p class="ma0 mb3 mb0-l pl3 pl0-l">_&nbsp;&nbsp;<a class="hilight-yellow-small dib" href="/">GitHub</a>&nbsp;&nbsp;</p>
+          </li>
+          <li>
+            <p class="ma0 mb3 mb0-l pl3 pl0-l">_&nbsp;&nbsp;<a class="hilight-yellow-small dib" href="/">Legal & Privacy</a>&nbsp;&nbsp;</p>
+          </li>
+          <li>
+            <p class="ma0 mb3 mb0-l pl3 pl0-l">_&nbsp;&nbsp;<a class="hilight-yellow-small dib" href="/">Offen</a>&nbsp;&nbsp;</p>
+          </li>
+          <li>
+            <p class="ma0 mb4 mb0-l pl3 pl0-l">_&nbsp;&nbsp;<a class="hilight-yellow-small dib" href="/">Contact</a>&nbsp;&nbsp;</p>
+          </li>
+        </ul>
+      </nav>
+    </div>
+    <!-- TITLE -->
+    <div class="bg-title ph3 pt6">
+      <header class="fnt-size-logo tr ma0">
+        <a class="hilight-yellow-big-invers" href="/"><span class="clr-fnt-red fnt-bold-big">analytics </span><span class="clr-fnt-red fnt-italic-big">.txt</span></a>
+      </header>
+    </div>
+    {% block content %}{% endblock %}
+    <!-- FOOTER -->
+    <footer>
+      <div class="bg-footer">
+        <p class="tr ma0 mr3 mr5-ns pt5 pb4">
+          _&nbsp;&nbsp;analytics.txt&nbsp;&nbsp;_&nbsp;&nbsp;{{ BUILD_DATE | strftime('%B %Y') }}
+        </p>
+      </div>
+    </footer>
   </div>
-
-  {% block content %}{% endblock %}
-
-  <footer>
-  </footer>
+  {% block scripts %}
+<!-- scripts einbinden -->
+    <script src="theme/scripts/jquery-3.4.1.min.js"></script>
+    <script src="theme/scripts/menu.js"></script>
+  {% endblock %}
 </body>
 </html>
