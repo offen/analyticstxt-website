@@ -4,12 +4,14 @@
 {% block content %}
 
   <div class="mw8 center">
-    <div class="bg-title-claim ph3">
-      <!-- TITLE -->
-      <header>
-        <a class="link" href="/"><p class="fnt-size-logo tr ma0 clr-fnt-red"><span class="fnt-bold-big">analytics </span><span class="fnt-italic-big">.txt</span></p></a>
+    <!-- TITLE -->
+    <div class="bg-title ph3 pt6">
+      <header class="fnt-size-logo tr ma0">
+        <a class="hilight-yellow-big-invers" href="/"><span class="clr-fnt-red fnt-bold-big">analytics </span><span class="clr-fnt-red fnt-italic-big">.txt</span></a>
       </header>
-      <!-- CLAIM -->
+    </div>
+    <!-- CLAIM -->
+    <div class="bg-claim ph3 pv6">
       <div class="claim-mw">
         <h1 class="f3 f2-l normal ma0 clr-fnt-blue">
           <span class="fnt-italic-mid">A proposed standard</span> which allows websites and services <span class="fnt-bold-mid">to disclose information</span> about their usage of analytics software and user tracking.
@@ -18,7 +20,7 @@
       </div>
     </div>
     <!-- SUMMARY -->
-    <div class="bg-summary ph3">
+    <div class="bg-summary ph3 pv5">
       <div class="cf">
         <div class="fr mr5-ns">
           <div class="mw6">
@@ -26,11 +28,11 @@
               Privacy has become an important feature for users of websites and services.
             </h2>
           </div>
-          <div class="mw6 ml5-ns">
-            <p class="linehight-copy ma0 mt3">
+          <div class="linehight-copy mw6 ml5-ns">
+            <p class="ma0 mt3">
               We aim at providing a well-defined way for websites and services to signal their usage of analytics and tracking software to users and tooling used by users.
             </p>
-            <p class="linehight-copy ma0 mt3">
+            <p class="ma0 mt3">
               <span class="hilight-white-small">analytics.txt</span> will be designed to be an elaborate <span class="fnt-bold-small">standard that describes the usage of analytics and tracking in a non-biased way</span> that is understandable both for a non-technical audience as well as useful for consumption by tools and software.
             </p>
           </div>
@@ -38,42 +40,42 @@
       </div>
     </div>
     <!-- STATUS -->
-    <div class="bg-status ph3 clr-fnt-blue">
-      <div class="ml5-ns mw6">
+    <div class="bg-status ph3 clr-fnt-blue pv5">
+      <div class="linehight-copy ml5-ns mw6">
         <h2 class="f3 f2-l normal ma0 fnt-bold-mid">
           First version draft in progress~
         </h2>
-        <p class="linehight-copy ma0 mt3">
+        <p class="ma0 mt3">
           We are currently working on drafting a first version of the specification and plan to submit it as an <span class="fnt-bold-small">IETF Internet Draft</span> in the summer of 2021.
         </p>
-        <p class="linehight-copy ma0 mt3">
+        <p class="ma0 mt3">
           <span class="fnt-italic-small">We'll publish a first draft here as soon as it's ready.</span>
         </p>
       </div>
     </div>
     <!-- FAQ A -->
-    <div class="bg-faq ph3">
+    <div class="bg-faq ph3 pv5">
       <div class="cf">
-        <div class="fr mr5-ns">
+        <div class="fr mr6-ns">
           <div class="mw6">
             <h2 class="f3 f2-l normal ma0 fnt-italic-mid">
               Why should I use <span class="hilight-white-mid">analytics.txt</span> on my website?
             </h2>
           </div>
-          <div class="mw6 ma0 ml5-ns">
-            <ul class="ml2">
+          <div class="mw6 ma0">
+            <ul class="linehight-copy ml2">
               <li>
-                <p class="linehight-copy ma0 mt3">
+                <p class="ma0 mt3">
                   Regulations around the handling of user data on websites are evolving quickly and mandate certain practices. An <span class="hilight-white-small">analytics.txt</span> file can give auditors instant insights on what is in use and how this maps to the applicable regulations.
                 </p>
               </li>
               <li>
-                <p class="linehight-copy ma0 mt3">
+                <p class="ma0 mt3">
                   Users value websites that are transparent about the privacy implications that using them brings. <span class="hilight-white-small">analytics.txt</span> can disclose such information to your users without hiding behind the legalese walls of text that have become a practice.
                 </p>
               </li>
               <li>
-                <p class="linehight-copy ma0 mt3">
+                <p class="ma0 mt3">
                   Tools like crawlers or Browser extensions can read and parse the data in <span class="hilight-white-small">analytics.txt</span> and use it to signal privacy metrics to users and other third parties.
                 </p>
               </li>
@@ -83,13 +85,13 @@
       </div>
     </div>
     <!-- PREVIEW -->
-    <div class="bg-preview ph0 ph3-ns">
-      <div class="ml5-ns mw6 ph0-ns ph3">
+    <div class="bg-preview ph3-ns pv5">
+      <div class="mw6 ph0-ns ph3 ml4-m ml5-l ">
         <h2 class="f3 f2-l normal ma0 fnt-italic-mid">
           How a typical <span class="hilight-white-very-dark-mid">analytics.txt</span> file looks like.
         </h2>
       </div>
-      <div class="mw7 ba bw1 b--moon-gray ml5-ns mt3">
+      <div class="mw7 ba bw1 b--moon-gray mt3 ml4-m ml5-l mr3-m">
         <div class="h1 bg-moon-gray"></div>
         <div class="f6 f5-ns code pv4 ph3 ph4-ns bg-near-white clr-fnt-black">
           <p class="ma0"># analytics.txt file for https://www.analyticstxt.org</p>
@@ -112,27 +114,27 @@
         </div>
       </div>
     </div>
-    <!-- FAQ B -->
-    <div class="bg-faq ph3">
+    <!-- FAQ B 1 -->
+    <div class="bg-faq ph3 pt5">
       <div class="cf">
-        <div class="fr mr5-ns">
+        <div class="fr mr6-ns">
           <div class="mw6">
             <h2 class="f3 f2-l normal ma0 fnt-italic-mid">
               Where should I put an <span class="hilight-white-mid">analytics.txt</span> file?
             </h2>
           </div>
-          <div class="mw6 ma0 ml5-ns">
+          <div class="mw6 ma0">
             <p class="linehight-copy ma0 mt3">
               The preferred default location for your <span class="hilight-white-small">analytics.txt</span> file is the <span class="hilight-white-small">/.well-known/</span> path of your web server. If this is not ideal or possible for you, there are two alternatives:
             </p>
-            <ul class="ml2">
+            <ul class="ml2 linehight-copy">
               <li>
-                <p class="linehight-copy ma0 mt3">
+                <p class="ma0 mt3">
                   Use a <span class="hilight-white-small">(link rel="analytics.txt" href="/path/to/analytics.txt")</span> in the <span class="hilight-white-small">head</span> of your document.
                 </p>
               </li>
               <li>
-                <p class="linehight-copy ma0 mt3">
+                <p class="ma0 mt3">
                   Send an <span class="hilight-white-small word-break">X-Analytics-Txt: https://www.example.com/path/to/analytics.txt</span> header in your responses.
                 </p>
               </li>
@@ -141,8 +143,77 @@
         </div>
       </div>
     </div>
-
-
+    <!-- FAQ B 2 -->
+    <div class="bg-faq ph3 pt5">
+      <div class="cf">
+        <div class="fr mr6-ns">
+          <div class="mw6">
+            <h2 class="f3 f2-l normal ma0 fnt-italic-mid">
+              I would like to use <span class="hilight-white-mid">analytics.txt</span> but don't really know what to put in there?
+            </h2>
+          </div>
+          <div class="mw6 ma0">
+            <p class="linehight-copy ma0 mt3">
+              We are working hard to make the specification as accessible as possible for anyone. For this purpose, we are currently working on an <span class="fnt-bold-small">Implementation Guide</span> and <span class="fnt-bold-small">Vendor Presets</span> that we plan to publish in the near future.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- FAQ B 3 -->
+    <div class="bg-faq ph3 pv5">
+      <div class="cf">
+        <div class="fr mr6-ns">
+          <div class="mw6">
+            <h2 class="f3 f2-l normal ma0 fnt-italic-mid">
+              How do I know the information in an <span class="hilight-white-mid">analytics.txt</span> file is correct?
+            </h2>
+          </div>
+          <div class="mw6 ma0">
+            <p class="linehight-copy ma0 mt3">
+              <span class="hilight-white-small">analytics.txt</span> is designed in a way that there are no right or wrong answers, so we start by trusting others to populate it correctly. If you are unsure about the correctness of such a file, you can do two things:
+            </p>
+            <ul class="ml2 linehight-copy">
+              <li>
+                <p class="ma0 mt3">
+                  Contact the email address given in the mandatory <span class="hilight-white-small">Review</span> field of the <span class="hilight-white-small">analytics.txt</span> file, asking for clarification.
+                </p>
+              </li>
+              <li>
+                <p class="ma0 mt3">
+                  Use the <span class="fnt-bold-small">Audit Tool</span> we will be providing to check for basic conformance.
+                </p>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- OUTRO -->
+    <div class="bg-outro ph3 pv5 clr-fnt-blue">
+      <div class="linehight-copy ml5-ns mw6">
+        <h2 class="f3 f2-l normal ma0 fnt-bold-mid">
+          Let’s keep in touch~
+        </h2>
+        <p class="ma0 mt3">
+          Do you have feedback on <span class="hilight-white-very-dark-small">analytics.txt</span>? What is your experience in developing open standards? Are you as enthusiastic about fair data transfer as we are? Drop us an <a class="hilight-yellow-small" href="mailto:hioffen@posteo.de">email</a> and feel invited to work together to drive this idea forward.
+        </p>
+        <p class="ma0 mt3">
+          We are also building Offen, a fair web analytics tool. Head over there and have a look.
+        </p>
+        <div class="mt3">
+          <a class="hilight-yellow-mid f3 f2-l normal ma0 clr-fnt-blue" href="https://www.offen.dev/">www.offen.dev</a>
+        </div>
+      </div>
+    </div>
+    <!-- FOOTER -->
+    <footer>
+      <div class="bg-footer">
+        <p class="tr ma0 mr3 mr5-ns pt5 pb4">
+          analytics.txt &nbsp;_&nbsp; March 2021
+        </p>
+      </div>
+    </footer>
 
   </div>
 

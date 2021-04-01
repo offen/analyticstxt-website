@@ -94,16 +94,34 @@ FONTS
 TYPO ELEMENTS
 ----------------------------------------------------*/
 /*yellow*/
-.hilight-yellow-mid {
+.hilight-yellow-big-invers {
+	text-decoration: none;
+}
+a:hover.hilight-yellow-big-invers {
+	background: url(/theme/images/gfx-bg-yellow.svg);
+	background-repeat: repeat-x;
+	background-size: auto 60%;
+	background-position: 0 0.22em;
+	padding: 0 0 0 0.2em;
+}
+.hilight-yellow-mid,
+.hilight-yellow-small {
 	text-decoration: none;
 	background: url(/theme/images/gfx-bg-yellow.svg);
+	background-repeat: repeat-x;
+}
+.hilight-yellow-mid {
 	background-size: auto 58%;
 	background-position: 0 0.25em;
-	background-repeat: repeat-x;
 	padding: 0 0.1em 0 0.1em;
 }
-a:hover.hilight-yellow-mid {
-  width: 0;
+.hilight-yellow-small {
+	background-size: auto 65%;
+	background-position: 0 0.2em;
+	padding: 0 0.2em 0 0.2em;
+}
+a:hover.hilight-yellow-mid,
+a:hover.hilight-yellow-small {
 	background: url(/theme/images/gfx-bg-none.svg);
 }
 /*white*/
@@ -122,7 +140,11 @@ a:hover.hilight-yellow-mid {
 }
 .hilight-white-small {
 	background-color: #FFFFFF;
-	padding: 0.7em 0.2em 0.7em 0.2em;
+	padding: 0.55em 0.2em 0.55em 0.2em;
+}
+.hilight-white-very-dark-small {
+	background-color: #F3F1EC;
+	padding: 0.55em 0.2em 0.55em 0.2em;
 }
 
 /* ---------------------------------------------------
@@ -150,26 +172,33 @@ ul {
 /* ---------------------------------------------------
 BACKROUNDS
 ----------------------------------------------------*/
-.bg-title-claim {
+.bg-title,
+.bg-claim {
   background: url(/theme/images/gfx-bg-white.svg) top right / 73% auto repeat-y;
 }
 .bg-summary {
   background: url(/theme/images/gfx-bg-white-very-dark.svg) top left / 73% auto repeat-y;
 }
-.bg-status {
+.bg-status,
+.bg-outro,
+.bg-footer {
   background-image: url(/theme/images/gfx-bg-white.svg);
 	background-position: top left;
 	background-size: 100%;
 	background-repeat: repeat-y;
 }
 @media only screen and (min-width: 30em) {
-	.bg-status {
+	.bg-status,
+	.bg-outro,
+	.bg-footer, {
 		background-position: top right calc(100% - 9rem);
 		background-size: 73%;
 	}
 }
 @media only screen and (min-width: 60em) {
-	.bg-status {
+	.bg-status,
+	.bg-outro,
+	.bg-footer {
 		background-position: top right calc(100% - 9rem);
 		background-size: 50%;
 	}
