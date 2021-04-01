@@ -2,11 +2,11 @@
 COLORS
 ----------------------------------------------------*/
 /* Red */
-.clr-fnt-red-mid {
+.clr-fnt-red {
 	 color: #B52561;
 }
 /* Blue */
-.clr-fnt-blue-mid {
+.clr-fnt-blue {
 	 color: #6358E8;
 }
 /* Yellow */
@@ -14,7 +14,7 @@ COLORS
 	 background-color: #FDE28C;
 }
 /* Black */
-.clr-fnt-black-mid {
+.clr-fnt-black {
 	 color: #39352A;
 }
 /* Gray */
@@ -26,7 +26,6 @@ COLORS
 .clr-bg-white-very-dark {
 	 background-color: #F3F1EC;
 }
-
 
 /* ---------------------------------------------------
 FONTS
@@ -94,31 +93,37 @@ FONTS
 /* ---------------------------------------------------
 TYPO ELEMENTS
 ----------------------------------------------------*/
+/*yellow*/
 .hilight-yellow-mid {
 	text-decoration: none;
-	background: url(/theme/images/bg-yellow.svg);
-	background-size: auto 65%;
-	background-position: 0 0.22em;
+	background: url(/theme/images/gfx-bg-yellow.svg);
+	background-size: auto 58%;
+	background-position: 0 0.25em;
 	background-repeat: repeat-x;
+	padding: 0 0.1em 0 0.1em;
 }
 a:hover.hilight-yellow-mid {
   width: 0;
-	background: url(/theme/images/bg-none.svg);
+	background: url(/theme/images/gfx-bg-none.svg);
 }
-
 /*white*/
 .hilight-white-mid {
-	background: url(/theme/images/bg-white.svg);
-	background-size: auto 65%;
-	background-position: 0 0.22em;
+	background: url(/theme/images/gfx-bg-white.svg);
+}
+.hilight-white-very-dark-mid {
+	background: url(/theme/images/gfx-bg-white-very-dark.svg);
+}
+.hilight-white-mid,
+.hilight-white-very-dark-mid {
+	background-size: auto 58%;
+	background-position: 0 0.25em;
 	background-repeat: repeat-x;
+	padding: 0 0.1em 0 0.1em;
 }
 .hilight-white-small {
 	background-color: #FFFFFF;
 	padding: 0.7em 0.2em 0.7em 0.2em;
 }
-
-
 
 /* ---------------------------------------------------
 LAYOUT
@@ -131,26 +136,32 @@ LAYOUT
 		max-width: 38rem;
 	}
 }
+/* list override */
+ul li {
+	margin-left: -1.5rem;
+}
+ul {
+  list-style-type: ">   ";
+}
 
 /* ---------------------------------------------------
 BACKROUND IMAGES
 ----------------------------------------------------*/
-
 .bg-title-claim {
-  background: url(/theme/images/bg-white.svg) top right / 73% auto repeat-y;
+  background: url(/theme/images/gfx-bg-white.svg) top right / 73% auto repeat-y;
 }
 .bg-summary {
-  background: url(/theme/images/bg-dark.svg) top left / 73% auto repeat-y;
+  background: url(/theme/images/gfx-bg-white-very-dark.svg) top left / 73% auto repeat-y;
 }
 .bg-status {
-  background-image: url(/theme/images/bg-white.svg);
+  background-image: url(/theme/images/gfx-bg-white.svg);
 	background-position:  top left;
 	background-size: 100%;
 	background-repeat: repeat-y;
 }
 @media only screen and (min-width: 30em) {
 	.bg-status {
-	  background-image: url(/theme/images/bg-white.svg);
+	  background-image: url(/theme/images/gfx-bg-white.svg);
 		background-position:  top right calc(100% - 9rem);
 		background-size: 73%;
 		background-repeat: repeat-y;
@@ -158,9 +169,12 @@ BACKROUND IMAGES
 }
 @media only screen and (min-width: 60em) {
 	.bg-status {
-	  background-image: url(/theme/images/bg-white.svg);
+	  background-image: url(/theme/images/gfx-bg-white.svg);
 		background-position:  top right calc(100% - 9rem);
 		background-size: 50%;
 		background-repeat: repeat-y;
 	}
+}
+.bg-faqA {
+  background: url(/theme/images/gfx-bg-white-very-dark.svg) top right / 73% auto repeat-y;
 }
