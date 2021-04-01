@@ -94,36 +94,31 @@ FONTS
 /* ---------------------------------------------------
 TYPO ELEMENTS
 ----------------------------------------------------*/
-.hilght-yellow,
-.hilght-white {
+.hilight-yellow-mid {
 	text-decoration: none;
-  position:relative;
+	background: url(/theme/images/bg-yellow.svg);
+	background-size: auto 65%;
+	background-position: 0 0.22em;
+	background-repeat: repeat-x;
 }
-.hilght-yellow::before {
-	content: "";
-	background-color: #FDE28C;
-	width: 100%;
-	height: 0.75em;
-	position: absolute;
-	z-index: 10;
-	top: 0.22em;
-}
-a:hover.hilght-yellow::before {
+a:hover.hilight-yellow-mid {
   width: 0;
+	background: url(/theme/images/bg-none.svg);
 }
-.hilght-white::before {
-	content: "";
+
+/*white*/
+.hilight-white-mid {
+	background: url(/theme/images/bg-white.svg);
+	background-size: auto 65%;
+	background-position: 0 0.22em;
+	background-repeat: repeat-x;
+}
+.hilight-white-small {
 	background-color: #FFFFFF;
-	width: 100%;
-	height: 1.5em;
-	padding-top: 0.75em;
-	position: absolute;
-	z-index: 10;
+	padding: 0.7em 0.2em 0.7em 0.2em;
 }
-.hilght-txt {
-	position: relative;
-	z-index: 20;
-}
+
+
 
 /* ---------------------------------------------------
 LAYOUT
