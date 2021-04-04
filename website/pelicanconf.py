@@ -59,7 +59,9 @@ MARKDOWN = {
 }
 
 DECORATE_CONTENT = {
-    'h1': ['f1', 'normal', 'ma0'],
-    'h2': ['f2', 'normal', 'ma0'],
-    'h3': ['f2', 'normal', 'ma0']
+    'p': ['ma0', 'pb3'],
+    'p a': ['hilight-yellow-small'],
+    'h1': ['f3', 'f2-l', 'normal', 'ma0', 'mb5', 'di', 'fnt-italic-mid', 'hilight-white-mid'],
+    'h2': ['f3', 'f2-l', 'normal', 'ma0', 'mt5', 'mb3', 'fnt-italic-mid'],
+    'h3': ['f5', 'normal', 'ma0', 'mt4', 'mb2', 'fnt-italic-small']
 }

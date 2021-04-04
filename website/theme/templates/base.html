@@ -31,9 +31,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,400;0,800;1,400&display=swap" rel="stylesheet">
 <!-- ccs einbinden! -->
-    <link rel="stylesheet" href="theme/css/tachyons.min.css">
-    <link rel="stylesheet" href="theme/css/fix.css">
-    <link rel="stylesheet" href="theme/css/fonts-temp.css">
+    <link rel="stylesheet" href="/theme/css/tachyons.min.css">
+    <link rel="stylesheet" href="/theme/css/fix.css">
+    <link rel="stylesheet" href="/theme/css/fonts-temp.css">
 <!--
     <link rel="preload" href="/theme/fonts/rubik-v9-latin-regular.woff2" as="font" crossorigin>
     <link rel="preload" href="/theme/fonts/rubik-v9-latin-500.woff2" as="font" crossorigin>
@@ -68,7 +68,11 @@
       </nav>
     </div>
     <!-- TITLE -->
+    {% if template != 'index' %}
+    <div class="bg-title ph3 pt5 pb5">
+    {% else %}
     <div class="bg-title ph3 pt6">
+    {% endif %}
       <header class="fnt-size-logo tr ma0">
         <a class="hilight-yellow-big-invers" href="/"><span class="clr-fnt-red fnt-bold-big">analytics </span><span class="clr-fnt-red fnt-italic-big">.txt</span></a>
       </header>
@@ -77,7 +81,11 @@
     <!-- FOOTER -->
     <footer>
       <div class="bg-footer">
+        {% if template != 'index' %}
+        <p class="tr ma0 mr3 mr5-ns pt7 pb4">
+        {% else %}
         <p class="tr ma0 mr3 mr5-ns pt5 pb4">
+        {% endif %}
           _&nbsp;&nbsp;analytics.txt&nbsp;&nbsp;_&nbsp;&nbsp;{{ BUILD_DATE | strftime('%B %Y') }}
         </p>
       </div>
@@ -85,8 +93,8 @@
   </div>
   {% block scripts %}
 <!-- scripts einbinden -->
-    <script src="theme/scripts/jquery-3.4.1.min.js"></script>
-    <script src="theme/scripts/menu.js"></script>
+    <script src="/theme/scripts/jquery-3.4.1.min.js"></script>
+    <script src="/theme/scripts/menu.js"></script>
   {% endblock %}
 </body>
 </html>

@@ -89,6 +89,22 @@ FONTS
 		letter-spacing: 6px;
 	}
 }
+/* ---------------------------------------------------
+LINKS TEXT
+----------------------------------------------------*/
+p a:link,
+p a:visited,
+p a:hover,
+p a:active {
+  color: #B52561;
+}
+/* blue */
+.link-blue p a:link,
+.link-blue p a:visited,
+.link-blue p a:hover,
+.link-blue p a:active {
+  color: #6358E8;
+}
 
 /* ---------------------------------------------------
 TYPO ELEMENTS
@@ -204,8 +220,15 @@ BACKROUNDS
 		background-size: 50%;
 	}
 }
-.bg-faq {
-  background: url(/theme/images/gfx-bg-white-very-dark.svg) top right / 73% auto repeat-y;
+.bg-faq,
+.bg-page {
+  background: url(/theme/images/gfx-bg-white-very-dark.svg) top right / 100% auto repeat-y;
+}
+@media only screen and (min-width: 60em) {
+	.bg-faq,
+	.bg-page {
+		background: url(/theme/images/gfx-bg-white-very-dark.svg) top right / 73% auto repeat-y;
+	}
 }
 .bg-preview {
   background-image: url(/theme/images/gfx-bg-white.svg);
