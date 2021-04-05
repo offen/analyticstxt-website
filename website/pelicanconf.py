@@ -59,11 +59,11 @@ MARKDOWN = {
 }
 
 DECORATE_CONTENT = {
-    'p': ['ma0', 'pb3'],
+    'p': ['ma0', 'pb3', 'linehight-copy'],
     'p > a': ['hilight-yellow-small'],
-    'h1': ['f5', 'normal', 'ma0', 'mb3', 'fnt-bold-small'],
-    'h2': ['f3', 'f2-ns', 'normal', 'ma0', 'mt4', 'mb3', 'fnt-italic-mid'],
-    'h3': ['f5', 'normal', 'ma0', 'mt4', 'mb2', 'fnt-italic-small']
+    'h1': ['f5', 'normal', 'ma0', 'fnt-bold-small'],
+    'h2': ['f3', 'f2-ns', 'normal', 'ma0', 'mt5', 'mb3', 'fnt-italic-mid'],
+    'h3': ['f5', 'normal', 'ma0', 'mt3', 'mb2', 'fnt-italic-small']
 }
 
 GITHUB_REPO = 'https://github.com/offen/analyticstxt/'

@@ -174,11 +174,11 @@ a:hover.hilight-yellow-small {
 /* ---------------------------------------------------
 LAYOUT
 ----------------------------------------------------*/
-.claim-mw {
+.pitch-mw {
 	max-width: 26rem;
 }
 @media only screen and (min-width: 60em) {
-	.claim-mw {
+	.pitch-mw {
 		max-width: 38rem;
 	}
 }
@@ -198,7 +198,7 @@ BACKROUNDS
 ----------------------------------------------------*/
 .bg-menu,
 .bg-title,
-.bg-claim {
+.bg-pitch {
   background: url(/theme/images/gfx-bg-white.svg) top right / 73% auto repeat-y;
 }
 .bg-summary {

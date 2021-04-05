@@ -7,7 +7,7 @@ sitemap_priority: 0.5
 
 ## Status Quo
 
-?
+<span class="hilight-white-small">analytics.txt</span> is created by <a class="hilight-yellow-small" href="https://www.frederikring.com/" target="_blank" rel="noopener">Frederik Ring</a> and <a class="hilight-yellow-small" href="http://niefeld.com/" target="_blank" rel="noopener">Hendrik Niefeld.</a> It is currently being conceptually designed and in active development.
 
 <span><a href="https://nlnet.nl/" target="_blank" rel="noopener"><img alt="NLnet Foundation" class="mt4" height="60px" width="160px" src="/theme/images/nlnet-logo-gray.svg"></a></span>
 
