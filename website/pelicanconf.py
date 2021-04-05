@@ -60,8 +60,13 @@ MARKDOWN = {
 
 DECORATE_CONTENT = {
     'p': ['ma0', 'pb3'],
-    'p a': ['hilight-yellow-small'],
-    'h1': ['f3', 'f2-l', 'normal', 'ma0', 'mb5', 'di', 'fnt-italic-mid', 'hilight-white-mid'],
-    'h2': ['f3', 'f2-l', 'normal', 'ma0', 'mt5', 'mb3', 'fnt-italic-mid'],
+    'p > a': ['hilight-yellow-small'],
+    'h1': ['f5', 'normal', 'ma0', 'mb3', 'fnt-bold-small'],
+    'h2': ['f3', 'f2-ns', 'normal', 'ma0', 'mt4', 'mb3', 'fnt-italic-mid'],
     'h3': ['f5', 'normal', 'ma0', 'mt4', 'mb2', 'fnt-italic-small']
 }
+
+GITHUB_REPO = 'https://github.com/offen/analyticstxt/'
+OFFEN_URL = 'https://www.offen.dev/'
+CONTACT_EMAIL = 'hioffen@posteo.de'
+PGP_KEY_FILE = '74B041E23DB29D552644CEB1B18C633D6967FE3F.asc'

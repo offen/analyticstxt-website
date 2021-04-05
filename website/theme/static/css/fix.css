@@ -144,10 +144,14 @@ a:hover.hilight-yellow-small {
 .hilight-white-mid {
 	background: url(/theme/images/gfx-bg-white.svg);
 }
+.hilight-white-dark-mid {
+	background: url(/theme/images/gfx-bg-white-dark.svg);
+}
 .hilight-white-very-dark-mid {
 	background: url(/theme/images/gfx-bg-white-very-dark.svg);
 }
 .hilight-white-mid,
+.hilight-white-dark-mid,
 .hilight-white-very-dark-mid {
 	background-size: auto 58%;
 	background-position: 0 0.25em;
@@ -156,6 +160,10 @@ a:hover.hilight-yellow-small {
 }
 .hilight-white-small {
 	background-color: #FFFFFF;
+	padding: 0.55em 0.2em 0.55em 0.2em;
+}
+.hilight-white-dark-small {
+	background-color: #F9F7F2;
 	padding: 0.55em 0.2em 0.55em 0.2em;
 }
 .hilight-white-very-dark-small {

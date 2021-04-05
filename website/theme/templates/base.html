@@ -53,23 +53,23 @@
         <div class="nav-mobile"><span id="nav-toggle"><span></span></span></div>
         <ul class="nav-list">
           <li>
-            <p class="ma0 mb3 mb0-l pl3 pl0-l">_&nbsp;&nbsp;<a class="hilight-yellow-small dib" href="/">GitHub</a>&nbsp;&nbsp;</p>
+            <p class="ma0 mb3 mb0-l pl3 pl0-l">_&nbsp;&nbsp;<a class="hilight-yellow-small dib" href="{{ GITHUB_REPO }}" rel="noopener" target="_blank">GitHub</a>&nbsp;&nbsp;</p>
           </li>
           <li>
-            <p class="ma0 mb3 mb0-l pl3 pl0-l">_&nbsp;&nbsp;<a class="hilight-yellow-small dib" href="/">Legal & Privacy</a>&nbsp;&nbsp;</p>
+            <p class="ma0 mb3 mb0-l pl3 pl0-l">_&nbsp;&nbsp;<a class="hilight-yellow-small dib" href="/legal-privacy/">Legal & Privacy</a>&nbsp;&nbsp;</p>
           </li>
           <li>
-            <p class="ma0 mb3 mb0-l pl3 pl0-l">_&nbsp;&nbsp;<a class="hilight-yellow-small dib" href="/">Offen</a>&nbsp;&nbsp;</p>
+            <p class="ma0 mb3 mb0-l pl3 pl0-l">_&nbsp;&nbsp;<a class="hilight-yellow-small dib" href="{{ OFFEN_URL }}" rel="noopener" target="_blank">Offen</a>&nbsp;&nbsp;</p>
           </li>
           <li>
-            <p class="ma0 mb4 mb0-l pl3 pl0-l">_&nbsp;&nbsp;<a class="hilight-yellow-small dib" href="/">Contact</a>&nbsp;&nbsp;</p>
+            <p class="ma0 mb4 mb0-l pl3 pl0-l">_&nbsp;&nbsp;<a class="hilight-yellow-small dib" href="/about/">About</a>&nbsp;&nbsp;</p>
           </li>
         </ul>
       </nav>
     </div>
     <!-- TITLE -->
     {% if template != 'index' %}
-    <div class="bg-title ph3 pt5 pb5">
+    <div class="bg-title ph3 pv4 pv5-ns">
     {% else %}
     <div class="bg-title ph3 pt6">
     {% endif %}
@@ -81,11 +81,7 @@
     <!-- FOOTER -->
     <footer>
       <div class="bg-footer">
-        {% if template != 'index' %}
-        <p class="tr ma0 mr3 mr5-ns pt7 pb4">
-        {% else %}
-        <p class="tr ma0 mr3 mr5-ns pt5 pb4">
-        {% endif %}
+        <p class="tr ma0 mr3 mr5-ns pt6 pb4">
           _&nbsp;&nbsp;analytics.txt&nbsp;&nbsp;_&nbsp;&nbsp;{{ BUILD_DATE | strftime('%B %Y') }}
         </p>
       </div>
