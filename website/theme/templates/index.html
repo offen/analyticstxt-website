@@ -2,7 +2,6 @@
 {% set index = True %}
 
 {% block content %}
-
   <!-- CLAIM -->
   <div class="bg-claim ph3 pv6">
     <div class="claim-mw">
@@ -103,7 +102,7 @@
         <p class="ma0 mt2">Session: user</p>
         <p class="ma0 mt2">Visibility: user</p>
         <p class="ma0 mt2">Compliance: gdpr</p>
-        <p class="ma0 mt2">Vendors: offen</p>
+        <p class="ma0 mt2 mb5">Vendors: offen</p>
       </div>
     </div>
   </div>
@@ -123,7 +122,7 @@
           <ol class="text-list ml2 linehight-copy">
             <li>
               <p class="ma0 mt3">
-                Use a <span class="hilight-white-small">(link rel="analytics.txt" href="/path/to/analytics.txt")</span> in the <span class="hilight-white-small">head</span> of your document.
+                Use a <span class="hilight-white-small">&lt;link rel="analytics.txt" href="/path/to/analytics.txt"&gt;</span> in the <span class="hilight-white-small">head</span> of your document.
               </p>
             </li>
             <li>
@@ -199,9 +198,4 @@
       </div>
     </div>
   </div>
-<!--
-  {{ page.content }}
--->
 {% endblock %}
-
-{% block outro %}{% endblock %}

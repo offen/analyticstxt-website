@@ -1,4 +1,4 @@
-title: #
+title: About | analytics.txt
 description: Who we are, what we do, who supports us and how you can can get in touch.
 slug: about
 sitemap_priority: 0.5
@@ -15,7 +15,7 @@ We are happy to work with [NLnet Foundation,](https://nlnet.nl/){: target="_blan
 
 ## Contact
 
-*Feel free to contact us with any kind of feedback.* From criticism and praise to contributions or support, everything is welcome. Get in touch.
+Feel free to contact us with any kind of feedback. From criticism and praise to contributions or support, everything is welcome. Get in touch.
 
 [hioffen@posteo.de](mailto:hioffen@posteo.de)  
 [PGP Key](/theme/74B041E23DB29D552644CEB1B18C633D6967FE3F.asc){: target="_blank"}

@@ -6,7 +6,7 @@ from pelican_decorate_content import decorate_content
 RELATIVE_URLS = False
 
 AUTHOR = 'offen'
-SITENAME = '+'
+SITENAME = 'analytics.txt'
 PATH = 'content'
 TIMEZONE = 'Europe/Berlin'
 DEFAULT_LANG = 'en'
