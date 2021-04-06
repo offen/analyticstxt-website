@@ -196,29 +196,34 @@ ol {
 /* ---------------------------------------------------
 BACKROUNDS
 ----------------------------------------------------*/
+/* white */
 .bg-menu,
 .bg-title,
 .bg-pitch {
-  background: url(/theme/images/gfx-bg-white.svg) top right / 73% auto repeat-y;
+	background-image: url(/theme/images/gfx-bg-white.svg);
+	background-position: top right;
+	background-size: 73%;
+	background-repeat: repeat-y;
 }
-.bg-summary {
-  background: url(/theme/images/gfx-bg-white-very-dark.svg) top left / 73% auto repeat-y;
+.bg-preview {
+  background-image: url(/theme/images/gfx-bg-white.svg);
+	background-position: top right;
+	background-size: 73%;
+	background-repeat: repeat-y;
+}
+@media only screen and (min-width: 60em) {
+	.bg-preview {
+		background-position: top right calc(100% - 9rem);
+		background-size: 73%;
+	}
 }
 .bg-status,
 .bg-outro,
 .bg-footer {
-  background-image: url(/theme/images/gfx-bg-white.svg);
-	background-position: top left;
-	background-size: 100%;
+	background-image: url(/theme/images/gfx-bg-white.svg);
+	background-position: top right;
+	background-size: 73%;
 	background-repeat: repeat-y;
-}
-@media only screen and (min-width: 30em) {
-	.bg-status,
-	.bg-outro,
-	.bg-footer, {
-		background-position: top right calc(100% - 9rem);
-		background-size: 73%;
-	}
 }
 @media only screen and (min-width: 60em) {
 	.bg-status,
@@ -228,34 +233,29 @@ BACKROUNDS
 		background-size: 50%;
 	}
 }
+/* dark */
+.bg-summary,
 .bg-faq,
 .bg-page {
-  background: url(/theme/images/gfx-bg-white-very-dark.svg) top right / 100% auto repeat-y;
-}
-@media only screen and (min-width: 60em) {
-	.bg-faq,
-	.bg-page {
-		background: url(/theme/images/gfx-bg-white-very-dark.svg) top right / 73% auto repeat-y;
-	}
-}
-.bg-preview {
-  background-image: url(/theme/images/gfx-bg-white.svg);
+	background-image: url(/theme/images/gfx-bg-white-very-dark.svg);
 	background-position: top left;
 	background-size: 100%;
 	background-repeat: repeat-y;
 }
-@media only screen and (min-width: 30em) {
-	.bg-preview {
-		background-position: top right calc(100% - 9rem);
-		background-size: 100%;
-	}
-}
 @media only screen and (min-width: 60em) {
-	.bg-preview {
+	.bg-summary {
+		background-size: 73%;
+	}
+	.bg-faq {
+		background-position: top right;
+		background-size: 73%;
+	}
+	.bg-page {
 		background-position: top right calc(100% - 9rem);
 		background-size: 73%;
 	}
 }
+
 
 /* ---------------------------------------------------
 MENU

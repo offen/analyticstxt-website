@@ -31,14 +31,14 @@ Yes, in particular cookies are used to store your decision about granting access
 After opening a website where an Offen installation is active, you can explicitly opt in to the data collection and thereby help to improve the services you use. Only then you will be assigned a user and a session ID using a cookie. Offen handles these IDs in an unrecognizable form. [Learn more about cookies here.](https://en.wikipedia.org/wiki/HTTP_cookie){: target="_blank"}
 
 ## External hosting
-This website is hosted by an external service provider. Non-personal data on requests to this website are stored on the hoster's servers and automatically deleted after 7 days. Responsible for hosting this website is:
+This website is hosted by an external service provider. Non-personal data on requests to this website are stored on the hoster's servers. Responsible for hosting this website is:
 
-Hetzner Online GmbH  
-Industriestr. 25  
-91710 Gunzenhausen, Germany
+GitHub BV  
+Vijzelstraat 68-72  
+1017 HL Amsterdam
 
-E-mail: [info@hetzner.com](mailto:info@hetzner.com)  
-Internet address: [www.hetzner.com](https://www.hetzner.com/){: target="_blank"}
+E-mail: [privacy@github.com](privacy@github.com)  
+Internet address: [www.github.com](https://www.github.com/){: target="_blank"}
 
 ## Data processing / Information in accordance with Section 5 TMG
 Data processing on this website is handled by the website operator. If you have any questions about data protection, please feel free to contact us at any time. Responsible for data processing and general contact for this website is:
