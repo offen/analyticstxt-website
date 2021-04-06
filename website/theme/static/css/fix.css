@@ -270,7 +270,11 @@ BACKROUNDS
 /* ---------------------------------------------------
 DEKO
 ----------------------------------------------------*/
+/* Pitch */
 .deko-pitch {
+	display: inline-block;
+	width: 95px;
+	height: 420px;
 	background: url(/theme/images/gfx-deko-pitch-s.png);
 	background-repeat: no-repeat;
 	background-size: 100%;
@@ -291,6 +295,89 @@ DEKO
 @media only screen and (min-width: 60em) {
 	.deko-pitch {
 		top: 9.2rem;
+	}
+}
+/* Summary */
+@media only screen and (min-width: 48em) {
+	.deko-summary {
+		display: inline-block;
+		width: 100px;
+		height: 425px;
+		background: url(/theme/images/gfx-deko-summary-m.png);
+		background-repeat: no-repeat;
+		background-size: 100%;
+		top: 4rem;
+		left: -1rem;
+		z-index : 110;
+	}
+}
+@media only screen and (min-width: 60em) {
+	.deko-summary {
+		background: url(/theme/images/gfx-deko-summary-l.png);
+		background-repeat: no-repeat;
+		background-size: 100%;
+		top: 4rem;
+		left: -1rem;
+		z-index : 111;
+	}
+}
+/* Status */
+.deko-status {
+	display: inline-block;
+	width: 160px;
+	height: 420px;
+	background: url(/theme/images/gfx-deko-status-s.png);
+	background-repeat: no-repeat;
+	background-size: 100%;
+	top: -13rem;
+	left: -1rem;
+	z-index : 120;
+}
+@media only screen and (min-width: 48em) {
+	.deko-status {
+		background: url(/theme/images/gfx-deko-status-ml.png);
+		background-repeat: no-repeat;
+		background-size: 100%;
+		top: 0.8rem;
+		right: -1rem;
+		left: auto;
+		z-index : 121;
+	}
+}
+/* FAQ A */
+.deko-faq-a {
+	display: inline-block;
+	width: 280px;
+	height: 500px;
+	background: url(/theme/images/gfx-deko-faq-a-s.png);
+	background-repeat: no-repeat;
+	background-size: 100%;
+	top: -21.5rem;
+	right: -1rem;
+	left: auto;
+	z-index : 130;
+}
+@media only screen and (min-width: 48em) {
+	.deko-faq-a {
+		display: inline-block;
+		width: 280px;
+		height: 500px;
+		background: url(/theme/images/gfx-deko-faq-a-m.png);
+		background-repeat: no-repeat;
+		background-size: 100%;
+		top: 11.6rem;
+		left: -1rem;
+		z-index : 131;
+	}
+}
+@media only screen and (min-width: 60em) {
+	.deko-faq-a {
+		background: url(/theme/images/gfx-deko-faq-a-l.png);
+		background-repeat: no-repeat;
+		background-size: 100%;
+		top: 17.3rem;
+		left: -1rem;
+		z-index : 132;
 	}
 }
 
