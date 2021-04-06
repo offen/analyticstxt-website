@@ -90,6 +90,18 @@ FONTS
 	}
 }
 /* ---------------------------------------------------
+BREAKS
+----------------------------------------------------*/
+.break-ml {
+	display: none;
+}
+@media only screen and (min-width: 30em) {
+	.break-ml {
+		display: inline;
+	}
+}
+
+/* ---------------------------------------------------
 LINKS TEXT
 ----------------------------------------------------*/
 p a:link,
@@ -255,7 +267,32 @@ BACKROUNDS
 		background-size: 73%;
 	}
 }
-
+/* ---------------------------------------------------
+DEKO
+----------------------------------------------------*/
+.deko-pitch {
+	background: url(/theme/images/gfx-deko-pitch-s.png);
+	background-repeat: no-repeat;
+	background-size: 100%;
+	top: 6.6rem;
+	right: -1rem;
+	z-index : 100;
+}
+@media only screen and (min-width: 30em) {
+	.deko-pitch {
+		background: url(/theme/images/gfx-deko-pitch-ml.png);
+		background-repeat: no-repeat;
+		background-size: 100%;
+		top: 4.5rem;
+		right: -1rem;
+		z-index : 101;
+	}
+}
+@media only screen and (min-width: 60em) {
+	.deko-pitch {
+		top: 9.2rem;
+	}
+}
 
 /* ---------------------------------------------------
 MENU
