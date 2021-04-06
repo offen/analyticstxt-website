@@ -380,6 +380,92 @@ DEKO
 		z-index : 132;
 	}
 }
+/* Preview */
+.deko-preview {
+	display: inline-block;
+	width: 325px;
+	height: 75px;
+	background: url(/theme/images/gfx-deko-preview-sml.png);
+	background-repeat: no-repeat;
+	background-size: 100%;
+	top: -9.5rem;
+	right: -1rem;
+	left: auto;
+	z-index : 140;
+}
+/* FAQ B */
+@media only screen and (min-width: 48em) {
+	.deko-faq-b {
+		display: inline-block;
+		width: 85px;
+		height: 1325px;
+		background: url(/theme/images/gfx-deko-faq-b-m.png);
+		background-repeat: no-repeat;
+		background-size: 100%;
+		top: 2rem;
+		left: -1rem;
+		z-index : 150;
+	}
+}
+@media only screen and (min-width: 60em) {
+	.deko-faq-b {
+		display: inline-block;
+		width: 85px;
+		height: 1325px;
+		background: url(/theme/images/gfx-deko-faq-b-l.png);
+		background-repeat: no-repeat;
+		background-size: 100%;
+		top: 3rem;
+		left: 8rem;
+		z-index : 151;
+	}
+}
+/* Page */
+
+@media only screen and (min-width: 48em) {
+	.deko-page {
+		display: inline-block;
+		width: 70px;
+		height: 340px;
+		background: url(/theme/images/gfx-deko-page-sml.png);
+		background-repeat: no-repeat;
+		background-size: 100%;
+		top: -5.7rem;
+		left: -1rem;
+		z-index : 140;
+	}
+}
+@media only screen and (min-width: 64em) {
+	.deko-page {
+		left: 8rem;
+	}
+}
+/* Footer */
+.deko-footer {
+	display: inline-block;
+	width: 20px;
+	height: 180px;
+	background: url(/theme/images/gfx-deko-outro-sml.png);
+	background-repeat: no-repeat;
+	background-size: 100%;
+	top: 0.2rem;
+	left: 0.4rem;
+	right: auto;
+	z-index : 160;
+}
+@media only screen and (min-width: 30em) {
+	.deko-footer {
+		top: 0.2rem;
+		left: auto;
+		right: 0.4rem;
+	}
+}
+@media only screen and (min-width: 60em) {
+	.deko-footer {
+		top: 0.2rem;
+		right: 21.6rem;
+	}
+}
 
 /* ---------------------------------------------------
 MENU
