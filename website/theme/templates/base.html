@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+{% block head %}
+  <head>
+    <title>
+      {% block title %}{{ title }}{% endblock %}
+    </title>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+    <meta name="description" content="{{ description }}">
+    <meta property="og:site_name" content="{{ SITENAME }}">
+    <meta property="og:locale" content="{{ DEFAULT_LANG }}">
+    <meta property="og:title" content="{{ title }}">
+    <meta property="og:description" content="{{ description }}">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ SITEURL }}/{{ href }}">
+    <meta property="og:image" content="{{ SITEURL }}{{ image_url or '/theme/images/analyticstxt-logo-social-media.jpg' }}">
+    <meta name="twitter:image:alt" content="analytics.txt logo">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="canonical" href="{{ SITEURL }}/{{ href }}">
+    <link rel="shortcut icon" type="image/x-icon" href="/theme/images/favicon.ico">
+    {% assets filters="postcss", output="css/style.min.css", "css/tachyons.min.css", "css/fix.css", "css/fonts.css" %}
+      <link rel="stylesheet" href="/{{ ASSET_URL }}">
+    {% endassets %}
+    <link rel="preload" href="/theme/fonts/Rubik-Regular.woff2" as="font" crossorigin>
+    <link rel="preload" href="/theme/fonts/Rubik-Italic.woff2" as="font" crossorigin>
+    <link rel="preload" href="/theme/fonts/Rubik-ExtraBold.woff2" as="font" crossorigin>
+    {% if OFFEN_ACCOUNT_ID and not no_stats %}
+      <script async src="https://offen.analyticstxt.org/script.js" data-account-id="{{ OFFEN_ACCOUNT_ID }}"></script>
+    {% endif %}
+  </head>
+{% endblock %}
+<body class="f5 rubik lh-copy clr-fnt-red clr-bg-white-dark">
+  <div class="mw8 center">
+    <!-- MENU -->
+    <div class="bg-menu pt3 ph3-l">
+      <nav>
+        <div class="nav-mobile"><span id="nav-toggle"><span></span></span></div>
+        <ul class="nav-list">
+          <li>
+            <p class="ma0 mb3 mb0-l pl3 pl0-l">_&nbsp;&nbsp;<a class="hilight-yellow-small dib" href="{{ GITHUB_REPO }}" rel="noopener" target="_blank">GitHub</a>&nbsp;&nbsp;</p>
+          </li>
+          <li>
+            <p class="ma0 mb3 mb0-l pl3 pl0-l">_&nbsp;&nbsp;<a class="hilight-yellow-small dib" href="/legal-privacy/">Legal & Privacy</a>&nbsp;&nbsp;</p>
+          </li>
+          <li>
+            <p class="ma0 mb4 mb0-l pl3 pl0-l">_&nbsp;&nbsp;<a class="hilight-yellow-small dib" href="/about/">About</a>&nbsp;&nbsp;</p>
+          </li>
+        </ul>
+      </nav>
+    </div>
+    <!-- TITLE -->
+    {% if template != 'index' %}
+    <div class="bg-title ph3 pv4 pv5-ns">
+    {% else %}
+    <div class="bg-title ph3 pt6">
+    {% endif %}
+      <header class="fnt-size-logo tr ma0">
+        <a class="hilight-yellow-big-invers" href="/"><span class="clr-fnt-red fnt-bold-big">analytics </span><span class="clr-fnt-red fnt-italic-big">.txt</span></a>
+      </header>
+    </div>
+    {% block content %}{% endblock %}
+    <!-- FOOTER -->
+    <footer>
+      <div class="bg-footer">
+        <div class="relative">
+          <div class="absolute deko-footer">
+          </div>
+        </div>
+        <p class="tr ma0 mr3 mr5-ns pt6 pb4">
+          _&nbsp;&nbsp;analytics.txt&nbsp;&nbsp;_&nbsp;&nbsp;{{ BUILD_DATE | strftime('%B %Y') }}
+        </p>
+      </div>
+    </footer>
+  </div>
+  {% block scripts %}
+    {% assets filters="rjsmin", output="scripts/packed.js", "scripts/jquery-3.4.1.min.js", "scripts/menu.js" %}
+      <script src="/{{ ASSET_URL }}"></script>
+    {% endassets %}
+  {% endblock %}
+</body>
+</html>

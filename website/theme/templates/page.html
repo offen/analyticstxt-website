@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% set title = page.title %}
+{% set description = page.description %}
+{% set href = page.save_as.replace('index.html', '') %}
+{% set image_url = page.image_url %}
+{% set no_stats = page.no_stats %}
+{% set template = page.template %}
+
+{% block content %}
+  <main class="bg-page ph3 pt4 pt5-ns pb6">
+    <div class="relative">
+      <div class="absolute deko-page">
+      </div>
+    </div>
+    <div class="cf">
+      <div class="fr mr6-m mr7-l">
+        <div class="mw6">
+          {{ page.content }}
+        </div>
+      </div>
+    </div>
+  </main>
+{% endblock %}

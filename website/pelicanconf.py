@@ -1,11 +1,12 @@
 import os
 from datetime import datetime
+from pelican_decorate_content import decorate_content
 
 # If your site is available via HTTPS, make sure SITEURL begins with https://
 RELATIVE_URLS = False
 
 AUTHOR = 'offen'
-SITENAME = 'analyticstxt.org'
+SITENAME = 'analytics.txt'
 PATH = 'content'
 TIMEZONE = 'Europe/Berlin'
 DEFAULT_LANG = 'en'
@@ -21,11 +22,16 @@ AUTHOR_FEED_RSS = None
 
 SITEURL = 'http://localhost:7000'
 
+# pagination
 DEFAULT_PAGINATION = False
+
+THEME = './theme'
 
 # Delete the output directory before generating new files.
 DELETE_OUTPUT_DIRECTORY = False
 CACHE_CONTENT = True
+
+DIRECT_TEMPLATES = ['sitemap']
 
 # dont create following standard pages
 AUTHOR_SAVE_AS = ''
@@ -35,9 +41,11 @@ CATEGORIES_SAVE_AS = ''
 TAG_SAVE_AS = ''
 TAGS_SAVE_AS = ''
 
-ARCHIVES_SAVE_AS = 'blog/index.html'
+SITEMAP_SAVE_AS = 'sitemap.xml'
 PAGE_SAVE_AS = '{slug}/index.html'
-ARTICLE_SAVE_AS = 'blog/{slug}/index.html'
+
+PLUGIN_PATHS = ['./plugins']
+PLUGINS = [decorate_content, 'assets']
 
 MARKDOWN = {
     'extension_configs': {
@@ -47,3 +55,13 @@ MARKDOWN = {
     },
     'output_format': 'html5',
 }
+
+DECORATE_CONTENT = {
+    'p': ['ma0', 'pb3', 'linehight-copy'],
+    'p > a': ['hilight-yellow-small'],
+    'h1': ['f5', 'normal', 'ma0', 'fnt-bold-small'],
+    'h2': ['f3', 'f2-ns', 'normal', 'ma0', 'mt5', 'mb3', 'fnt-italic-mid'],
+    'h3': ['f5', 'normal', 'ma0', 'mt3', 'mb2', 'fnt-italic-small']
+}
+
+GITHUB_REPO = 'https://github.com/offen/analyticstxt/'
