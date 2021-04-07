@@ -17,5 +17,7 @@ COPY ./website /code/website
 
 ARG siteurl
 ENV SITEURL=$siteurl
+ARG offenaccountid
+ENV OFFEN_ACCOUNT_ID=$offenaccountid
 
 RUN make publish

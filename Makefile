@@ -25,7 +25,7 @@ SITEURL ?= http://localhost:8000
 
 .PHONY: build
 build:
-	@docker build --build-arg siteurl=${SITEURL} -t analyticstxt/website -f build/Dockerfile .
+	@docker build --build-arg siteurl=${SITEURL} --build-arg offenaccountid=${OFFEN_ACCOUNT_ID} -t analyticstxt/website -f build/Dockerfile .
 	@rm -rf output && mkdir output
 	@docker create --entrypoint=bash -it --name assets analyticstxt/website
 	@docker cp assets:/code/website/output/. ./output/
