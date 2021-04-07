@@ -6,7 +6,7 @@
       {% block title %}{{ title }}{% endblock %}
     </title>
     <meta charset="UTF-8">
-    <!--
+  <!--
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' *.offen.dev; frame-src 'self' *.offen.dev; style-src 'self' 'unsafe-inline'">
     <meta name="referrer" content="origin">
   -->
@@ -24,25 +24,17 @@
     <meta name="twitter:card" content="summary_large_image">
     <link rel="canonical" href="{{ SITEURL }}/{{ href }}">
     <link rel="shortcut icon" type="image/x-icon" href="/theme/images/favicon.ico">
-<!-- temp
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,400;0,800;1,400&display=swap" rel="stylesheet">
-    -->
-<!-- ccs  einbinden -->
+<!-- ccs einbinden -->
     <link rel="stylesheet" href="/theme/css/tachyons.min.css">
     <link rel="stylesheet" href="/theme/css/fix.css">
     <link rel="stylesheet" href="/theme/css/fonts.css">
-<!-- sollte passen-->
     <link rel="preload" href="/theme/fonts/Rubik-Regular.woff2.woff2" as="font" crossorigin>
     <link rel="preload" href="/theme/fonts/Rubik-Italic.woff2.woff2" as="font" crossorigin>
     <link rel="preload" href="/theme/fonts/Rubik-ExtraBold.woff2" as="font" crossorigin>
-    <!-- brauchen wir das für analytics.txt ?
-
+    <!-- 
     {% if OFFEN_ACCOUNT_ID and not no_stats %}
       <script async src="https://offen.offen.dev/script.js" data-account-id="{{ OFFEN_ACCOUNT_ID }}"></script>
     {% endif %}
-    <link rel="alternate" type="application/rss+xml" title="RSS" href="/feeds/all.rss.xml">
-    <link rel="alternate" type="application/atom+xml" title="Atom" href="/feeds/all.atom.xml">
     -->
   </head>
 {% endblock %}
@@ -58,9 +50,6 @@
           </li>
           <li>
             <p class="ma0 mb3 mb0-l pl3 pl0-l">_&nbsp;&nbsp;<a class="hilight-yellow-small dib" href="/legal-privacy/">Legal & Privacy</a>&nbsp;&nbsp;</p>
-          </li>
-          <li>
-            <p class="ma0 mb3 mb0-l pl3 pl0-l">_&nbsp;&nbsp;<a class="hilight-yellow-small dib" href="{{ OFFEN_URL }}" rel="noopener" target="_blank">Offen</a>&nbsp;&nbsp;</p>
           </li>
           <li>
             <p class="ma0 mb4 mb0-l pl3 pl0-l">_&nbsp;&nbsp;<a class="hilight-yellow-small dib" href="/about/">About</a>&nbsp;&nbsp;</p>

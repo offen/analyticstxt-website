@@ -17,8 +17,6 @@ COLORS
 .clr-fnt-black {
 	 color: #39352A;
 }
-/* Gray */
-
 /* White */
 .clr-bg-white-dark {
 	 background-color: #F9F7F2;
@@ -89,6 +87,7 @@ FONTS
 		letter-spacing: 6px;
 	}
 }
+
 /* ---------------------------------------------------
 BREAKS
 ----------------------------------------------------*/
@@ -267,6 +266,7 @@ BACKROUNDS
 		background-size: 73%;
 	}
 }
+
 /* ---------------------------------------------------
 DEKO
 ----------------------------------------------------*/
@@ -421,7 +421,6 @@ DEKO
 	}
 }
 /* Page */
-
 @media only screen and (min-width: 48em) {
 	.deko-page {
 		display: inline-block;
@@ -473,16 +472,6 @@ MENU
 .nav-bar {
   height: 4rem;
 }
-/*
-.icon {
-  position: absolute;
-  padding: 0.7rem 0 0 1.2rem;
-  float: left;
-}
-body.index .icon {
-  opacity: 0;
-}
-*/
 .nav-container {
   margin: 0 auto;
 }
@@ -509,13 +498,6 @@ nav ul li a:visited,
 nav ul li a:active {
   color: #B52561;
 }
-/*
-nav ul li a:not(:only-child):after,
-nav ul li a:visited:not(:only-child):after {
-  padding-left: 0.4rem;
-  content: ' ▾';
-}
-*/
 nav ul li ul li {
   min-width: 10rem;
 }
@@ -571,7 +553,6 @@ nav ul li ul li a {
     display: block !important;
   }
 }
-
 #nav-toggle {
   position: absolute;
   left: 1rem;

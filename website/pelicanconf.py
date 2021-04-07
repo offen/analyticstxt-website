@@ -41,10 +41,8 @@ CATEGORIES_SAVE_AS = ''
 TAG_SAVE_AS = ''
 TAGS_SAVE_AS = ''
 
-# ARCHIVES_SAVE_AS = 'blog/index.html'
 SITEMAP_SAVE_AS = 'sitemap.xml'
 PAGE_SAVE_AS = '{slug}/index.html'
-# ARTICLE_SAVE_AS = 'blog/{slug}/index.html'
 
 PLUGIN_PATHS = ['./plugins']
 PLUGINS = [decorate_content, 'assets']
@@ -67,6 +65,3 @@ DECORATE_CONTENT = {
 }
 
 GITHUB_REPO = 'https://github.com/offen/analyticstxt/'
-OFFEN_URL = 'https://www.offen.dev/'
-CONTACT_EMAIL = 'hioffen@posteo.de'
-PGP_KEY_FILE = '74B041E23DB29D552644CEB1B18C633D6967FE3F.asc'
