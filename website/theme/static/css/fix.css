@@ -545,7 +545,6 @@ nav ul li ul li a {
   .nav-dropdown {
     position: static;
   }
-	}
 }
 /* Desktop Styles */
 @media screen and (min-width: 60.1rem) {

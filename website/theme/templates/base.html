@@ -6,10 +6,7 @@
       {% block title %}{{ title }}{% endblock %}
     </title>
     <meta charset="UTF-8">
-  <!--
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' *.offen.dev; frame-src 'self' *.offen.dev; style-src 'self' 'unsafe-inline'">
-    <meta name="referrer" content="origin">
-  -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
     <meta name="description" content="{{ description }}">
@@ -24,18 +21,15 @@
     <meta name="twitter:card" content="summary_large_image">
     <link rel="canonical" href="{{ SITEURL }}/{{ href }}">
     <link rel="shortcut icon" type="image/x-icon" href="/theme/images/favicon.ico">
-<!-- ccs einbinden -->
-    <link rel="stylesheet" href="/theme/css/tachyons.min.css">
-    <link rel="stylesheet" href="/theme/css/fix.css">
-    <link rel="stylesheet" href="/theme/css/fonts.css">
-    <link rel="preload" href="/theme/fonts/Rubik-Regular.woff2.woff2" as="font" crossorigin>
-    <link rel="preload" href="/theme/fonts/Rubik-Italic.woff2.woff2" as="font" crossorigin>
+    {% assets filters="postcss", output="css/style.min.css", "css/tachyons.min.css", "css/fix.css", "css/fonts.css" %}
+      <link rel="stylesheet" href="/{{ ASSET_URL }}">
+    {% endassets %}
+    <link rel="preload" href="/theme/fonts/Rubik-Regular.woff2" as="font" crossorigin>
+    <link rel="preload" href="/theme/fonts/Rubik-Italic.woff2" as="font" crossorigin>
     <link rel="preload" href="/theme/fonts/Rubik-ExtraBold.woff2" as="font" crossorigin>
-    <!-- 
     {% if OFFEN_ACCOUNT_ID and not no_stats %}
-      <script async src="https://offen.offen.dev/script.js" data-account-id="{{ OFFEN_ACCOUNT_ID }}"></script>
+      <script async src="https://offen.analyticstxt.org/script.js" data-account-id="{{ OFFEN_ACCOUNT_ID }}"></script>
     {% endif %}
-    -->
   </head>
 {% endblock %}
 <body class="f5 rubik lh-copy clr-fnt-red clr-bg-white-dark">
@@ -82,9 +76,9 @@
     </footer>
   </div>
   {% block scripts %}
-<!-- scripts einbinden -->
-    <script src="/theme/scripts/jquery-3.4.1.min.js"></script>
-    <script src="/theme/scripts/menu.js"></script>
+    {% assets filters="rjsmin", output="scripts/packed.js", "scripts/jquery-3.4.1.min.js", "scripts/menu.js" %}
+      <script src="/{{ ASSET_URL }}"></script>
+    {% endassets %}
   {% endblock %}
 </body>
 </html>
