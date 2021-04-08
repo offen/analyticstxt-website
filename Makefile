@@ -29,4 +29,6 @@ build:
 	@rm -rf output && mkdir output
 	@docker create --entrypoint=bash -it --name assets analyticstxt/website
 	@docker cp assets:/code/website/output/. ./output/
+	@mkdir -p ./output/.well-known
+	@cp build/analytics.txt ./output/.well-known/analytics.tyt
 	@docker rm assets
