@@ -67,3 +67,6 @@ DECORATE_CONTENT = {
 GITHUB_REPO = 'https://github.com/offen/analyticstxt/'
 
 OFFEN_ACCOUNT_ID = os.environ.get('OFFEN_ACCOUNT_ID', None)
+
+with open('../build/analytics.txt', 'r') as f:
+    ANALYTICS_TXT_CONTENTS = f.read()
