@@ -30,5 +30,5 @@ build:
 	@docker create --entrypoint=bash -it --name assets analyticstxt/website
 	@docker cp assets:/code/website/output/. ./output/
 	@mkdir -p ./output/.well-known
-	@cp build/analytics.txt ./output/.well-known/analytics.tyt
+	@cp build/analytics.txt ./output/.well-known/analytics.txt
 	@docker rm assets
