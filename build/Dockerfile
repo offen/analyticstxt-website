@@ -14,6 +14,7 @@ COPY ./website/requirements.txt /code/website/requirements.txt
 RUN pip install --user -r requirements.txt
 
 COPY ./website /code/website
+COPY ./build /code/build
 
 ARG siteurl
 ENV SITEURL=$siteurl
