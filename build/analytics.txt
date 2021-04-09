@@ -12,8 +12,8 @@ Retains: P6M
 
 # Optional fields
 Honors: none
-Session: user
-Variants: none
-Visibility: user
-Compliance: gdpr
-Vendors: offen
+Tracks: users
+Varies: none
+Shares: per-user
+Implements: gdpr
+Deploys: offen
