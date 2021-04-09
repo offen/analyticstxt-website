@@ -1,4 +1,4 @@
-# analytics.txt file for https://www.analyticstxt.org
+# analytics.txt file for www.analyticstxt.org
 Author: Frederik Ring <hioffen@posteo.de>
 
 Collects: url, referrer, device-type
