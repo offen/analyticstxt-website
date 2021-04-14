@@ -178,7 +178,7 @@ a:hover.hilight-yellow-small {
 	padding: 0.55em 0.2em 0.55em 0.2em;
 }
 .hilight-white-very-dark-small {
-	background-color: #F3F1EC;
+	background-color: #eae9e6;
 	padding: 0.55em 0.2em 0.55em 0.2em;
 }
 
@@ -194,10 +194,11 @@ LAYOUT
 	}
 }
 /* list override */
-ol li {
+
+.custom-list > ul li {
 	margin-left: -1.5rem;
 }
-ol {
+.custom-list > ul {
   list-style-type: ">    ";
 }
 .word-break {
@@ -224,7 +225,7 @@ BACKROUNDS
 }
 @media only screen and (min-width: 60em) {
 	.bg-preview {
-		background-position: top right calc(100% - 9rem);
+		background-position: top 0 right calc(100% - 9rem);
 		background-size: 73%;
 	}
 }
@@ -240,7 +241,7 @@ BACKROUNDS
 	.bg-status,
 	.bg-outro,
 	.bg-footer {
-		background-position: top right calc(100% - 9rem);
+		background-position: top 0 right calc(100% - 9rem);
 		background-size: 50%;
 	}
 }
@@ -262,7 +263,7 @@ BACKROUNDS
 		background-size: 73%;
 	}
 	.bg-page {
-		background-position: top right calc(100% - 9rem);
+		background-position: top 0 right calc(100% - 9rem);
 		background-size: 73%;
 	}
 }
@@ -564,7 +565,7 @@ nav ul li ul li a {
 #nav-toggle span:after {
   cursor: pointer;
   height: 0.1rem;
-  width: 2.5rem;
+  width: 2.2rem;
   background: #B52561;
   position: absolute;
   display: block;
