@@ -209,6 +209,20 @@ LAYOUT
 BACKROUNDS
 ----------------------------------------------------*/
 /* white */
+.bg-main {
+	background-image: url(/theme/images/gfx-bg-main-b.png);
+	background-position: top left;
+	background-size: 100%;
+	background-repeat: repeat-y;
+}
+@media only screen and (min-width: 30em) {
+	.bg-main {
+		background-image: url(/theme/images/gfx-bg-main-a.png);
+		background-position: top left;
+		background-size: 100%;
+		background-repeat: repeat-y;
+	}
+}
 .bg-menu,
 .bg-title,
 .bg-pitch {
