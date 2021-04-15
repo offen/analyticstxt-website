@@ -3,12 +3,12 @@
 
 {% block content %}
   <!-- PITCH -->
-  <div class="bg-pitch ph3 pv6">
+  <div class="bg-pitch ph3 pt5 pb7 pb6-ns">
     <div class="relative">
       <div class="absolute deko-pitch">
       </div>
     </div>
-    <div class="pitch-mw">
+    <div class="pitch-mw pb5">
       <h1 class="f3 f2-l normal ma0 clr-fnt-blue">
         <span class="fnt-italic-mid">A proposed standard</span><br class="break-ml" /> which allows websites and services <span class="fnt-bold-mid">to disclose information</span><br class="break-ml" /> about their usage of analytics software and user tracking.
       </h1>
@@ -70,8 +70,8 @@
             Why should I use <span class="hilight-white-mid">analytics.txt</span> on my website?
           </h2>
         </div>
-        <div class="mw6 ma0">
-          <ol class="text-list linehight-copy ml2">
+        <div class="mw6 ma0 custom-list">
+          <ul class="text-list linehight-copy ml2">
             <li>
               <p class="ma0 mt3">
                 Regulations around the handling of user data on websites are evolving quickly and mandate certain practices. An <span class="hilight-white-small">analytics.txt</span> file can give auditors instant insights on what is in use and how this maps to the applicable regulations.
@@ -87,7 +87,7 @@
                 Tools like crawlers or Browser extensions can read and parse the data in <span class="hilight-white-small">analytics.txt</span> and use it to signal privacy metrics to users and other third parties.
               </p>
             </li>
-          </ol>
+          </ul>
         </div>
       </div>
     </div>
@@ -125,11 +125,11 @@
             Where should I put an <span class="hilight-white-mid">analytics.txt</span> file?
           </h2>
         </div>
-        <div class="mw6 ma0">
+        <div class="mw6 ma0 custom-list">
           <p class="linehight-copy ma0 mt3">
             The preferred default location for your <span class="hilight-white-small">analytics.txt</span> file is the <span class="hilight-white-small">/.well-known/</span> path of your web server. If this is not ideal or possible for you, there are two alternatives:
           </p>
-          <ol class="text-list ml2 linehight-copy">
+          <ul class="text-list ml2 linehight-copy">
             <li>
               <p class="ma0 mt3">
                 Use a <span class="hilight-white-small">&lt;link rel="analytics.txt" href="/path/to/analytics.txt"&gt;</span> in the <span class="hilight-white-small">head</span> of your document.
@@ -140,7 +140,7 @@
                 Send a <span class="hilight-white-small word-break">X-Analytics-Txt: https://www.example.com/path/to/analytics.txt</span> HTTP header with your documents.
               </p>
             </li>
-          </ol>
+          </ul>
         </div>
       </div>
     </div>
@@ -171,11 +171,11 @@
             How do I know the information in an <span class="hilight-white-mid">analytics.txt</span> file is correct?
           </h2>
         </div>
-        <div class="mw6 ma0">
+        <div class="mw6 ma0 custom-list">
           <p class="linehight-copy ma0 mt3">
             <span class="hilight-white-small">analytics.txt</span> is designed in a way that there are no right or wrong answers, so we start by trusting others to populate it correctly. If you are unsure about the correctness of such a file, you can do two things:
           </p>
-          <ol class="text-list ml2 linehight-copy">
+          <ul class="text-list ml2 linehight-copy">
             <li>
               <p class="ma0 mt3">
                 Contact the email address given in the mandatory <span class="hilight-white-small">Author</span> field of the <span class="hilight-white-small">analytics.txt</span> file, asking for clarification.
@@ -186,7 +186,7 @@
                 Use the <span class="fnt-bold-small">Audit Tool</span> we will be providing to check for basic conformance.
               </p>
             </li>
-          </ol>
+          </ul>
         </div>
       </div>
     </div>
@@ -198,10 +198,10 @@
         Let’s keep in touch~
       </h2>
       <p class="ma0 mt3">
-        Do you have feedback on <span class="hilight-white-dark-small">analytics.txt</span>? Do you have an idea for an application that could consume the provided data?
+        Do you have feedback on <span class="hilight-white-very-dark-small">analytics.txt</span>? Do you have an idea for an application that could consume the provided data? Are you as enthusiastic about fair data transfer as we are?
       </p>
       <p class="ma0 mt3">
-        Are you as enthusiastic about fair data transfer as we are? Reach out to us and feel invited to work together to drive this idea forward.
+        <span class="fnt-italic-small">Reach out to us and feel invited to take this idea forward together.</span>
       </p>
       <div class="mt3">
         <a class="hilight-yellow-mid f3 f2-l normal ma0 clr-fnt-blue" href="mailto:hioffen@posteo.de" rel="noopener" target="_blank">Send an e-mail</a>
