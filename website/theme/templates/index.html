@@ -3,7 +3,7 @@
 
 {% block content %}
   <!-- PITCH -->
-  <div class="bg-pitch ph3 pt5 pb7 pb6-ns">
+  <div class="bg-pitch ph3 pt4 pb7 pb6-ns">
     <div class="relative">
       <div class="absolute deko-pitch">
       </div>
@@ -12,7 +12,7 @@
       <h1 class="f3 f2-l normal ma0 clr-fnt-blue">
         <span class="fnt-italic-mid">A proposed standard</span><br class="break-ml" /> which allows websites and services <span class="fnt-bold-mid">to disclose information</span><br class="break-ml" /> about their usage of analytics software and user tracking.
       </h1>
-      <a class="hilight-yellow-mid f3 f2-l normal ma0 clr-fnt-blue" href="#faq">Learn more~</a>
+      <a class="hilight-yellow-mid f3 f2-l normal ma0 clr-fnt-blue" href="#learn-more">Learn more~</a>
     </div>
   </div>
   <!-- SUMMARY -->
@@ -40,21 +40,19 @@
     </div>
   </div>
   <!-- STATUS -->
-  <div class="bg-status ph3 clr-fnt-blue pv6">
+  <div class="bg-status ph3 clr-fnt-blue pv6" id="learn-more">
     <div class="relative">
       <div class="absolute deko-status">
       </div>
     </div>
-    <div class="linehight-copy ml4-m ml5-l mw6">
+    <div class="linehight-copy ml4-m ml5-l mw6 link-blue">
       <h2 class="f3 f2-l normal ma0 fnt-bold-mid">
-        First version draft in progress~
+        First version submitted~
       </h2>
-      <p class="ma0 mt3">
-        We are currently working on drafting a first version of the specification, and plan to submit it as an <span class="fnt-bold-small">IETF Internet Draft</span> in the summer of 2021.
+      <p class="ma0 mt3 mb3">
+        We have submitted a first version of the specification as an <span class="fnt-italic-small">Internet-Draft.</span> We welcome any kind of <a class="hilight-yellow-small" href="mailto:hioffen@posteo.de" rel="noopener" target="_blank">feedback</a> to initiate a discussion on our proposal.
       </p>
-      <p class="ma0 mt3">
-        <span class="fnt-italic-small">The draft will be published here as soon as it's ready.</span>
-      </p>
+      <a class="hilight-yellow-mid f3 f2-l normal ma0 clr-fnt-blue" href="{{ INTERNET_DRAFT }}" rel="noopener" target="_blank">View Internet-Draft</a>
     </div>
   </div>
   <!-- FAQ A -->
@@ -65,7 +63,7 @@
     </div>
     <div class="cf">
       <div class="fr mr6-ns">
-        <div class="mw6" id="faq">
+        <div class="mw6">
           <h2 class="f3 f2-l normal ma0 fnt-italic-mid">
             Why should I use <span class="hilight-white-mid">analytics.txt</span> on my website?
           </h2>
