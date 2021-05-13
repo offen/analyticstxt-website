@@ -4,7 +4,7 @@
     <title>
 Disclose what you collect | analytics.txt    </title>
     <meta charset="UTF-8">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' *.analyticstxt.org; frame-src 'self' *.analyticstxt.org; style-src 'self' 'unsafe-inline'">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-eval' *.analyticstxt.org; frame-src 'self' *.analyticstxt.org; style-src 'self' 'unsafe-inline'">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
     <meta name="description" content="Analytics.txt is a proposed standard which allows websites and services to disclose information about their usage of analytics software and user tracking.">
@@ -19,7 +19,7 @@ Disclose what you collect | analytics.txt    </title>
     <meta name="twitter:card" content="summary_large_image">
     <link rel="canonical" href="https://www.analyticstxt.org/">
     <link rel="shortcut icon" type="image/x-icon" href="/theme/images/favicon.ico">
-      <link rel="stylesheet" href="/theme/css/style.min.css?b1313ace">
+      <link rel="stylesheet" href="/theme/css/style.min.css?e402903e">
     <link rel="preload" href="/theme/fonts/Rubik-Regular.woff2" as="font" crossorigin>
     <link rel="preload" href="/theme/fonts/Rubik-Italic.woff2" as="font" crossorigin>
     <link rel="preload" href="/theme/fonts/Rubik-ExtraBold.woff2" as="font" crossorigin>
@@ -29,9 +29,13 @@ Disclose what you collect | analytics.txt    </title>
   <div class="mw8 center bg-main">
     <!-- MENU -->
     <div class="bg-menu pt3 ph3-l">
-      <nav>
-        <div class="nav-mobile"><span id="nav-toggle"><span></span></span></div>
-        <ul class="nav-list">
+      <nav id="navigation">
+        <div class="nav-mobile">
+          <span id="nav-toggle" v-on:click="toggle" v-bind:class="{ active: active }">
+            <span></span>
+          </span>
+        </div>
+        <ul class="nav-list" v-bind:class="{ active: active }">
           <li>
             <p class="ma0 mb3 mb0-l pl3 pl0-l">_&nbsp;&nbsp;<a class="hilight-yellow-small dib" href="https://github.com/offen/analyticstxt/" rel="noopener" target="_blank">GitHub</a>&nbsp;&nbsp;</p>
           </li>
@@ -284,11 +288,11 @@ Deploys: offen
           </div>
         </div>
         <p class="tr ma0 mr3 mr5-ns pt6 pb4">
-          _&nbsp;&nbsp;analytics.txt&nbsp;&nbsp;_&nbsp;&nbsp;April 2021
+          _&nbsp;&nbsp;analytics.txt&nbsp;&nbsp;_&nbsp;&nbsp;May 2021
         </p>
       </div>
     </footer>
   </div>
-      <script src="/theme/scripts/packed.js?c24f7925"></script>
+      <script src="/theme/scripts/packed.js?663a4893"></script>
 </body>
 </html>
