@@ -6,7 +6,7 @@
       {% block title %}{{ title }}{% endblock %}
     </title>
     <meta charset="UTF-8">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' *.analyticstxt.org; frame-src 'self' *.analyticstxt.org; style-src 'self' 'unsafe-inline'">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-eval' *.analyticstxt.org; frame-src 'self' *.analyticstxt.org; style-src 'self' 'unsafe-inline'">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
     <meta name="description" content="{{ description }}">
@@ -36,9 +36,13 @@
   <div class="mw8 center bg-main">
     <!-- MENU -->
     <div class="bg-menu pt3 ph3-l">
-      <nav>
-        <div class="nav-mobile"><span id="nav-toggle"><span></span></span></div>
-        <ul class="nav-list">
+      <nav id="navigation">
+        <div class="nav-mobile">
+          <span id="nav-toggle" v-on:click="toggle" v-bind:class="{ active: active }">
+            <span></span>
+          </span>
+        </div>
+        <ul class="nav-list" v-bind:class="{ active: active }">
           <li>
             <p class="ma0 mb3 mb0-l pl3 pl0-l">_&nbsp;&nbsp;<a class="hilight-yellow-small dib" href="{{ GITHUB_REPO }}" rel="noopener" target="_blank">GitHub</a>&nbsp;&nbsp;</p>
           </li>
@@ -75,7 +79,7 @@
     </footer>
   </div>
   {% block scripts %}
-    {% assets filters="rjsmin", output="scripts/packed.js", "scripts/jquery-3.4.1.min.js", "scripts/menu.js" %}
+    {% assets filters="rjsmin", output="scripts/packed.js", "scripts/vue.min.js", "scripts/menu.js" %}
       <script src="/{{ ASSET_URL }}"></script>
     {% endassets %}
   {% endblock %}
