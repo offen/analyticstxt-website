@@ -54,7 +54,7 @@ Internet address: [www.offen.dev](http://www.offen.dev)
 If you contact us by e-mail, your request including all resulting personal data (name, request) will be stored by us for the purpose of processing your request. We will not disclose your data without your consent. It remains stored with us until you request us to delete it or revoke your consent to store it.
 
 ## License
-The content of this website itself is licensed under the [Creative Commons Attribution 4.0 International (CC BY 4.0) License](https://creativecommons.org/licenses/by/4.0/){: target="_blank"}, and the underlying source code used to format and display that content is licensed under the [Mozilla Public License 2.0](https://github.com/offen/analyticstxt-website/blob/development/LICENSE){: target="_blank"}.
+The content of this website itself is licensed under the [Creative Commons Attribution 4.0 International (CC BY 4.0) License](https://creativecommons.org/licenses/by/4.0/){: target="_blank"}, and the underlying source code used to format and display that content is licensed under the [Mozilla Public License 2.0](https://github.com/offen/analyticstxt-website/blob/main/LICENSE){: target="_blank"}.
 
 ## Graphics and Image Sources
 NLNet Logo [https://nlnet.nl/logo/](https://nlnet.nl/logo/){: target="_blank"}
