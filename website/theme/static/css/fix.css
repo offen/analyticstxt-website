@@ -541,7 +541,10 @@ nav ul li ul li a {
     transition: all .6s;
     height: 0;
   }
-  .nav-list.active {
+  body.no-js .nav-list {
+    transition: none;
+  }
+  body.no-js .nav-list, .nav-list.active {
     height: 178px;
   }
   .nav-mobile {

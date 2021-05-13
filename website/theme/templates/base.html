@@ -6,7 +6,7 @@
       {% block title %}{{ title }}{% endblock %}
     </title>
     <meta charset="UTF-8">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-eval' *.analyticstxt.org; frame-src 'self' *.analyticstxt.org; style-src 'self' 'unsafe-inline'">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-eval' 'unsafe-inline' *.analyticstxt.org; frame-src 'self' *.analyticstxt.org; style-src 'self' 'unsafe-inline'">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
     <meta name="description" content="{{ description }}">
@@ -32,7 +32,10 @@
     {% endif %}
   </head>
 {% endblock %}
-<body class="f5 rubik lh-copy clr-fnt-red clr-bg-white-dark">
+<body class="f5 rubik lh-copy clr-fnt-red clr-bg-white-dark no-js">
+  <script>
+    document.body.classList.remove('no-js')
+  </script>
   <div class="mw8 center bg-main">
     <!-- MENU -->
     <div class="bg-menu pt3 ph3-l">
