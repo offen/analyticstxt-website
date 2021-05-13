@@ -1,8 +1,6 @@
 .vscode
 *.pem
 
-Dockerrun.aws.json
-
 *.log
 
 # built pelican site

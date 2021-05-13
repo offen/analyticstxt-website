@@ -44,6 +44,7 @@ TAGS_SAVE_AS = ''
 SITEMAP_SAVE_AS = 'sitemap.xml'
 PAGE_SAVE_AS = '{slug}/index.html'
 
+STATIC_PATHS = []
 PLUGIN_PATHS = ['./plugins']
 PLUGINS = [decorate_content, 'assets']
 
@@ -57,7 +58,7 @@ MARKDOWN = {
 }
 
 DECORATE_CONTENT = {
-    'p': ['ma0', 'pb3', 'linehight-copy'],
+    'p': ['ma0', 'pb3', 'lineheight-copy'],
     'p > a': ['hilight-yellow-small'],
     'h1': ['f5', 'normal', 'ma0', 'fnt-bold-small'],
     'h2': ['f3', 'f2-ns', 'normal', 'ma0', 'mt5', 'mb3', 'fnt-italic-mid'],
