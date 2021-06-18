@@ -1,24 +1,27 @@
 <h1>WIZARD</h1>
 <div id="wizard">
-  <form>
-    <fieldset>
+  <form v-for="(field, key) in fields">
+    <fieldset v-if="field.isInput">
       <label>
-        Author:
-        <input type="text" v-model="fieldAuthor">
+        <h3><% key %></h3>
+        <input type="text" v-model="field.value">
       </label>
     </fieldset>
-    <fieldset>
-      <label v-for="option in options.Collects">
-        <input type="checkbox" v-bind:value="option.value"v-model="fieldCollects">
+    <fieldset v-if="field.isMultiValue">
+      <h3><% key %></h3>
+      <label v-for="option in field.options">
+        <input type="checkbox" v-bind:value="option.value" v-model="field.value">
         <% option.label %>
       </label>
     </fieldset>
-    <fieldset>
-      <label v-for="option in options.Stores">
-        <input type="checkbox" v-bind:value="option.value"v-model="fieldStores">
+    <fieldset v-if="field.isSingleValue">
+      <h3><% key %></h3>
+      <label v-for="option in field.options">
+        <input type="radio" v-bind:value="option.value" v-model="field.value">
         <% option.label %>
       </label>
     </fieldset>
+  </form>
   </form>
   <pre>
 <% output %>
