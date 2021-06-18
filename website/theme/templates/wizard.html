@@ -3,34 +3,34 @@
   <form v-on:submit.prevent>
     <fieldset v-for="(field, key) in fields">
       <div v-if="field.type == 'input'">
-        <h3><% key %></h3>
+        <h3><%= key %></h3>
         <label>
           <input type="text" v-model="field.value">
         </label>
       </div>
       <div v-if="field.type == 'multiple-choice'">
-        <h3><% key %></h3>
+        <h3><%= key %></h3>
         <label v-for="option in field.options">
           <input type="checkbox" v-bind:value="option.value" v-model="field.value">
-          <% option.label %>
+          <%= option.label %>
         </label>
       </div>
       <div v-if="field.type == 'select'">
         <h3>
-          <% key %>
+          <%= key %>
           <button v-on:click="resetSingleValue(key)">Reset</button>
         </h3>
         <label v-for="option in field.options">
           <input type="radio" v-bind:value="option.value" v-model="field.value">
-          <% option.label %>
+          <%= option.label %>
         </label>
       </div>
     </fieldset>
   </form>
   <pre>
-<% output %>
+<%= output %>
   </pre>
   <p v-if="error">
-    <% error %>
+    <%= error %>
   </p>
 </div>

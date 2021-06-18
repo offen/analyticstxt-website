@@ -1,7 +1,7 @@
 void (function (Vue, parser) {
   new Vue({ // eslint-disable-line no-new
     el: '#wizard',
-    delimiters: ['<%', '%>'],
+    delimiters: ['<%=', '%>'],
     data: {
       fields: {
         Author: {
