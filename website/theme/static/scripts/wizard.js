@@ -6,11 +6,13 @@ void (function (Vue, parser) {
       fields: {
         Author: {
           type: 'input',
-          value: null
+          value: null,
+          comment: null
         },
         Collects: {
           type: 'multiple-choice',
           value: [],
+          comment: null,
           options: [
             { label: 'None', value: 'none' },
             { label: 'URL', value: 'url' },
@@ -28,6 +30,7 @@ void (function (Vue, parser) {
         Stores: {
           type: 'multiple-choice',
           value: [],
+          comment: null,
           options: [
             { label: 'None', value: 'none' },
             { label: 'First Party Cookies', value: 'first-party-cookies' },
@@ -39,6 +42,7 @@ void (function (Vue, parser) {
         Varies: {
           type: 'select',
           value: null,
+          comment: null,
           options: [
             { label: 'None', value: 'none' },
             { label: 'Random', value: 'random' },
@@ -61,14 +65,27 @@ void (function (Vue, parser) {
                 return { values: [clone].filter(Boolean) }
             }
           }.bind(this))()
+
+          if (this.fields[key].comment) {
+            asModel.comments = wrap(this.fields[key].comment, 78)
+          }
+
           if (asModel.values && asModel.values.length) {
             acc[key] = asModel
           }
+
           return acc
         }.bind(this), {})
       },
-      resetSingleValue: function (fieldKey) {
-        this.fields[fieldKey].value = null
+      resetSelect: function (key) {
+        this.fields[key].value = null
+      },
+      toggleComment: function (key) {
+        if (this.fields[key].comment === null) {
+          this.fields[key].comment = ''
+          return
+        }
+        this.fields[key].comment = null
       }
     },
     computed: {
@@ -82,4 +99,20 @@ void (function (Vue, parser) {
       }
     }
   })
+
+  function wrap (str, length) {
+    return str.split(' ')
+      .reduce(function (acc, word) {
+        var tail = acc[acc.length - 1]
+        if (tail.join(' ').length + word.length < length) {
+          tail.push(word)
+          return acc
+        }
+        acc.push([word])
+        return acc
+      }, [[]])
+      .map(function (words) {
+        return words.join(' ')
+      })
+  }
 })(window.Vue, window.analyticstxtParser)
