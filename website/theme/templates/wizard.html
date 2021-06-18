@@ -1,20 +1,29 @@
 <h1>WIZARD</h1>
 <div id="wizard">
   <form>
-    <div>
+    <fieldset>
       <label>
         Author:
         <input type="text" v-model="fieldAuthor">
       </label>
-    </div>
-    <div>
-      <label>
-        Collects:
-        <input type="text" v-model="fieldCollects">
+    </fieldset>
+    <fieldset>
+      <label v-for="option in options.Collects">
+        <input type="checkbox" v-bind:value="option.value"v-model="fieldCollects">
+        <% option.label %>
       </label>
-    </div>
+    </fieldset>
+    <fieldset>
+      <label v-for="option in options.Stores">
+        <input type="checkbox" v-bind:value="option.value"v-model="fieldStores">
+        <% option.label %>
+      </label>
+    </fieldset>
   </form>
   <pre>
-${ output }
+<% output %>
   </pre>
+  <p v-if="error">
+    <% error %>
+  </p>
 </div>
