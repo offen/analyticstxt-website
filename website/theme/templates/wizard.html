@@ -1,27 +1,31 @@
 <h1>WIZARD</h1>
 <div id="wizard">
-  <form v-for="(field, key) in fields">
-    <fieldset v-if="field.isInput">
-      <label>
+  <form v-on:submit.prevent>
+    <fieldset v-for="(field, key) in fields">
+      <div v-if="field.type == 'input'">
         <h3><% key %></h3>
-        <input type="text" v-model="field.value">
-      </label>
+        <label>
+          <input type="text" v-model="field.value">
+        </label>
+      </div>
+      <div v-if="field.type == 'multiple-choice'">
+        <h3><% key %></h3>
+        <label v-for="option in field.options">
+          <input type="checkbox" v-bind:value="option.value" v-model="field.value">
+          <% option.label %>
+        </label>
+      </div>
+      <div v-if="field.type == 'select'">
+        <h3>
+          <% key %>
+          <button v-on:click="resetSingleValue(key)">Reset</button>
+        </h3>
+        <label v-for="option in field.options">
+          <input type="radio" v-bind:value="option.value" v-model="field.value">
+          <% option.label %>
+        </label>
+      </div>
     </fieldset>
-    <fieldset v-if="field.isMultiValue">
-      <h3><% key %></h3>
-      <label v-for="option in field.options">
-        <input type="checkbox" v-bind:value="option.value" v-model="field.value">
-        <% option.label %>
-      </label>
-    </fieldset>
-    <fieldset v-if="field.isSingleValue">
-      <h3><% key %></h3>
-      <label v-for="option in field.options">
-        <input type="radio" v-bind:value="option.value" v-model="field.value">
-        <% option.label %>
-      </label>
-    </fieldset>
-  </form>
   </form>
   <pre>
 <% output %>

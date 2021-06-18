@@ -5,18 +5,12 @@ void (function (Vue, parser) {
     data: {
       fields: {
         Author: {
-          isInput: true,
-          value: null,
-          toModel: function (value) {
-            return { values: [value].filter(Boolean) }
-          }
+          type: 'input',
+          value: null
         },
         Collects: {
-          isMultiValue: true,
+          type: 'multiple-choice',
           value: [],
-          toModel: function (value) {
-            return { values: value }
-          },
           options: [
             { label: 'None', value: 'none' },
             { label: 'URL', value: 'url' },
@@ -32,11 +26,8 @@ void (function (Vue, parser) {
           ]
         },
         Stores: {
-          isMultiValue: true,
+          type: 'multiple-choice',
           value: [],
-          toModel: function (value) {
-            return { values: value }
-          },
           options: [
             { label: 'None', value: 'none' },
             { label: 'First Party Cookies', value: 'first-party-cookies' },
@@ -46,11 +37,8 @@ void (function (Vue, parser) {
           ]
         },
         Varies: {
-          isSingleValue: true,
+          type: 'select',
           value: null,
-          toModel: function (value) {
-            return { values: [value].filter(Boolean) }
-          },
           options: [
             { label: 'None', value: 'none' },
             { label: 'Random', value: 'random' },
@@ -64,12 +52,23 @@ void (function (Vue, parser) {
       model: function () {
         return Object.keys(this.fields).reduce(function (acc, key) {
           var clone = JSON.parse(JSON.stringify(this.fields[key].value))
-          var asModel = this.fields[key].toModel(clone)
+          var asModel = (function () {
+            switch (this.fields[key].type) {
+              case 'multiple-choice':
+                return { values: clone }
+              case 'input':
+              case 'select':
+                return { values: [clone].filter(Boolean) }
+            }
+          }.bind(this))()
           if (asModel.values && asModel.values.length) {
             acc[key] = asModel
           }
           return acc
         }.bind(this), {})
+      },
+      resetSingleValue: function (fieldKey) {
+        this.fields[fieldKey].value = null
       }
     },
     computed: {
