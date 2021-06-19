@@ -1,7 +1,7 @@
 <h2>WIZARD</h2>
 <div id="wizard" v-cloak>
   <form v-on:submit.prevent>
-    <fieldset v-for="(field, key) in fields">
+    <fieldset v-for="(field, key) in fields" v-if="applies(key)">
 
       <div v-if="field.type === 'input'">
         <h3>

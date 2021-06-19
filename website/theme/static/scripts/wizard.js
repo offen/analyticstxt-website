@@ -7,12 +7,14 @@ void (function (Vue, parser) {
         Author: {
           type: 'input',
           value: null,
-          comment: null
+          comment: null,
+          includeWhenCollectsNone: true
         },
         Collects: withExclusiveValue({
           type: 'checkboxes',
           value: [],
           comment: null,
+          includeWhenCollectsNone: true,
           options: [
             option('None', 'none'),
             option('URL', 'url'),
@@ -129,6 +131,10 @@ void (function (Vue, parser) {
     methods: {
       model: function () {
         return Object.keys(this.fields).reduce(function (acc, key) {
+          if (!this.applies(key)) {
+            return acc
+          }
+
           var clone = JSON.parse(JSON.stringify(this.fields[key].value))
           var asModel = (function () {
             switch (this.fields[key].type) {
@@ -167,6 +173,12 @@ void (function (Vue, parser) {
           return
         }
         this.fields[key].comment = null
+      },
+      applies: function (fieldName) {
+        if (this.fields[fieldName].includeWhenCollectsNone) {
+          return true
+        }
+        return JSON.stringify(this.fields.Collects.value) !== JSON.stringify(['none'])
       }
     },
     computed: {
