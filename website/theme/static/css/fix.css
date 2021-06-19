@@ -613,3 +613,7 @@ nav ul li ul li a {
 .break-spaces {
   white-space: break-spaces;
 }
+
+[v-cloak] {
+  display: none;
+}

@@ -1,5 +1,5 @@
 <h1>WIZARD</h1>
-<div id="wizard">
+<div id="wizard" v-cloak>
   <form v-on:submit.prevent>
     <fieldset v-for="(field, key) in fields">
 
@@ -74,9 +74,14 @@
 
     </fieldset>
   </form>
-  <pre>
+  <div class="mw7 ba bw1 b--moon-gray mt3 ml5-l mr3-m">
+    <div class="h1 bg-moon-gray"></div>
+    <div class="f6 f5-ns code pv4 ph3 ph4-ns bg-near-white clr-fnt-black">
+      <pre class="lineheight-copy ma0 break-spaces">
 <%= output %>
-  </pre>
+      </pre>
+    </div>
+  </div>
   <p v-if="error">
     <%= error %>
   </p>
