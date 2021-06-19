@@ -14,17 +14,17 @@ void (function (Vue, parser) {
           value: [],
           comment: null,
           options: [
-            { label: 'None', value: 'none' },
-            { label: 'URL', value: 'url' },
-            { label: 'IP Address', value: 'ip-address' },
-            { label: 'Geolocation', value: 'geo-location' },
-            { label: 'User Agent', value: 'user-agent' },
-            { label: 'Fingerprint', value: 'fingerprint' },
-            { label: 'Device Type', value: 'device-type' },
-            { label: 'Referrer', value: 'referrer' },
-            { label: 'Visit Duration', value: 'visit-duration' },
-            { label: 'Custom Events', value: 'custom-events' },
-            { label: 'Session Recording', value: 'session-recording' }
+            option('None', 'none'),
+            option('URL', 'url'),
+            option('IP Address', 'ip-address'),
+            option('Geolocation', 'geo-location'),
+            option('User Agent', 'user-agent'),
+            option('Fingerprint', 'fingerprint'),
+            option('Device Type', 'device-type'),
+            option('Referrer', 'referrer'),
+            option('Visit Duration', 'visit-duration'),
+            option('Custom Events', 'custom-events'),
+            option('Session Recording', 'session-recording')
           ]
         }, 'none'),
         Stores: withExclusiveValue({
@@ -32,11 +32,11 @@ void (function (Vue, parser) {
           value: [],
           comment: null,
           options: [
-            { label: 'None', value: 'none' },
-            { label: 'First Party Cookies', value: 'first-party-cookies' },
-            { label: 'Third Party Cookies', value: 'third-party-cookies' },
-            { label: 'Local Storage', value: 'local-storage' },
-            { label: 'Cache', value: 'cache' }
+            option('None', 'none'),
+            option('First Party Cookies', 'first-party-cookies'),
+            option('Third Party Cookies', 'third-party-cookies'),
+            option('Local Storage', 'local-storage'),
+            option('Cache', 'cache')
           ]
         }, 'none'),
         Uses: {
@@ -44,11 +44,11 @@ void (function (Vue, parser) {
           value: [],
           comment: null,
           options: [
-            { label: 'JavaScript', value: 'javascript' },
-            { label: 'Tracking Pixel', value: 'pixel' },
-            { label: 'Server Side', value: 'server-side' },
-            { label: 'Logs', value: 'logs' },
-            { label: 'Other', value: 'other' }
+            option('JavaScript', 'javascript'),
+            option('Tracking Pixel', 'pixel'),
+            option('Server Side', 'server-side'),
+            option('Logs', 'logs'),
+            option('Other', 'other')
           ]
         },
         Allows: withExclusiveValue({
@@ -56,9 +56,9 @@ void (function (Vue, parser) {
           value: [],
           comment: null,
           options: [
-            { label: 'None', value: 'none' },
-            { label: 'Opt In', value: 'opt-in' },
-            { label: 'Opt Out', value: 'opt-out' }
+            option('None', 'none'),
+            option('Opt In', 'opt-in'),
+            option('Opt Out', 'opt-out')
           ]
         }, 'none'),
         Retains: {
@@ -72,9 +72,9 @@ void (function (Vue, parser) {
           comment: null,
           optional: true,
           options: [
-            { label: 'None', value: 'none' },
-            { label: 'Do Not Track', value: 'do-not-track' },
-            { label: 'Global Privacy Control', value: 'global-privacy-control' }
+            option('None', 'none'),
+            option('Do Not Track', 'do-not-track'),
+            option('Global Privacy Control', 'global-privacy-control')
           ]
         }, 'none'),
         Tracks: withExclusiveValue({
@@ -83,9 +83,9 @@ void (function (Vue, parser) {
           optional: true,
           comment: null,
           options: [
-            { label: 'None', value: 'none' },
-            { label: 'Session', value: 'session' },
-            { label: 'Users', value: 'users' }
+            option('None', 'none'),
+            option('Session', 'session'),
+            option('Users', 'users')
           ]
         }, 'none'),
         Varies: withSingleValue({
@@ -94,10 +94,10 @@ void (function (Vue, parser) {
           comment: null,
           optional: true,
           options: [
-            { label: 'None', value: 'none' },
-            { label: 'Random', value: 'random' },
-            { label: 'Geographic', value: 'geographic' },
-            { label: 'Behavioral', value: 'behavioral' }
+            option('None', 'none'),
+            option('Random', 'random'),
+            option('Geographic', 'geographic'),
+            option('Behavioral', 'behavioral')
           ]
         }),
         Shares: withExclusiveValue({
@@ -106,10 +106,10 @@ void (function (Vue, parser) {
           comment: null,
           optional: true,
           options: [
-            { label: 'None', value: 'none' },
-            { label: 'Per User', value: 'per-user' },
-            { label: 'General Public', value: 'general-public' },
-            { label: 'Third Party', value: 'third-party' }
+            option('None', 'none'),
+            option('Per User', 'per-user'),
+            option('General Public', 'general-public'),
+            option('Third Party', 'third-party')
           ]
         }, 'none'),
         Implements: {
@@ -181,22 +181,6 @@ void (function (Vue, parser) {
     }
   })
 
-  function wrap (str, length) {
-    return str.split(' ')
-      .reduce(function (acc, word) {
-        var tail = acc[acc.length - 1]
-        if (tail.join(' ').length + word.length < length) {
-          tail.push(word)
-          return acc
-        }
-        acc.push([word])
-        return acc
-      }, [[]])
-      .map(function (words) {
-        return words.join(' ')
-      })
-  }
-
   function withExclusiveValue (field, exclusiveValue) {
     field._value = field.value
     Object.defineProperty(field, 'value', {
@@ -235,5 +219,25 @@ void (function (Vue, parser) {
       }
     })
     return field
+  }
+
+  function wrap (str, length) {
+    return str.split(' ')
+      .reduce(function (acc, word) {
+        var tail = acc[acc.length - 1]
+        if (tail.join(' ').length + word.length < length) {
+          tail.push(word)
+          return acc
+        }
+        acc.push([word])
+        return acc
+      }, [[]])
+      .map(function (words) {
+        return words.join(' ')
+      })
+  }
+
+  function option (label, value) {
+    return { label: label, value: value }
   }
 })(window.Vue, window.analyticstxtParser)
