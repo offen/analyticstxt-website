@@ -9,7 +9,7 @@ void (function (Vue, parser) {
           value: null,
           comment: null
         },
-        Collects: {
+        Collects: withNoneAwareValue({
           type: 'multiple-choice',
           value: [],
           comment: null,
@@ -26,8 +26,8 @@ void (function (Vue, parser) {
             { label: 'Custom Events', value: 'custom-events' },
             { label: 'Session Recording', value: 'session-recording' }
           ]
-        },
-        Stores: {
+        }),
+        Stores: withNoneAwareValue({
           type: 'multiple-choice',
           value: [],
           comment: null,
@@ -38,7 +38,7 @@ void (function (Vue, parser) {
             { label: 'Local Storage', value: 'local-storage' },
             { label: 'Cache', value: 'cache' }
           ]
-        },
+        }),
         Uses: {
           type: 'multiple-choice',
           value: [],
@@ -51,7 +51,7 @@ void (function (Vue, parser) {
             { label: 'Other', value: 'other' }
           ]
         },
-        Allows: {
+        Allows: withNoneAwareValue({
           type: 'multiple-choice',
           value: [],
           comment: null,
@@ -60,13 +60,13 @@ void (function (Vue, parser) {
             { label: 'Opt In', value: 'opt-in' },
             { label: 'Opt Out', value: 'opt-outs' }
           ]
-        },
+        }),
         Retains: {
           type: 'input',
           value: null,
           comment: null
         },
-        Honors: {
+        Honors: withNoneAwareValue({
           type: 'multiple-choice',
           value: [],
           comment: null,
@@ -76,8 +76,8 @@ void (function (Vue, parser) {
             { label: 'Do Not Track', value: 'do-not-track' },
             { label: 'Global Privacy Control', value: 'global-privacy-control' }
           ]
-        },
-        Tracks: {
+        }),
+        Tracks: withNoneAwareValue({
           type: 'multiple-choice',
           value: [],
           optional: true,
@@ -87,7 +87,7 @@ void (function (Vue, parser) {
             { label: 'Session', value: 'session' },
             { label: 'Users', value: 'users' }
           ]
-        },
+        }),
         Varies: {
           type: 'select',
           value: null,
@@ -100,7 +100,7 @@ void (function (Vue, parser) {
             { label: 'Behavioral', value: 'behavioral' }
           ]
         },
-        Shares: {
+        Shares: withNoneAwareValue({
           type: 'multiple-choice',
           value: [],
           comment: null,
@@ -111,7 +111,7 @@ void (function (Vue, parser) {
             { label: 'General Public', value: 'general-public' },
             { label: 'Third Party', value: 'third-party' }
           ]
-        },
+        }),
         Implements: {
           type: 'input',
           value: null,
@@ -196,5 +196,30 @@ void (function (Vue, parser) {
       .map(function (words) {
         return words.join(' ')
       })
+  }
+
+  function withNoneAwareValue (field) {
+    field._value = field.value
+    Object.defineProperty(field, 'value', {
+      get () {
+        return this._value
+      },
+      set (update) {
+        var currentlyHasNone = this._value.some(function (token) {
+          return token === 'none'
+        })
+        var updateHasNone = update.some(function (token) {
+          return token === 'none'
+        })
+        if (updateHasNone && !currentlyHasNone) {
+          this._value = ['none']
+          return
+        }
+        this._value = update.filter(function (token) {
+          return token !== 'none'
+        })
+      }
+    })
+    return field
   }
 })(window.Vue, window.analyticstxtParser)
