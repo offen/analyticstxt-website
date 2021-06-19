@@ -1,4 +1,4 @@
-void (function (Vue, parser) {
+void (function (Vue, parser, ClipboardJS) {
   new Vue({ // eslint-disable-line no-new
     el: '#wizard',
     delimiters: ['<%=', '%>'],
@@ -128,6 +128,12 @@ void (function (Vue, parser) {
         }
       }
     },
+    created: function () {
+      this.clipboard = new ClipboardJS('#wizard .js-copy-result-btn')
+    },
+    destroyed: function () {
+      this.clipboard.destroy()
+    },
     methods: {
       model: function () {
         return Object.keys(this.fields).reduce(function (acc, key) {
@@ -252,4 +258,4 @@ void (function (Vue, parser) {
   function option (label, value) {
     return { label: label, value: value }
   }
-})(window.Vue, window.analyticstxtParser)
+})(window.Vue, window.analyticstxtParser, window.ClipboardJS)

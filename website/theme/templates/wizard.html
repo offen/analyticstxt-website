@@ -61,6 +61,13 @@
     </div>
   </div>
 
+  <button
+    class="js-copy-result-btn"
+    v-bind:data-clipboard-text="output"
+  >
+    Copy to clipboard.
+  </button>
+
   <p v-if="error">
     <%= error %>
   </p>
