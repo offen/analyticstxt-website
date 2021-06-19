@@ -10,7 +10,7 @@ void (function (Vue, parser) {
           comment: null
         },
         Collects: withNoneAwareValue({
-          type: 'multiple-choice',
+          type: 'checkboxes',
           value: [],
           comment: null,
           options: [
@@ -28,7 +28,7 @@ void (function (Vue, parser) {
           ]
         }),
         Stores: withNoneAwareValue({
-          type: 'multiple-choice',
+          type: 'checkboxes',
           value: [],
           comment: null,
           options: [
@@ -40,7 +40,7 @@ void (function (Vue, parser) {
           ]
         }),
         Uses: {
-          type: 'multiple-choice',
+          type: 'checkboxes',
           value: [],
           comment: null,
           options: [
@@ -52,7 +52,7 @@ void (function (Vue, parser) {
           ]
         },
         Allows: withNoneAwareValue({
-          type: 'multiple-choice',
+          type: 'checkboxes',
           value: [],
           comment: null,
           options: [
@@ -67,7 +67,7 @@ void (function (Vue, parser) {
           comment: null
         },
         Honors: withNoneAwareValue({
-          type: 'multiple-choice',
+          type: 'checkboxes',
           value: [],
           comment: null,
           optional: true,
@@ -78,7 +78,7 @@ void (function (Vue, parser) {
           ]
         }),
         Tracks: withNoneAwareValue({
-          type: 'multiple-choice',
+          type: 'checkboxes',
           value: [],
           optional: true,
           comment: null,
@@ -88,9 +88,9 @@ void (function (Vue, parser) {
             { label: 'Users', value: 'users' }
           ]
         }),
-        Varies: {
-          type: 'select',
-          value: null,
+        Varies: withSingleValue({
+          type: 'checkboxes',
+          value: [],
           comment: null,
           optional: true,
           options: [
@@ -99,9 +99,9 @@ void (function (Vue, parser) {
             { label: 'Geographic', value: 'geographic' },
             { label: 'Behavioral', value: 'behavioral' }
           ]
-        },
+        }),
         Shares: withNoneAwareValue({
-          type: 'multiple-choice',
+          type: 'checkboxes',
           value: [],
           comment: null,
           optional: true,
@@ -132,10 +132,9 @@ void (function (Vue, parser) {
           var clone = JSON.parse(JSON.stringify(this.fields[key].value))
           var asModel = (function () {
             switch (this.fields[key].type) {
-              case 'multiple-choice':
+              case 'checkboxes':
                 return { values: clone }
               case 'input':
-              case 'select':
                 if (clone === null) {
                   return []
                 }
@@ -218,6 +217,21 @@ void (function (Vue, parser) {
         this._value = update.filter(function (token) {
           return token !== 'none'
         })
+      }
+    })
+    return field
+  }
+
+  function withSingleValue (field) {
+    field._value = field.value
+    Object.defineProperty(field, 'value', {
+      get () {
+        return this._value
+      },
+      set (update) {
+        this._value = update.filter(function (token) {
+          return this._value.indexOf(token) === -1
+        }.bind(this))
       }
     })
     return field

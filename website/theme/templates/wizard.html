@@ -16,7 +16,7 @@
         >
       </div>
 
-      <div v-if="field.type === 'multiple-choice'">
+      <div v-if="field.type === 'checkboxes'">
         <h3>
           <%= key %>
           <small v-if="field.optional">
@@ -26,29 +26,6 @@
         <label v-for="option in field.options">
           <input
             type="checkbox"
-            v-bind:value="option.value"
-            v-model="field.value"
-          >
-          <%= option.label %>
-        </label>
-      </div>
-
-      <div v-if="field.type === 'select'">
-        <h3>
-          <%= key %>
-          <small v-if="field.optional">
-            (optional)
-          </small>
-          <button
-            v-if="field.optional"
-            v-on:click="resetSelect(key)"
-          >
-            Reset
-          </button>
-        </h3>
-        <label v-for="option in field.options">
-          <input
-            type="radio"
             v-bind:value="option.value"
             v-model="field.value"
           >
