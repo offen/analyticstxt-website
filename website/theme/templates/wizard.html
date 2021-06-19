@@ -2,35 +2,76 @@
 <div id="wizard">
   <form v-on:submit.prevent>
     <fieldset v-for="(field, key) in fields">
+
       <div v-if="field.type === 'input'">
-        <h3><%= key %></h3>
-        <input type="text" v-model="field.value">
+        <h3>
+          <%= key %>
+          <small v-if="field.optional">
+            (optional)
+          </small>
+        </h3>
+        <input
+          type="text"
+          v-model="field.value"
+        >
       </div>
+
       <div v-if="field.type === 'multiple-choice'">
-        <h3><%= key %></h3>
+        <h3>
+          <%= key %>
+          <small v-if="field.optional">
+            (optional)
+          </small>
+        </h3>
         <label v-for="option in field.options">
-          <input type="checkbox" v-bind:value="option.value" v-model="field.value">
+          <input
+            type="checkbox"
+            v-bind:value="option.value"
+            v-model="field.value"
+          >
           <%= option.label %>
         </label>
       </div>
+
       <div v-if="field.type === 'select'">
         <h3>
           <%= key %>
-          <button v-on:click="resetSelect(key)">Reset</button>
+          <small v-if="field.optional">
+            (optional)
+          </small>
+          <button
+            v-if="field.optional"
+            v-on:click="resetSelect(key)"
+          >
+            Reset
+          </button>
         </h3>
         <label v-for="option in field.options">
-          <input type="radio" v-bind:value="option.value" v-model="field.value">
+          <input
+            type="radio"
+            v-bind:value="option.value"
+            v-model="field.value"
+          >
           <%= option.label %>
         </label>
       </div>
+
       <div v-if="field.comment !== null">
         <h4>Comment</h4>
-        <input type="text" v-model="field.comment">
-        <button v-on:click="toggleComment(key)">Remove comment</button>
+        <input
+          type="text"
+          v-model="field.comment"
+        >
+        <button v-on:click="toggleComment(key)">
+          Remove comment
+        </button>
       </div>
       <div v-else>
-        <button v-on:click="toggleComment(key)">Add comment to this field</button>
+        <button v-on:click="toggleComment(key)">
+          Add comment to this field
+        </button>
       </div>
+
     </fieldset>
   </form>
   <pre>

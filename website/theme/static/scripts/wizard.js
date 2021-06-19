@@ -39,16 +39,90 @@ void (function (Vue, parser) {
             { label: 'Cache', value: 'cache' }
           ]
         },
+        Uses: {
+          type: 'multiple-choice',
+          value: [],
+          comment: null,
+          options: [
+            { label: 'JavaScript', value: 'javascript' },
+            { label: 'Tracking Pixel', value: 'pixel' },
+            { label: 'Server Side', value: 'server-side' },
+            { label: 'Logs', value: 'logs' },
+            { label: 'Other', value: 'other' }
+          ]
+        },
+        Allows: {
+          type: 'multiple-choice',
+          value: [],
+          comment: null,
+          options: [
+            { label: 'None', value: 'none' },
+            { label: 'Opt In', value: 'opt-in' },
+            { label: 'Opt Out', value: 'opt-outs' }
+          ]
+        },
+        Retains: {
+          type: 'input',
+          value: null,
+          comment: null
+        },
+        Honors: {
+          type: 'multiple-choice',
+          value: [],
+          comment: null,
+          optional: true,
+          options: [
+            { label: 'None', value: 'none' },
+            { label: 'Do Not Track', value: 'do-not-track' },
+            { label: 'Global Privacy Control', value: 'global-privacy-control' }
+          ]
+        },
+        Tracks: {
+          type: 'multiple-choice',
+          value: [],
+          optional: true,
+          comment: null,
+          options: [
+            { label: 'None', value: 'none' },
+            { label: 'Session', value: 'session' },
+            { label: 'Users', value: 'users' }
+          ]
+        },
         Varies: {
           type: 'select',
           value: null,
           comment: null,
+          optional: true,
           options: [
             { label: 'None', value: 'none' },
             { label: 'Random', value: 'random' },
             { label: 'Geographic', value: 'geographic' },
             { label: 'Behavioral', value: 'behavioral' }
           ]
+        },
+        Shares: {
+          type: 'multiple-choice',
+          value: [],
+          comment: null,
+          optional: true,
+          options: [
+            { label: 'None', value: 'none' },
+            { label: 'Per User', value: 'per-user' },
+            { label: 'General Public', value: 'general-public' },
+            { label: 'Third Party', value: 'third-party' }
+          ]
+        },
+        Implements: {
+          type: 'input',
+          value: null,
+          comment: null,
+          optional: true
+        },
+        Deploys: {
+          type: 'input',
+          value: null,
+          comment: null,
+          optional: true
         }
       }
     },
@@ -62,7 +136,15 @@ void (function (Vue, parser) {
                 return { values: clone }
               case 'input':
               case 'select':
-                return { values: [clone].filter(Boolean) }
+                if (clone === null) {
+                  return []
+                }
+                return {
+                  values: clone
+                    .split(',')
+                    .map(function (s) { return s.trim() })
+                    .filter(Boolean)
+                }
             }
           }.bind(this))()
 
