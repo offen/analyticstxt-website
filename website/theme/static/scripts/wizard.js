@@ -9,7 +9,7 @@ void (function (Vue, parser) {
           value: null,
           comment: null
         },
-        Collects: withNoneAwareValue({
+        Collects: withExclusiveValue({
           type: 'checkboxes',
           value: [],
           comment: null,
@@ -26,8 +26,8 @@ void (function (Vue, parser) {
             { label: 'Custom Events', value: 'custom-events' },
             { label: 'Session Recording', value: 'session-recording' }
           ]
-        }),
-        Stores: withNoneAwareValue({
+        }, 'none'),
+        Stores: withExclusiveValue({
           type: 'checkboxes',
           value: [],
           comment: null,
@@ -38,7 +38,7 @@ void (function (Vue, parser) {
             { label: 'Local Storage', value: 'local-storage' },
             { label: 'Cache', value: 'cache' }
           ]
-        }),
+        }, 'none'),
         Uses: {
           type: 'checkboxes',
           value: [],
@@ -51,7 +51,7 @@ void (function (Vue, parser) {
             { label: 'Other', value: 'other' }
           ]
         },
-        Allows: withNoneAwareValue({
+        Allows: withExclusiveValue({
           type: 'checkboxes',
           value: [],
           comment: null,
@@ -60,13 +60,13 @@ void (function (Vue, parser) {
             { label: 'Opt In', value: 'opt-in' },
             { label: 'Opt Out', value: 'opt-outs' }
           ]
-        }),
+        }, 'none'),
         Retains: {
           type: 'input',
           value: null,
           comment: null
         },
-        Honors: withNoneAwareValue({
+        Honors: withExclusiveValue({
           type: 'checkboxes',
           value: [],
           comment: null,
@@ -76,8 +76,8 @@ void (function (Vue, parser) {
             { label: 'Do Not Track', value: 'do-not-track' },
             { label: 'Global Privacy Control', value: 'global-privacy-control' }
           ]
-        }),
-        Tracks: withNoneAwareValue({
+        }, 'none'),
+        Tracks: withExclusiveValue({
           type: 'checkboxes',
           value: [],
           optional: true,
@@ -87,7 +87,7 @@ void (function (Vue, parser) {
             { label: 'Session', value: 'session' },
             { label: 'Users', value: 'users' }
           ]
-        }),
+        }, 'none'),
         Varies: withSingleValue({
           type: 'checkboxes',
           value: [],
@@ -100,7 +100,7 @@ void (function (Vue, parser) {
             { label: 'Behavioral', value: 'behavioral' }
           ]
         }),
-        Shares: withNoneAwareValue({
+        Shares: withExclusiveValue({
           type: 'checkboxes',
           value: [],
           comment: null,
@@ -111,7 +111,7 @@ void (function (Vue, parser) {
             { label: 'General Public', value: 'general-public' },
             { label: 'Third Party', value: 'third-party' }
           ]
-        }),
+        }, 'none'),
         Implements: {
           type: 'input',
           value: null,
@@ -197,7 +197,7 @@ void (function (Vue, parser) {
       })
   }
 
-  function withNoneAwareValue (field) {
+  function withExclusiveValue (field, exclusiveValue) {
     field._value = field.value
     Object.defineProperty(field, 'value', {
       get () {
@@ -205,17 +205,17 @@ void (function (Vue, parser) {
       },
       set (update) {
         var currentlyHasNone = this._value.some(function (token) {
-          return token === 'none'
+          return token === exclusiveValue
         })
         var updateHasNone = update.some(function (token) {
-          return token === 'none'
+          return token === exclusiveValue
         })
         if (updateHasNone && !currentlyHasNone) {
-          this._value = ['none']
+          this._value = [exclusiveValue]
           return
         }
         this._value = update.filter(function (token) {
-          return token !== 'none'
+          return token !== exclusiveValue
         })
       }
     })
