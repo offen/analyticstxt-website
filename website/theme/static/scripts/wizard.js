@@ -58,7 +58,7 @@ void (function (Vue, parser) {
           options: [
             { label: 'None', value: 'none' },
             { label: 'Opt In', value: 'opt-in' },
-            { label: 'Opt Out', value: 'opt-outs' }
+            { label: 'Opt Out', value: 'opt-out' }
           ]
         }, 'none'),
         Retains: {
