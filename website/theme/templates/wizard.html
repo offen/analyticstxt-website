@@ -1,5 +1,12 @@
 <h2>WIZARD</h2>
 <div id="wizard" v-cloak>
+  <h3>Presets</h3>
+  <div v-for="preset in presets">
+    <button v-on:click="usePreset(preset.doc)">
+      <%= preset.name %>
+    </button>
+  </div>
+
   <form v-on:submit.prevent>
     <fieldset v-for="(field, key) in fields" v-if="applies(key)">
 

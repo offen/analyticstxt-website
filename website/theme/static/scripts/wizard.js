@@ -3,6 +3,72 @@ void (function (Vue, parser, ClipboardJS) {
     el: '#wizard',
     delimiters: ['<%=', '%>'],
     data: {
+      presets: [
+        {
+          name: 'Offen',
+          doc: `
+# analytics.txt file for www.example.com
+Author: Jane Doe <jane.doe@example.com>
+Collects: url, referrer, device-type
+Stores: first-party-cookies, local-storage
+# Usage data is encrypted end-to-end
+Uses: javascript
+# Users can also delete their usage data only without opting out
+Allows: opt-in, opt-out
+# Data is retained for 6 months
+Retains: P6M
+# Optional fields
+Honors: none
+Tracks: sessions, users
+Varies: none
+Shares: per-user
+Implements: gdpr
+Deploys: offen
+`
+        },
+        {
+          name: 'Google Analytics',
+          doc: `
+# analytics.txt file for www.example.com
+Author: Jane Doe <jane.doe@example.com>
+Collects: url, referrer, device-type
+Stores: first-party-cookies, local-storage
+# Usage data is encrypted end-to-end
+Uses: javascript
+# Users can also delete their usage data only without opting out
+Allows: opt-out
+Retains: perpetual
+# Optional fields
+Honors: none
+Tracks: sessions, users
+Varies: none
+Shares: third-party
+Deploys: google-analytics
+          `
+        },
+        {
+          name: 'Matomo',
+          doc: `
+# analytics.txt file for www.example.com
+Author: Jane Doe <jane.doe@example.com>
+Collects: url, referrer, device-type
+Stores: first-party-cookies, local-storage
+# Usage data is encrypted end-to-end
+Uses: javascript
+# Users can also delete their usage data only without opting out
+Allows: opt-in, opt-out
+# Data is retained for 6 months
+Retains: P6M
+# Optional fields
+Honors: none
+Tracks: sessions, users
+Varies: none
+Shares: per-user
+Implements: gdpr
+Deploys: matomo
+          `
+        }
+      ],
       fields: {
         Author: {
           type: 'input',
@@ -185,6 +251,29 @@ void (function (Vue, parser, ClipboardJS) {
           return true
         }
         return JSON.stringify(this.fields.Collects.value) !== JSON.stringify(['none'])
+      },
+      usePreset: function (doc) {
+        const result = parser.parse(doc)
+        if (result[1]) {
+          throw result[1]
+        }
+        for (const field in result[0]) {
+          if (!this.fields[field]) {
+            continue
+          }
+          var asModelValue = (function () {
+            switch (this.fields[field].type) {
+              case 'checkboxes':
+                return result[0][field].values
+              case 'input':
+                return result[0][field].values.join(', ')
+            }
+          }.bind(this))()
+          this.fields[field].value = asModelValue
+          this.fields[field].comment = result[0][field].comments
+            ? result[0][field].comments.join(' ')
+            : null
+        }
       }
     },
     computed: {
