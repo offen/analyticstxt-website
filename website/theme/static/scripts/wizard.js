@@ -86,7 +86,7 @@ void (function (Vue, parser, ClipboardJS) {
           comment: null,
           options: [
             option('None', 'none'),
-            option('Session', 'session'),
+            option('Sessions', 'sessions'),
             option('Users', 'users')
           ]
         }, 'none'),
