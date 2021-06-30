@@ -31,14 +31,14 @@
     </div>
   </div>
 
-  <div class="bg-white">
-    <button class="pointer hilight-yellow-mid f3 f2-l normal bn ma0 clr-fnt-red">
+  <div class="cf bg-white">
+    <button class="fr pointer hilight-yellow-mid f3 f2-l normal bn ma0 clr-fnt-red">
       Don’t use preset
     </button>
   </div>
 
   <form v-on:submit.prevent>
-    <fieldset class="bn bg-white pa0" v-for="(field, key) in fields" v-if="applies(key)">
+    <fieldset class="bn bg-white pa0 ma0" v-for="(field, key) in fields" v-if="applies(key)">
 
       <div v-if="field.type === 'input'">
         <h2 class="f5 normal ma0 fnt-bold-small">
@@ -61,61 +61,69 @@
             optional
           </small>
         </h2>
-        <label class="checkbox-cotainer" v-for="option in field.options">
+        <label class="checkbox-container db" v-for="option in field.options">
           <input
             type="checkbox"
             v-bind:value="option.value"
             v-model="field.value"
           >
+          <span class="checkbox-label"><%= option.label %></span>
           <span class="checkmark"></span>
-          <span class="ml3"><%= option.label %></span>
         </label>
       </div>
 
       <div v-if="field.comment !== null">
         <h4 class="f5 normal ma0">Comment</h4>
         <input
-          class="w-100 f6 f5-ns code ba bw1 b--moon-gray bg-near-white pa2 clr-fnt-black"
+          class="ws-initial word-wrap w-100 f6 f5-ns code ba bw1 b--moon-gray bg-near-white pa2 clr-fnt-black"
           type="text"
           v-model="field.comment"
         >
-        <button class="pointer hilight-yellow-small bn clr-fnt-red" v-on:click="toggleComment(key)">
-          Remove comment
-        </button>
+        <div class="cf">
+          <button class="fr pointer hilight-yellow-small bn clr-fnt-red" v-on:click="toggleComment(key)">
+            Remove comment
+          </button>
+        </div>
       </div>
-      <div v-else>
-        <button class="pointer hilight-yellow-small bn clr-fnt-red" v-on:click="toggleComment(key)">
-          Add comment to this field
+      <div class="cf" v-else>
+        <button class="fr pointer hilight-yellow-small bn clr-fnt-red" v-on:click="toggleComment(key)">
+          Add comment
         </button>
       </div>
 
     </fieldset>
   </form>
 
-  <div class="mw7 ba bw1 b--moon-gray mt3 ml5-l mr3-m">
+  <div class="cf bg-white">
+    <button class="fr pointer hilight-yellow-mid f3 f2-l normal bn ma0 clr-fnt-red">
+      Create analytics.txt
+    </button>
+  </div>
+
+  <div class="ba bw1 b--moon-gray">
     <div class="h1 bg-moon-gray"></div>
     <div class="f6 f5-ns code pv4 ph3 ph4-ns bg-near-white clr-fnt-black">
       <pre class="lineheight-copy ma0 break-spaces">
-<%= output %>
+        <%= output %>
       </pre>
     </div>
   </div>
 
-  <button
-    class="js-copy-result-btn"
-    v-bind:data-clipboard-text="output"
-  >
-    Copy to clipboard.
-  </button>
+  <div class="bg-white">
+    <p v-if="error">
+      <%= error %>
+    </p>
+    <div class="cf">
+      <button
+        class="js-copy-result-btn fr pointer hilight-yellow-mid f3 f2-l normal bn ma0 clr-fnt-red"
+        v-bind:data-clipboard-text="output"
+      >
+        Copy to clipboard.
+      </button>
+    </div>
+  </div>
 
-  <p v-if="error">
-    <%= error %>
-  </p>
 </div>
-
-
-
-
 
 
 </div>
