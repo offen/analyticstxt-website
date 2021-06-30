@@ -147,6 +147,8 @@ a:hover.hilight-yellow-big-invers {
   background-position: 0 0.35em;
   padding: 0 0.2em 0 0.2em;
 }
+button:hover.hilight-yellow-mid,
+button:hover.hilight-yellow-small,
 a:hover.hilight-yellow-mid,
 a:hover.hilight-yellow-small {
   background: url(/theme/images/gfx-bg-none.svg);
