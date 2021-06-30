@@ -22,7 +22,7 @@
 
 <div class="clr-fnt-blue" id="wizard" v-cloak>
 
-  <div class="bg-white">
+  <div class="bg-white pa3 mb4">
     <h2 class="f5 normal ma0 fnt-bold-small clr-fnt-blue">Presets</h2>
     <div v-for="preset in presets">
       <button class="pointer hilight-yellow-mid f3 f2-l normal bn ma0 clr-fnt-blue" v-on:click="usePreset(preset.doc)">
@@ -31,14 +31,14 @@
     </div>
   </div>
 
-  <div class="cf bg-white">
+  <div class="cf bg-white pa3 mb6">
     <button class="fr pointer hilight-yellow-mid f3 f2-l normal bn ma0 clr-fnt-red">
       Don’t use preset
     </button>
   </div>
 
-  <form v-on:submit.prevent>
-    <fieldset class="bn bg-white pa0 ma0" v-for="(field, key) in fields" v-if="applies(key)">
+  <form class="mb4" v-on:submit.prevent>
+    <fieldset class="bn bg-white pa3 ma0 mb2" v-for="(field, key) in fields" v-if="applies(key)">
 
       <div v-if="field.type === 'input'">
         <h2 class="f5 normal ma0 fnt-bold-small">
@@ -94,13 +94,13 @@
     </fieldset>
   </form>
 
-  <div class="cf bg-white">
+  <div class="cf bg-white pa3 mb6">
     <button class="fr pointer hilight-yellow-mid f3 f2-l normal bn ma0 clr-fnt-red">
       Create analytics.txt
     </button>
   </div>
 
-  <div class="ba bw1 b--moon-gray">
+  <div class="ba bw1 b--moon-gray mb4">
     <div class="h1 bg-moon-gray"></div>
     <div class="f6 f5-ns code pv4 ph3 ph4-ns bg-near-white clr-fnt-black">
       <pre class="lineheight-copy ma0 break-spaces">
@@ -109,7 +109,7 @@
     </div>
   </div>
 
-  <div class="bg-white">
+  <div class="bg-white pa3 mb6">
     <p v-if="error">
       <%= error %>
     </p>
