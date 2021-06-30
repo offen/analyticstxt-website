@@ -61,13 +61,14 @@
             optional
           </small>
         </h2>
-        <label v-for="option in field.options">
+        <label class="checkbox-cotainer" v-for="option in field.options">
           <input
             type="checkbox"
             v-bind:value="option.value"
             v-model="field.value"
           >
-          <%= option.label %>
+          <span class="checkmark"></span>
+          <span class="ml3"><%= option.label %></span>
         </label>
       </div>
 
