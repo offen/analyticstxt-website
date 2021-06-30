@@ -244,8 +244,7 @@ BACKROUNDS
   }
 }
 .bg-status,
-.bg-outro,
-.bg-footer {
+.bg-outro {
   background-image: url(/theme/images/gfx-bg-white.svg);
   background-position: top right;
   background-size: 73%;
@@ -253,8 +252,7 @@ BACKROUNDS
 }
 @media only screen and (min-width: 60em) {
   .bg-status,
-  .bg-outro,
-  .bg-footer {
+  .bg-outro {
     background-position: top 0 right calc(100% - 9rem);
     background-size: 50%;
   }

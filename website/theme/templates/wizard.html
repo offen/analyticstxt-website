@@ -1,6 +1,21 @@
-<h2>WIZARD</h2>
-<div id="wizard" v-cloak>
-  <h3>Presets</h3>
+{% extends "page.html" %}
+
+{% block content %}
+<main class="bg-page ph3 pt4 pt5-ns pb6">
+  <div class="relative">
+    <div class="absolute deko-page">
+    </div>
+  </div>
+  <div class="cf">
+    <div class="fr mr6-m mr7-l">
+      <div class="mw6">
+
+
+
+
+<h1 class="f5 normal ma0 fnt-bold-small">Wizard</h1>
+<div class="clr-fnt-blue" id="wizard" v-cloak>
+  <h2 class="f5 normal ma0 fnt-bold-small clr-fnt-blue">Presets</h2>
   <div v-for="preset in presets">
     <button v-on:click="usePreset(preset.doc)">
       <%= preset.name %>
@@ -11,12 +26,12 @@
     <fieldset v-for="(field, key) in fields" v-if="applies(key)">
 
       <div v-if="field.type === 'input'">
-        <h3>
+        <h2 class="f5 normal ma0 fnt-bold-small">
           <%= key %>
-          <small v-if="field.optional">
-            (optional)
+          <small class="fnt-italic-small" v-if="field.optional">
+            optional
           </small>
-        </h3>
+        </h2>
         <input
           type="text"
           v-model="field.value"
@@ -24,12 +39,12 @@
       </div>
 
       <div v-if="field.type === 'checkboxes'">
-        <h3>
+        <h2 class="f5 normal ma0 fnt-bold-small">
           <%= key %>
-          <small v-if="field.optional">
-            (optional)
+          <small class="fnt-italic-small" v-if="field.optional">
+            optional
           </small>
-        </h3>
+        </h2>
         <label v-for="option in field.options">
           <input
             type="checkbox"
@@ -79,3 +94,14 @@
     <%= error %>
   </p>
 </div>
+
+
+
+
+
+
+</div>
+</div>
+</div>
+</main>
+{% endblock %}
