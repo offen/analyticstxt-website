@@ -30,14 +30,13 @@
               </div>
             </div>
           </div>
-
-          <div class="cf bg-white pa3 pt4 mb2">
-            <button class="fr pointer hilight-yellow-mid f3 f2-l normal bn ma0 clr-fnt-red">
+          <div class="cf bg-white pa3 pt4 mb2" v-if="step === 1">
+            <button class="fr pointer hilight-yellow-mid f3 f2-l normal bn ma0 clr-fnt-red" v-on:click="advance(2)">
               Don’t use preset
             </button>
           </div>
 
-          <form class="mb2" v-on:submit.prevent>
+          <form class="mb2" v-on:submit.prevent v-if="step > 1">
             <fieldset class="bn bg-white pa3 pb4 ma0 mb2" v-for="(field, key) in fields" v-if="applies(key)">
 
               <div v-if="field.type === 'input'">
@@ -94,22 +93,22 @@
             </fieldset>
           </form>
 
-          <div class="cf bg-white pa3 pt4 mb2">
-            <button class="fr pointer hilight-yellow-mid f3 f2-l normal bn ma0 clr-fnt-red">
+          <div class="cf bg-white pa3 pt4 mb2" v-if="step === 2">
+            <button class="fr pointer hilight-yellow-mid f3 f2-l normal bn ma0 clr-fnt-red" v-on:click="advance(3)">
               Create analytics.txt
             </button>
           </div>
 
-          <div class="ba bw1 b--moon-gray mb2">
+          <div class="ba bw1 b--moon-gray mb2" v-if="step > 2">
             <div class="h1 bg-moon-gray"></div>
             <div class="f6 f5-ns code pv4 ph3 ph4-ns bg-near-white clr-fnt-black">
               <pre class="lineheight-copy ma0 break-spaces">
-                <%= output %>
+<%= output %>
               </pre>
             </div>
           </div>
 
-          <div class="bg-white pa3">
+          <div class="bg-white pa3" v-if="step > 2">
             <p class="clr-fnt-red ma0 mb4" v-if="error">
               <%= error %>
             </p>

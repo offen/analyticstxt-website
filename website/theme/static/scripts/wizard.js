@@ -3,6 +3,7 @@ void (function (Vue, parser, ClipboardJS) {
     el: '#wizard',
     delimiters: ['<%=', '%>'],
     data: {
+      step: 1,
       presets: [
         {
           name: 'Offen',
@@ -274,6 +275,10 @@ Deploys: matomo
             ? result[0][field].comments.join(' ')
             : null
         }
+        this.advance(2)
+      },
+      advance: function (step) {
+        this.step = Math.max(this.step, step)
       }
     },
     computed: {
