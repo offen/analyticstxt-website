@@ -10,124 +10,127 @@
     <div class="fr mr6-m mr7-l">
       <div class="mw6">
 
-
-
-
-<h1 class="f5 normal ma0 fnt-bold-small">Wizard</h1>
-<div class="lineheight-copy">
-  <p class="ma0 mt3">
-    Create an <span class="hilight-white-small">analytics.txt</span> file to disclose information about your service's use of analytics software and user tracking.
-  </p>
-</div>
-
-<div class="clr-fnt-blue" id="wizard" v-cloak>
-
-  <div class="bg-white pa3 mb4">
-    <h2 class="f5 normal ma0 fnt-bold-small clr-fnt-blue">Presets</h2>
-    <div v-for="preset in presets">
-      <button class="pointer hilight-yellow-mid f3 f2-l normal bn ma0 clr-fnt-blue" v-on:click="usePreset(preset.doc)">
-        <%= preset.name %>
-      </button>
-    </div>
-  </div>
-
-  <div class="cf bg-white pa3 mb6">
-    <button class="fr pointer hilight-yellow-mid f3 f2-l normal bn ma0 clr-fnt-red">
-      Don’t use preset
-    </button>
-  </div>
-
-  <form class="mb4" v-on:submit.prevent>
-    <fieldset class="bn bg-white pa3 ma0 mb2" v-for="(field, key) in fields" v-if="applies(key)">
-
-      <div v-if="field.type === 'input'">
-        <h2 class="f5 normal ma0 fnt-bold-small">
-          <%= key %>
-          <small class="fnt-italic-small" v-if="field.optional">
-            optional
-          </small>
-        </h2>
-        <input
-          class="w-100 f6 f5-ns code ba bw1 b--moon-gray bg-near-white pa2 clr-fnt-black"
-          type="text"
-          v-model="field.value"
-        >
-      </div>
-
-      <div v-if="field.type === 'checkboxes'">
-        <h2 class="f5 normal ma0 fnt-bold-small">
-          <%= key %>
-          <small class="fnt-italic-small" v-if="field.optional">
-            optional
-          </small>
-        </h2>
-        <label class="checkbox-container db" v-for="option in field.options">
-          <input
-            type="checkbox"
-            v-bind:value="option.value"
-            v-model="field.value"
-          >
-          <span class="checkbox-label"><%= option.label %></span>
-          <span class="checkmark"></span>
-        </label>
-      </div>
-
-      <div v-if="field.comment !== null">
-        <h4 class="f5 normal ma0">Comment</h4>
-        <input
-          class="ws-initial word-wrap w-100 f6 f5-ns code ba bw1 b--moon-gray bg-near-white pa2 clr-fnt-black"
-          type="text"
-          v-model="field.comment"
-        >
-        <div class="cf">
-          <button class="fr pointer hilight-yellow-small bn clr-fnt-red" v-on:click="toggleComment(key)">
-            Remove comment
-          </button>
+        <!-- Wizard -->
+        <h1 class="f5 normal ma0 fnt-bold-small">Implementation Wizard</h1>
+        <div class="lineheight-copy">
+          <p class="ma0 mb4 mt5">
+            Create an <span class="hilight-white-small">analytics.txt</span> file to disclose information about your service's use of analytics software and user tracking.
+          </p>
         </div>
+
+        <div class="clr-fnt-blue" id="wizard" v-cloak>
+
+          <div class="bg-white pa3 pb4 mb2">
+            <h2 class="f5 normal ma0 fnt-bold-small mb2 clr-fnt-blue">Presets</h2>
+            <div class="flex flex-wrap">
+              <div class="mb2 mr3 mr4-ns" v-for="preset in presets">
+                  <button class="pointer hilight-yellow-mid f3 f2-l normal bn ma0 clr-fnt-blue" v-on:click="usePreset(preset.doc)">
+                    <%= preset.name %>
+                  </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="cf bg-white pa3 pt4 mb2">
+            <button class="fr pointer hilight-yellow-mid f3 f2-l normal bn ma0 clr-fnt-red">
+              Don’t use preset
+            </button>
+          </div>
+
+          <form class="mb2" v-on:submit.prevent>
+            <fieldset class="bn bg-white pa3 pb4 ma0 mb2" v-for="(field, key) in fields" v-if="applies(key)">
+
+              <div v-if="field.type === 'input'">
+                <h2 class="f5 normal ma0 fnt-bold-small mb2">
+                  <%= key %>
+                  <small class="fnt-italic-small ml2" v-if="field.optional">
+                    optional
+                  </small>
+                </h2>
+                <input
+                  class="w-100 f6 f5-ns code ba bw1 b--moon-gray bg-near-white pa2 clr-fnt-black"
+                  type="text"
+                  v-model="field.value"
+                >
+              </div>
+
+              <div v-if="field.type === 'checkboxes'">
+                <h2 class="f5 normal ma0 fnt-bold-small mb2">
+                  <%= key %>
+                  <small class="fnt-italic-small ml2" v-if="field.optional">
+                    optional
+                  </small>
+                </h2>
+                <label class="checkbox-container db mb1" v-for="option in field.options">
+                  <input
+                    type="checkbox"
+                    v-bind:value="option.value"
+                    v-model="field.value"
+                  >
+                  <span class="checkbox-label"><%= option.label %></span>
+                  <span class="checkmark"></span>
+                </label>
+              </div>
+
+              <div v-if="field.comment !== null">
+                <h4 class="f5 normal ma0 mt3 mb2">Comment</h4>
+                <input
+                  class="ws-initial word-wrap w-100 f6 f5-ns code ba bw1 b--moon-gray bg-near-white pa2 clr-fnt-black"
+                  type="text"
+                  v-model="field.comment"
+                >
+                <div class="cf">
+                  <button class="fr pointer hilight-yellow-small bn mt2 clr-fnt-red" v-on:click="toggleComment(key)">
+                    Remove comment
+                  </button>
+                </div>
+              </div>
+              <div class="cf" v-else>
+                <button class="fr pointer hilight-yellow-small bn mt2 clr-fnt-red" v-on:click="toggleComment(key)">
+                  Add comment
+                </button>
+              </div>
+
+            </fieldset>
+          </form>
+
+          <div class="cf bg-white pa3 pt4 mb2">
+            <button class="fr pointer hilight-yellow-mid f3 f2-l normal bn ma0 clr-fnt-red">
+              Create analytics.txt
+            </button>
+          </div>
+
+          <div class="ba bw1 b--moon-gray mb2">
+            <div class="h1 bg-moon-gray"></div>
+            <div class="f6 f5-ns code pv4 ph3 ph4-ns bg-near-white clr-fnt-black">
+              <pre class="lineheight-copy ma0 break-spaces">
+                <%= output %>
+              </pre>
+            </div>
+          </div>
+
+          <div class="bg-white pa3">
+            <p class="clr-fnt-red ma0 mb4" v-if="error">
+              <%= error %>
+            </p>
+            <div class="cf" v-else="error">
+              <p class="lineheight-copy clr-fnt-red ma0 mb4">
+                This <span class="hilight-white-very-dark-small">analytics.txt</span> file is ready for production. Learn more about where to put it <a class="hilight-yellow-small" href="/#faq-b1">here.</a>
+              </p>
+              <button
+                class="js-copy-result-btn fr pointer hilight-yellow-mid f3 f2-l normal bn ma0 clr-fnt-red"
+                v-bind:data-clipboard-text="output"
+              >
+                Copy to clipboard.
+              </button>
+            </div>
+          </div>
+
+        </div>
+        <!-- Wizard -->
+
       </div>
-      <div class="cf" v-else>
-        <button class="fr pointer hilight-yellow-small bn clr-fnt-red" v-on:click="toggleComment(key)">
-          Add comment
-        </button>
-      </div>
-
-    </fieldset>
-  </form>
-
-  <div class="cf bg-white pa3 mb6">
-    <button class="fr pointer hilight-yellow-mid f3 f2-l normal bn ma0 clr-fnt-red">
-      Create analytics.txt
-    </button>
-  </div>
-
-  <div class="ba bw1 b--moon-gray mb4">
-    <div class="h1 bg-moon-gray"></div>
-    <div class="f6 f5-ns code pv4 ph3 ph4-ns bg-near-white clr-fnt-black">
-      <pre class="lineheight-copy ma0 break-spaces">
-        <%= output %>
-      </pre>
     </div>
   </div>
-
-  <div class="bg-white pa3 mb6">
-    <p v-if="error">
-      <%= error %>
-    </p>
-    <div class="cf">
-      <button
-        class="js-copy-result-btn fr pointer hilight-yellow-mid f3 f2-l normal bn ma0 clr-fnt-red"
-        v-bind:data-clipboard-text="output"
-      >
-        Copy to clipboard.
-      </button>
-    </div>
-  </div>
-
-</div>
-
-
-</div>
-</div>
-</div>
 </main>
 {% endblock %}
