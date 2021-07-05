@@ -27,6 +27,11 @@
               </button>
           </div>
         </div>
+        <div class="link-blue">
+          <p class="ma0 mt3">
+            These presets are open source and created to the best of knowledge. Additions are <a class="hilight-yellow-small" href="{{ SUBMIT_PRESET }}" rel="noopener" target="_blank">welcome.</a> If you have feedback or a bug report, please open an <a class="hilight-yellow-small" href="{{ SUBMIT_ISSUE }}" rel="noopener" target="_blank">issue</a> or <a class="hilight-yellow-small" href="{{ SEND_EMAIL }}" rel="noopener">email us.</a>
+          </p>
+        </div>
       </div>
       <div class="cf bg-white pa3 pt4 mb2" v-if="step === 1">
         <button class="fr pointer hilight-yellow-mid f3 f2-l normal bn ma0 clr-fnt-red" v-on:click="advance(2)">
@@ -108,13 +113,13 @@
 
       <div class="bg-white" v-if="step > 2">
 
-        <p class="clr-fnt-red ma0 pt3 ph3 pb4" v-if="error">
+        <p class="clr-fnt-red ma0 pt3 ph3 pb4 clr-fnt-blue" v-if="error">
           <%= error %>
         </p>
 
         <div v-else="error">
           <div class="cf ph3 pt3 mb3">
-            <p class="lineheight-copy clr-fnt-red ma0 mb4">
+            <p class="lineheight-copy clr-fnt-red ma0 mb4 clr-fnt-blue">
               This <span class="hilight-white-very-dark-small">analytics.txt</span> file is ready for production.
             </p>
             <button
