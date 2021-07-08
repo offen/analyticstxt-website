@@ -9,7 +9,7 @@ void (function (Vue, parser, ClipboardJS) {
           name: 'Offen',
           doc: `
 # analytics.txt file for www.example.com
-Author: Jane Doe <jane.doe@example.com>
+Author: Your Name <your.name@example.com>
 Collects: url, referrer, device-type
 Stores: first-party-cookies, local-storage
 # Usage data is encrypted end-to-end
@@ -31,43 +31,37 @@ Deploys: offen
           name: 'Google Analytics',
           doc: `
 # analytics.txt file for www.example.com
-Author: Jane Doe <jane.doe@example.com>
-Collects: url, referrer, device-type
-Stores: first-party-cookies, local-storage
+Author: Your Name <your.name@example.com>
+Collects: url, referrer, device-type, ip-address, geo-location, user-agent, visit-duration, custom-events
+Stores: first-party-cookies
 # Usage data is encrypted end-to-end
-Uses: javascript
-# Users can also delete their usage data only without opting out
-Allows: opt-out
+Uses: javascript, pixel
+Allows: none
 Retains: perpetual
-# Optional fields
 Honors: none
 Tracks: sessions, users
 Varies: none
 Shares: third-party
 Deploys: google-analytics
-          `
+`
         },
         {
           name: 'Matomo',
           doc: `
 # analytics.txt file for www.example.com
-Author: Jane Doe <jane.doe@example.com>
-Collects: url, referrer, device-type
-Stores: first-party-cookies, local-storage
-# Usage data is encrypted end-to-end
-Uses: javascript
-# Users can also delete their usage data only without opting out
+Author: Your Name <your.name@example.com>
+Collects: url, referrer, device-type, ip-address, geo-location, user-agent, visit-duration, custom-events
+Stores: first-party-cookies
+Uses: javascript, pixel
 Allows: opt-in, opt-out
-# Data is retained for 6 months
-Retains: P6M
-# Optional fields
+Retains: perpetual
 Honors: none
 Tracks: sessions, users
 Varies: none
-Shares: per-user
+Shares: none
 Implements: gdpr
 Deploys: matomo
-          `
+`
         }
       ],
       fields: {
