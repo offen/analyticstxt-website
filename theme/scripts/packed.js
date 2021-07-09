@@ -31,7 +31,6 @@ Deploys: offen
 Author: Your Name <your.name@example.com>
 Collects: url, referrer, device-type, ip-address, geo-location, user-agent, visit-duration, custom-events
 Stores: first-party-cookies
-# Usage data is encrypted end-to-end
 Uses: javascript, pixel
 Allows: none
 Retains: perpetual
