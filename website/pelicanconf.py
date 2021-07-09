@@ -67,6 +67,9 @@ DECORATE_CONTENT = {
 
 GITHUB_REPO = 'https://github.com/offen/analyticstxt/'
 INTERNET_DRAFT = 'https://tools.ietf.org/html/draft-ring-analyticstxt-01'
+SUBMIT_PRESET = 'https://github.com/offen/analyticstxt-website'
+SUBMIT_ISSUE = 'https://github.com/offen/analyticstxt-website/issues'
+SEND_EMAIL = 'mailto:hioffen@posteo.de'
 
 OFFEN_ACCOUNT_ID = os.environ.get('OFFEN_ACCOUNT_ID', None)
 

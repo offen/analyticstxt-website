@@ -1,0 +1,162 @@
+{% extends "page.html" %}
+
+{% block content %}
+<main class="bg-page ph3 pt4 pt5-ns pb6">
+  <div class="relative">
+    <div class="absolute deko-page">
+    </div>
+  </div>
+  <div class="mw6 center">
+
+    <!-- Wizard -->
+    <h1 class="f5 normal ma0 fnt-bold-small">Implementation Wizard</h1>
+    <div class="lineheight-copy">
+      <p class="ma0 mb4 mt5">
+        Create an <span class="hilight-white-small">analytics.txt</span> file to disclose information about your service's use of analytics software and user tracking.
+      </p>
+    </div>
+
+    <div class="clr-fnt-blue" id="wizard" v-cloak>
+
+      <div class="bg-white pa3 pb4 mb2">
+        <h2 class="f5 normal ma0 fnt-bold-small mb2 clr-fnt-blue">Presets</h2>
+        <div class="flex flex-wrap">
+          <div class="mb2 mr3 mr4-ns" v-for="preset in presets">
+              <button class="pointer hilight-yellow-mid f3 f2-l normal bn ma0 clr-fnt-blue" v-on:click="usePreset(preset.doc)">
+                <%= preset.name %>
+              </button>
+          </div>
+        </div>
+        <div class="link-blue">
+          <p class="ma0 mt3">
+            These presets are open source and created to the best of knowledge. Additions are <a class="hilight-yellow-small" href="{{ SUBMIT_PRESET }}" rel="noopener" target="_blank">welcome.</a> If you have feedback or a bug report, please open an <a class="hilight-yellow-small" href="{{ SUBMIT_ISSUE }}" rel="noopener" target="_blank">issue</a> or <a class="hilight-yellow-small" href="{{ SEND_EMAIL }}" rel="noopener">email us.</a>
+          </p>
+        </div>
+      </div>
+      <div class="cf bg-white pa3 pt4 mb2" v-if="step === 1">
+        <button class="fr pointer hilight-yellow-mid f3 f2-l normal bn ma0 clr-fnt-red" v-on:click="advance(2)">
+          Don’t use preset
+        </button>
+      </div>
+
+      <form class="mb2" v-on:submit.prevent v-if="step > 1">
+        <fieldset class="bn bg-white pa3 pb4 ma0 mb2" v-for="(field, key) in fields" v-if="applies(key)">
+
+          <div v-if="field.type === 'input'">
+            <h2 class="f5 normal ma0 fnt-bold-small mb2">
+              <%= key %>
+              <small class="fnt-italic-small ml2" v-if="field.optional">
+                optional
+              </small>
+            </h2>
+            <input
+              class="w-100 f6 f5-ns code ba bw1 b--moon-gray bg-near-white pa2 clr-fnt-black"
+              type="text"
+              v-model="field.value"
+            >
+          </div>
+
+          <div v-if="field.type === 'checkboxes'">
+            <h2 class="f5 normal ma0 fnt-bold-small mb2">
+              <%= key %>
+              <small class="fnt-italic-small ml2" v-if="field.optional">
+                optional
+              </small>
+            </h2>
+            <label class="checkbox-container db mb1" v-for="option in field.options">
+              <input
+                type="checkbox"
+                v-bind:value="option.value"
+                v-model="field.value"
+              >
+              <span class="checkbox-label"><%= option.label %></span>
+              <span class="checkmark"></span>
+            </label>
+          </div>
+
+          <div v-if="field.comment !== null">
+            <h4 class="f5 normal ma0 mt3 mb2">Comment</h4>
+            <input
+              class="ws-initial word-wrap w-100 f6 f5-ns code ba bw1 b--moon-gray bg-near-white pa2 clr-fnt-black"
+              type="text"
+              v-model="field.comment"
+            >
+            <div class="cf">
+              <button class="fr pointer hilight-yellow-small bn mt2 clr-fnt-red" v-on:click="toggleComment(key)">
+                Remove comment
+              </button>
+            </div>
+          </div>
+          <div class="cf" v-else>
+            <button class="fr pointer hilight-yellow-small bn mt2 clr-fnt-red" v-on:click="toggleComment(key)">
+              Add comment
+            </button>
+          </div>
+
+        </fieldset>
+      </form>
+
+      <div class="cf bg-white pa3 pt4 mb2" v-if="step === 2">
+        <button class="fr pointer hilight-yellow-mid f3 f2-l normal bn ma0 clr-fnt-red" v-on:click="advance(3)">
+          Create analytics.txt
+        </button>
+      </div>
+
+      <div class="ba bw1 b--moon-gray mb2" v-if="step > 2">
+        <div class="h1 bg-moon-gray"></div>
+        <div class="f6 f5-ns code pv4 ph3 ph4-ns bg-near-white clr-fnt-black">
+          <pre class="lineheight-copy ma0 break-spaces">
+<%= output %>
+          </pre>
+        </div>
+      </div>
+
+      <div class="bg-white" v-if="step > 2">
+
+        <p class="clr-fnt-red ma0 pt3 ph3 pb4 clr-fnt-blue" v-if="error">
+          <%= error %>
+        </p>
+
+        <div v-else="error">
+          <div class="cf ph3 pt3 mb3">
+            <p class="lineheight-copy clr-fnt-red ma0 mb4 clr-fnt-blue">
+              This <span class="hilight-white-very-dark-small">analytics.txt</span> file is ready for production.
+            </p>
+            <button
+              class="js-copy-result-btn fr pointer hilight-yellow-mid f3 f2-l normal bn ma0 clr-fnt-red"
+              v-bind:data-clipboard-text="output"
+            >
+              Copy to clipboard.
+            </button>
+          </div>
+          <div class="ph3 pt6 clr-bg-white-very-dark clr-fnt-red">
+            <h2 class="f5 normal ma0 fnt-bold-small mb2">
+              Where should I put an <span class="hilight-white-small">analytics.txt</span> file?
+            </h2>
+            <div class="ma0 custom-list">
+              <p class="lineheight-copy ma0 mt3">
+                The preferred default location is the <span class="hilight-white-small">/.well-known/</span> path of your web server. If this is not ideal or possible for you, there are two alternatives:
+              </p>
+              <ul class="text-list ml2 lineheight-copy">
+                <li>
+                  <p class="ma0 mt3">
+                    Use a <span class="hilight-white-small">&lt;link rel="analytics.txt" href="/path/to/analytics.txt"&gt;</span> in the <span class="hilight-white-small">head</span> of your document.
+                  </p>
+                </li>
+                <li>
+                  <p class="ma0 mt3">
+                    Send a <span class="hilight-white-small word-break">X-Analytics-Txt: https://www.example.com/path/to/analytics.txt</span> HTTP header with your documents.
+                  </p>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <!-- Wizard -->
+
+  </div>
+</main>
+{% endblock %}
