@@ -247,7 +247,7 @@ Deploys: matomo
         return JSON.stringify(this.fields.Collects.value) !== JSON.stringify(['none'])
       },
       usePreset: function (doc) {
-        const result = parser.mustParse(doc)
+        var result = parser.mustParse(doc)
         for (const field in this.fields) {
           this.fields[field].value = this.fields[field].defaultValue
         }
@@ -312,8 +312,9 @@ Deploys: matomo
   }
 
   function withDefaultValue (field) {
+    var clone = JSON.parse(JSON.stringify(field.value))
     Object.defineProperty(field, 'defaultValue', {
-      value: field.value
+      value: clone
     })
     return field
   }
