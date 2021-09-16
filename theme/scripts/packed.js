@@ -63,7 +63,7 @@ if(asModel.values&&asModel.values.length){acc[key]=asModel}
 return acc}.bind(this),{})},resetSelect:function(key){this.fields[key].value=null},toggleComment:function(key){if(this.fields[key].comment===null){this.fields[key].comment=''
 return}
 this.fields[key].comment=null},applies:function(fieldName){if(this.fields[fieldName].includeWhenCollectsNone){return true}
-return JSON.stringify(this.fields.Collects.value)!==JSON.stringify(['none'])},usePreset:function(doc){const result=parser.mustParse(doc)
+return JSON.stringify(this.fields.Collects.value)!==JSON.stringify(['none'])},usePreset:function(doc){var result=parser.mustParse(doc)
 for(const field in this.fields){this.fields[field].value=this.fields[field].defaultValue}
 for(const field in result){if(!this.fields[field]){continue}
 var asModelValue=(function(){switch(this.fields[field].type){case'checkboxes':return result[field].values
@@ -80,7 +80,8 @@ if(updateHasNone&&!currentlyHasNone){this._value=[exclusiveValue]
 return}
 this._value=update.filter(function(token){return token!==exclusiveValue})}})
 return field}
-function withDefaultValue(field){Object.defineProperty(field,'defaultValue',{value:field.value})
+function withDefaultValue(field){var clone=JSON.parse(JSON.stringify(field.value))
+Object.defineProperty(field,'defaultValue',{value:clone})
 return field}
 function withSingleValue(field){field._value=field.value
 Object.defineProperty(field,'value',{get(){return this._value},set(update){this._value=update.filter(function(token){return this._value.indexOf(token)===-1}.bind(this))}})
