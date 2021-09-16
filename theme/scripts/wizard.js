@@ -64,13 +64,13 @@ Deploys: matomo
         }
       ],
       fields: {
-        Author: {
+        Author: withDefaultValue({
           type: 'input',
           value: null,
           comment: null,
           includeWhenCollectsNone: true
-        },
-        Collects: withExclusiveValue({
+        }),
+        Collects: withDefaultValue(withExclusiveValue({
           type: 'checkboxes',
           value: [],
           comment: null,
@@ -88,8 +88,8 @@ Deploys: matomo
             option('Custom Events', 'custom-events'),
             option('Session Recording', 'session-recording')
           ]
-        }, 'none'),
-        Stores: withExclusiveValue({
+        }, 'none')),
+        Stores: withDefaultValue(withExclusiveValue({
           type: 'checkboxes',
           value: [],
           comment: null,
@@ -100,8 +100,8 @@ Deploys: matomo
             option('Local Storage', 'local-storage'),
             option('Cache', 'cache')
           ]
-        }, 'none'),
-        Uses: {
+        }, 'none')),
+        Uses: withDefaultValue({
           type: 'checkboxes',
           value: [],
           comment: null,
@@ -112,8 +112,8 @@ Deploys: matomo
             option('Logs', 'logs'),
             option('Other', 'other')
           ]
-        },
-        Allows: withExclusiveValue({
+        }),
+        Allows: withDefaultValue(withExclusiveValue({
           type: 'checkboxes',
           value: [],
           comment: null,
@@ -122,13 +122,13 @@ Deploys: matomo
             option('Opt In', 'opt-in'),
             option('Opt Out', 'opt-out')
           ]
-        }, 'none'),
-        Retains: {
+        }, 'none')),
+        Retains: withDefaultValue({
           type: 'input',
           value: null,
           comment: null
-        },
-        Honors: withExclusiveValue({
+        }),
+        Honors: withDefaultValue(withExclusiveValue({
           type: 'checkboxes',
           value: [],
           comment: null,
@@ -138,8 +138,8 @@ Deploys: matomo
             option('Do Not Track', 'do-not-track'),
             option('Global Privacy Control', 'global-privacy-control')
           ]
-        }, 'none'),
-        Tracks: withExclusiveValue({
+        }, 'none')),
+        Tracks: withDefaultValue(withExclusiveValue({
           type: 'checkboxes',
           value: [],
           optional: true,
@@ -149,8 +149,8 @@ Deploys: matomo
             option('Sessions', 'sessions'),
             option('Users', 'users')
           ]
-        }, 'none'),
-        Varies: withSingleValue({
+        }, 'none')),
+        Varies: withDefaultValue(withSingleValue({
           type: 'checkboxes',
           value: [],
           comment: null,
@@ -161,8 +161,8 @@ Deploys: matomo
             option('Geographic', 'geographic'),
             option('Behavioral', 'behavioral')
           ]
-        }),
-        Shares: withExclusiveValue({
+        })),
+        Shares: withDefaultValue(withExclusiveValue({
           type: 'checkboxes',
           value: [],
           comment: null,
@@ -173,19 +173,19 @@ Deploys: matomo
             option('General Public', 'general-public'),
             option('Third Party', 'third-party')
           ]
-        }, 'none'),
-        Implements: {
+        }, 'none')),
+        Implements: withDefaultValue({
           type: 'input',
           value: null,
           comment: null,
           optional: true
-        },
-        Deploys: {
+        }),
+        Deploys: withDefaultValue({
           type: 'input',
           value: null,
           comment: null,
           optional: true
-        }
+        })
       }
     },
     created: function () {
@@ -247,25 +247,25 @@ Deploys: matomo
         return JSON.stringify(this.fields.Collects.value) !== JSON.stringify(['none'])
       },
       usePreset: function (doc) {
-        const result = parser.parse(doc)
-        if (result[1]) {
-          throw result[1]
+        const result = parser.mustParse(doc)
+        for (const field in this.fields) {
+          this.fields[field].value = this.fields[field].defaultValue
         }
-        for (const field in result[0]) {
+        for (const field in result) {
           if (!this.fields[field]) {
             continue
           }
           var asModelValue = (function () {
             switch (this.fields[field].type) {
               case 'checkboxes':
-                return result[0][field].values
+                return result[field].values
               case 'input':
-                return result[0][field].values.join(', ')
+                return result[field].values.join(', ')
             }
           }.bind(this))()
           this.fields[field].value = asModelValue
-          this.fields[field].comment = result[0][field].comments
-            ? result[0][field].comments.join(' ')
+          this.fields[field].comment = result[field].comments
+            ? result[field].comments.join(' ')
             : null
         }
         this.advance(2)
@@ -307,6 +307,13 @@ Deploys: matomo
           return token !== exclusiveValue
         })
       }
+    })
+    return field
+  }
+
+  function withDefaultValue (field) {
+    Object.defineProperty(field, 'defaultValue', {
+      value: field.value
     })
     return field
   }
