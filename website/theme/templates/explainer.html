@@ -1,0 +1,32 @@
+{% extends "page.html" %}
+
+{% block content %}
+<main class="bg-page ph3 pt4 pt5-ns pb6">
+  <div class="relative">
+    <div class="absolute deko-page">
+    </div>
+  </div>
+  <div class="mw6 center">
+
+    <!-- Wizard -->
+    <h1 class="f5 normal ma0 fnt-bold-small">Explainer</h1>
+    <div class="lineheight-copy">
+      <p class="ma0 mb4 mt5">
+        Explain an <span class="hilight-white-small">analytics.txt</span> file.
+      </p>
+    </div>
+
+    <div class="clr-fnt-blue" id="explainer" v-cloak>
+      <div>
+        <textarea id="explainer-content"></textarea>
+      </div>
+      <div>
+        <button v-on:click="explain">Explain</button>
+      </div>
+      <div v-html="output"></div>
+    </div>
+    <!-- Wizard -->
+
+  </div>
+</main>
+{% endblock %}

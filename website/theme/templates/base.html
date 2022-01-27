@@ -85,7 +85,7 @@
     </footer>
   </div>
   {% block scripts %}
-    {% assets filters="rjsmin", output="scripts/packed.js", "scripts/vue.min.js", "scripts/clipboard.min.js", "scripts/analyticstxt-parser.min.js", "scripts/menu.js", "scripts/wizard.js" %}
+    {% assets filters="rjsmin", output="scripts/packed.js", "scripts/vue.min.js", "scripts/marked.min.js", "scripts/clipboard.min.js", "scripts/analyticstxt-parser.min.js", "scripts/menu.js", "scripts/wizard.js", "scripts/explainer.js" %}
       <script src="/{{ ASSET_URL }}"></script>
     {% endassets %}
   {% endblock %}
