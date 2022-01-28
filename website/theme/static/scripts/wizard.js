@@ -109,7 +109,6 @@ Deploys: matomo
             option('JavaScript', 'javascript'),
             option('Tracking Pixel', 'pixel'),
             option('Server Side', 'server-side'),
-            option('Logs', 'logs'),
             option('Other', 'other')
           ]
         }),
