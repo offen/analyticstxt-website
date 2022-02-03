@@ -18,7 +18,7 @@
 
     <div class="clr-fnt-blue" id="explainer" v-cloak>
       <div>
-        <textarea id="explainer-content"></textarea>
+        <textarea v-model="value" id="explainer-content"></textarea>
       </div>
       <div>
         <button v-on:click="explain">Explain</button>
