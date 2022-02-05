@@ -12,7 +12,7 @@
     <h1 class="f5 normal ma0 fnt-bold-small">Explainer</h1>
     <div class="lineheight-copy">
       <p class="ma0 mb4 mt5">
-        Explain an <span class="hilight-white-small">analytics.txt</span> file.
+        Website operators collect usage data to measure user engagement with their sites and services, identify possible issues and improve user experience. The degree to which this affects users' privacy can vary drastically.
       </p>
     </div>
 
@@ -23,7 +23,26 @@
       <div>
         <button v-on:click="explain">Explain</button>
       </div>
-      <div v-html="output"></div>
+      <div v-if="error">
+        <p><%= error %></p>
+      </div>
+      <div v-if="result">
+        <div v-for="(block, index) in result">
+          <h2 class="pointer" v-if="block.headline" v-on:click="toggle(index)">
+            <%= block.headline %>
+          </h2>
+          <div v-if="isExpanded(index)" v-for="element in block.body">
+            <p v-if="!Array.isArray(element)">
+              <%= element %>
+            </p>
+            <ul v-if="Array.isArray(element)">
+              <li v-for="li in element">
+                <%= li %>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
     </div>
     <!-- Wizard -->
 

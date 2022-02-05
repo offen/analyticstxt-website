@@ -1,35 +1,43 @@
-void (function (Vue, parser, marked) {
+void (function (Vue, parser) {
   new Vue({ // eslint-disable-line no-new
     el: '#explainer',
     delimiters: ['<%=', '%>'],
     data: {
       value: null,
-      output: null,
-      decorateContent: {
-        'p': ['mt4', 'pa1']
-      }
+      result: null,
+      error: null,
+      expanded: []
     },
     methods: {
+      toggle: function (index) {
+        if (this.isExpanded(index)) {
+          this.expanded = this.expanded.filter(function (el) {
+            return el !== index
+          })
+        } else {
+          this.expanded.push(index)
+        }
+      },
+      isExpanded: function (index) {
+        return this.expanded.indexOf(index) !== -1
+      },
       explain: function () {
-        this.output = (() => {
-          if (!this.value) {
-            return ''
+        if (!this.value) {
+          return
+        }
+        const [result, error] = parser.explain(this.value, { format: v => v })
+        if (Array.isArray(result)) {
+          result[0] = {
+            headline: 'Author',
+            body: [result[0].body[1]]
           }
-          const [result, error] = parser.explain(this.value)
-          if (error) {
-            return 'The given analytics.txt file is not valid and cannot be used to generate an explanation.'
-          }
-          const html = marked.parse(result)
-          const container = document.createElement('div')
-          container.innerHTML = html
-          for (const [selector, decorator] of Object.entries(this.decorateContent)) {
-            for (const element of container.querySelectorAll(selector)) {
-              element.classList.add.apply(element.classList, decorator)
-            }
-          }
-          return container.innerHTML
-        })()
+        }
+        this.error = error
+          ? 'The given analytics.txt file is not valid and cannot be used to generate an explanation.'
+          : null
+        this.result = result
+        this.expanded = [1]
       }
     }
   })
-})(window.Vue, window.analyticstxtParser, window.marked)
+})(window.Vue, window.analyticstxtParser)
