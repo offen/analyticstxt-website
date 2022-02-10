@@ -38,7 +38,7 @@
               <h2 class="f5 normal ma0 fnt-bold-small mb3">
                 <%= block.headline %>
               </h2>
-              <a class="dib label-toggle"></a>
+              <a class="dib label-toggle" v-bind:class="isExpanded(index) ? 'label-toggle--rotate' : null"></a>
             </div>
             <div v-if="isExpanded(index)" v-for="element in block.body">
               <p class="ma0 mb2" v-if="!Array.isArray(element)">
