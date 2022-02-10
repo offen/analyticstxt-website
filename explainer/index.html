@@ -2,22 +2,22 @@
 <html lang="en">
   <head>
     <title>
-About | analytics.txt    </title>
+Explainer | analytics.txt    </title>
     <meta charset="UTF-8">
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-eval' 'unsafe-inline' *.analyticstxt.org; frame-src 'self' *.analyticstxt.org; style-src 'self' 'unsafe-inline'">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
-    <meta name="description" content="Who we are, what we do, who supports us and how you can can get in touch.">
+    <meta name="description" content="The official analytics.txt explainer, focusing on the privacy related consequences of the collection of usage data.">
     <meta property="og:site_name" content="analytics.txt">
     <meta property="og:locale" content="en">
-    <meta property="og:title" content="About | analytics.txt">
-    <meta property="og:description" content="Who we are, what we do, who supports us and how you can can get in touch.">
+    <meta property="og:title" content="Explainer | analytics.txt">
+    <meta property="og:description" content="The official analytics.txt explainer, focusing on the privacy related consequences of the collection of usage data.">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://www.analyticstxt.org/about/">
+    <meta property="og:url" content="https://www.analyticstxt.org/explainer/">
     <meta property="og:image" content="https://www.analyticstxt.org/theme/images/analyticstxt-logo-social-media.jpg">
     <meta name="twitter:image:alt" content="analytics.txt logo">
     <meta name="twitter:card" content="summary_large_image">
-    <link rel="canonical" href="https://www.analyticstxt.org/about/">
+    <link rel="canonical" href="https://www.analyticstxt.org/explainer/">
     <link rel="shortcut icon" type="image/x-icon" href="/theme/images/favicon.ico">
       <link rel="stylesheet" href="/theme/css/style.min.css?b55d553c">
     <link rel="preload" href="/theme/fonts/Rubik-Regular.woff2" as="font" crossorigin>
@@ -66,24 +66,64 @@ About | analytics.txt    </title>
         <a class="hilight-yellow-big-invers" href="/"><span class="clr-fnt-red fnt-bold-big">analytics </span><span class="clr-fnt-red fnt-italic-big">.txt</span></a>
       </header>
     </div>
-  <main class="bg-page ph3 pt4 pt5-ns pb6">
-    <div class="relative">
-      <div class="absolute deko-page">
+<main class="bg-page ph3 pt4 pt5-ns pb6">
+  <div class="relative">
+    <div class="absolute deko-page">
+    </div>
+  </div>
+  <div class="mw6 center">
+
+    <!-- Wizard -->
+
+    <h1 class="f5 normal ma0 fnt-bold-small">Explainer</h1>
+    <div class="lineheight-copy">
+      <p class="ma0 mb2 mt5">
+        Website operators collect usage data to measure user engagement with their sites and services, identify possible issues and improve user experience.
+      </p>
+      <p class="ma0 mb4">
+        The degree to which this affects users' privacy can vary drastically. This explainer is focusing on the user-facing consequences of the collection of usage data as defined in the relevant file.
+      </p>
+    </div>
+    <div class="clr-fnt-blue" id="explainer" v-cloak>
+      <div class="bg-white pa3 mb2">
+        <textarea v-model="value" id="explainer-content" placeholder="Paste content of analytics.txt file here.." class="w-100 f6 f5-ns code ba bw1 b--moon-gray bg-near-white clr-fnt-black pa2 mb2 textfield-resize"></textarea>
+      </div>
+      <div class="cf bg-white pa3 pt4 mb2">
+        <button class="fr pointer hilight-yellow-mid f3 f2-l normal bn clr-fnt-red ma0" v-on:click="explain">Explain</button>
+      </div>
+      <div v-if="error">
+        <div class="bg-white ma0 pt3 ph3 pb4">
+          <p class="ma0">Error: <%= error %></p>
+        </div>
+      </div>
+      <div v-if="result">
+        <div v-for="(block, index) in result">
+          <div class="bg-white pa3 pb4 ma0 mb2">
+            <div class="pointer flex justify-between" v-if="block.headline" v-on:click="toggle(index)">
+              <h2 class="f5 normal ma0 fnt-bold-small mb3">
+                <%= block.headline %>
+              </h2>
+              <a class="dib label-toggle" v-bind:class="isExpanded(index) ? 'label-toggle--rotate' : null"></a>
+            </div>
+            <div v-if="isExpanded(index)" v-for="element in block.body">
+              <p class="ma0 mb2" v-if="!Array.isArray(element)">
+                <%= element %>
+              </p>
+              <ul class="ma0 list-style-square" v-if="Array.isArray(element)">
+                <li class="ma0 mb2" v-for="li in element">
+                  <%= li %>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-    <div class="mw6 center">
-      <h1 class="f5 normal ma0 fnt-bold-small">About</h1>
-<h2 class="f3 f2-ns normal ma0 mt5 mb3 fnt-italic-mid">Status Quo</h2>
-<p class="ma0 pb3 lineheight-copy"><span class="hilight-white-small">analytics.txt</span> is created by <a class="hilight-yellow-small hilight-yellow-small" href="https://www.frederikring.com/" rel="noopener" target="_blank">Frederik Ring</a> and <a class="hilight-yellow-small hilight-yellow-small" href="http://niefeld.com/" rel="noopener" target="_blank">Hendrik Niefeld.</a> It is currently being conceptually designed and in active development.</p>
-<p class="ma0 pb3 lineheight-copy"><span><a href="https://nlnet.nl/" rel="noopener" target="_blank"><img alt="NLnet Foundation" class="mt2" height="60px" src="/theme/images/nlnet-logo-gray.svg" width="160px"/></a></span></p>
-<p class="ma0 pb3 lineheight-copy">We are happy to work with <a class="hilight-yellow-small" href="https://nlnet.nl/" target="_blank">NLnet Foundation,</a> which actively supports our efforts as part of its <a class="hilight-yellow-small" href="https://nlnet.nl/discovery/" target="_blank">Next Generation Search and Discovery</a> initiative.</p>
-<p class="ma0 pb3 lineheight-copy">Furthermore we develop <a class="hilight-yellow-small" href="https://www.offen.dev/" target="_blank">Offen</a>, a fair web analytics tool that treats operators and users as equal parties.</p>
-<h2 class="f3 f2-ns normal ma0 mt5 mb3 fnt-italic-mid">Contact</h2>
-<p class="ma0 pb3 lineheight-copy">Feel free to contact us with any kind of feedback. From criticism and praise to contributions or support, everything is welcome.</p>
-<p class="ma0 pb3 lineheight-copy"><a class="hilight-yellow-small" href="mailto:hioffen@posteo.de">hioffen@posteo.de</a><br/>
-<a class="hilight-yellow-small" href="/theme/74B041E23DB29D552644CEB1B18C633D6967FE3F.asc" target="_blank">PGP Key</a></p>
-    </div>
-  </main>
+
+    <!-- Wizard -->
+
+  </div>
+</main>
     <!-- FOOTER -->
     <footer>
       <div class="bg-footer">
