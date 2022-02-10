@@ -41,9 +41,14 @@
       <div v-if="result">
         <div v-for="(block, index) in result">
           <div class="bg-white pa3 pb4 ma0 mb2">
-            <h2 class="pointer f5 normal ma0 fnt-bold-small mb2" v-if="block.headline" v-on:click="toggle(index)">
-              <%= block.headline %>
-            </h2>
+
+            <div class="pointer flex justify-between" v-if="block.headline" v-on:click="toggle(index)">
+              <h2 class="f5 normal ma0 fnt-bold-small mb2">
+                <%= block.headline %>
+              </h2>
+              <a aria-label="Toggle display of admin console navigation" class="dib label-toggle"></a>
+            </div>
+
             <div v-if="isExpanded(index)" v-for="element in block.body">
               <p class="ma0 mb2" v-if="!Array.isArray(element)">
                 <%= element %>
@@ -54,6 +59,7 @@
                 </li>
               </ul>
             </div>
+
           </div>
         </div>
       </div>
