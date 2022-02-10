@@ -9,41 +9,70 @@
   <div class="mw6 center">
 
     <!-- Wizard -->
-    <h1 class="f5 normal ma0 fnt-bold-small">Explainer</h1>
-    <div class="lineheight-copy">
-      <p class="ma0 mb4 mt5">
-        Website operators collect usage data to measure user engagement with their sites and services, identify possible issues and improve user experience. The degree to which this affects users' privacy can vary drastically.
-      </p>
-    </div>
+
+      <h1 class="f5 normal ma0 fnt-bold-small">Explainer</h1>
+      <div class="lineheight-copy">
+        <p class="ma0 mb2 mt5">
+          Website operators collect usage data to measure user engagement with their sites and services, identify possible issues and improve user experience. The degree to which this affects users' privacy can vary drastically.
+        </p>
+        <p class="ma0 mb4">
+          The degree to which this affects users' privacy can vary drastically. This explainer is focusing on the user-facing consequences of the collection of usage data as defined in the relevant file.
+        </p>
+      </div>
+
+
+
 
     <div class="clr-fnt-blue" id="explainer" v-cloak>
-      <div>
-        <textarea v-model="value" id="explainer-content"></textarea>
+
+      <div class="bg-white pa3 pb4 mb2">
+
+        <div>
+          <textarea v-model="value" id="explainer-content" class="w-100 f6 f5-ns code ba bw1 b--moon-gray bg-near-white pa2 clr-fnt-black textfield-resize"></textarea>
+        </div>
+        <div>
+          <button class="fr pointer hilight-yellow-mid f3 f2-l normal bn ma0 clr-fnt-red" v-on:click="explain">Explain</button>
+        </div>
+
       </div>
-      <div>
-        <button v-on:click="explain">Explain</button>
-      </div>
-      <div v-if="error">
-        <p><%= error %></p>
-      </div>
-      <div v-if="result">
-        <div v-for="(block, index) in result">
-          <h2 class="pointer" v-if="block.headline" v-on:click="toggle(index)">
-            <%= block.headline %>
-          </h2>
-          <div v-if="isExpanded(index)" v-for="element in block.body">
-            <p v-if="!Array.isArray(element)">
-              <%= element %>
-            </p>
-            <ul v-if="Array.isArray(element)">
-              <li v-for="li in element">
-                <%= li %>
-              </li>
-            </ul>
+
+
+        <div v-if="error">
+          <div class="bg-white pa3 pb4 mb2">
+            <p><%= error %></p>
           </div>
         </div>
+
+
+
+      <div v-if="result">
+
+        <div v-for="(block, index) in result">
+
+          <div class="bg-white pa3 pb4 mb2">
+
+            <h2 class="pointer" v-if="block.headline" v-on:click="toggle(index)">
+              <%= block.headline %>
+            </h2>
+            <div v-if="isExpanded(index)" v-for="element in block.body">
+              <p v-if="!Array.isArray(element)">
+                <%= element %>
+              </p>
+              <ul v-if="Array.isArray(element)">
+                <li v-for="li in element">
+                  <%= li %>
+                </li>
+              </ul>
+            </div>
+
+          </div>
+
+        </div>
       </div>
-    </div>
+
+
+
+
     <!-- Wizard -->
 
   </div>

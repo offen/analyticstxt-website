@@ -257,6 +257,9 @@ FORM ELEMENTS
   height: 0.6rem;
   background-color: #6358E8;
 }
+.textfield-resize {
+  resize: vertical;
+}
 /* ---------------------------------------------------
 BACKROUNDS
 ----------------------------------------------------*/
