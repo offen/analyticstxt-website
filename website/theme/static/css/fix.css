@@ -206,6 +206,12 @@ LAYOUT
 .word-break {
   word-break: break-all;
 }
+.list-style-square {
+  list-style-type: square;
+}
+.textfield-resize {
+  resize: vertical;
+}
 
 /* ---------------------------------------------------
 FORM ELEMENTS
@@ -257,9 +263,7 @@ FORM ELEMENTS
   height: 0.6rem;
   background-color: #6358E8;
 }
-.textfield-resize {
-  resize: vertical;
-}
+
 /* ---------------------------------------------------
 BACKROUNDS
 ----------------------------------------------------*/

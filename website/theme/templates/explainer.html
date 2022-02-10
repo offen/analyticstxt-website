@@ -25,48 +25,36 @@
 
     <div class="clr-fnt-blue" id="explainer" v-cloak>
 
-      <div class="bg-white pa3 pb4 mb2">
-
-        <div>
-          <textarea v-model="value" id="explainer-content" class="w-100 f6 f5-ns code ba bw1 b--moon-gray bg-near-white pa2 clr-fnt-black textfield-resize"></textarea>
-        </div>
-        <div>
-          <button class="fr pointer hilight-yellow-mid f3 f2-l normal bn ma0 clr-fnt-red" v-on:click="explain">Explain</button>
-        </div>
-
+      <div class="bg-white pa3 mb2">
+        <textarea v-model="value" id="explainer-content" placeholder="Paste content of analytics.txt file here.." class="w-100 f6 f5-ns code ba bw1 b--moon-gray bg-near-white clr-fnt-black pa2 mb2 textfield-resize"></textarea>
+      </div>
+      <div class="cf bg-white pa3 pt4 mb2">
+        <button class="fr pointer hilight-yellow-mid f3 f2-l normal bn clr-fnt-red ma0" v-on:click="explain">Explain</button>
       </div>
 
-
-        <div v-if="error">
-          <div class="bg-white pa3 pb4 mb2">
-            <p><%= error %></p>
-          </div>
+      <div v-if="error">
+        <div class="bg-white ma0 pt3 ph3 pb4">
+          <p class="ma0">Error: <%= error %></p>
         </div>
-
-
+      </div>
 
       <div v-if="result">
-
         <div v-for="(block, index) in result">
-
-          <div class="bg-white pa3 pb4 mb2">
-
-            <h2 class="pointer" v-if="block.headline" v-on:click="toggle(index)">
+          <div class="bg-white pa3 pb4 ma0 mb2">
+            <h2 class="pointer f5 normal ma0 fnt-bold-small mb2" v-if="block.headline" v-on:click="toggle(index)">
               <%= block.headline %>
             </h2>
             <div v-if="isExpanded(index)" v-for="element in block.body">
-              <p v-if="!Array.isArray(element)">
+              <p class="ma0 mb2" v-if="!Array.isArray(element)">
                 <%= element %>
               </p>
-              <ul v-if="Array.isArray(element)">
-                <li v-for="li in element">
+              <ul class="ma0 list-style-square" v-if="Array.isArray(element)">
+                <li class="ma0 mb2" v-for="li in element">
                   <%= li %>
                 </li>
               </ul>
             </div>
-
           </div>
-
         </div>
       </div>
 
