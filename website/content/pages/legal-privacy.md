@@ -7,7 +7,7 @@ exclude_from_sitemap: true
 # Legal & Privacy
 
 ## Website Analytics
-We use [Offen](https://offen.analyticstxt.org/) for collecting usage data on this website and only access your usage data with your consent. Your data always remains yours. You can review and delete it at any time. Opt out again whenever you want.
+We use [Offen Fair Web Analytics](https://offen.analyticstxt.org/) for collecting usage data on this website and only access your usage data with your consent. Your data always remains yours. You can review and delete it at any time. Opt out again whenever you want.
 
 ### How can I review and delete my usage data?
 For data to be collected you need to opt in first. [You can do this in the consent banner.](https://offen.analyticstxt.org/#consent-banner)
@@ -28,7 +28,7 @@ Our banner serves two purposes: We ask you to access your usage data and would l
 Yes, in particular cookies are used to store your decision about granting access to your usage data. If you opt in, we also use cookies to store a user and a session ID for you.
 
 ### How does it all work?
-After opening a website where an Offen installation is active, you can explicitly opt in to the data collection and thereby help to improve the services you use. Only then you will be assigned a user and a session ID using a cookie. Offen handles these IDs in an unrecognizable form. [Learn more about cookies here.](https://en.wikipedia.org/wiki/HTTP_cookie){: target="_blank"}
+After opening a website where an Offen Fair Web Analytics installation is active, you can explicitly opt in to the data collection and thereby help to improve the services you use. Only then you will be assigned a user and a session ID using a cookie. Offen Fair Web Analytic handles these IDs in an unrecognizable form. [Learn more about cookies here.](https://en.wikipedia.org/wiki/HTTP_cookie){: target="_blank"}
 
 ## External hosting
 This website is hosted by an external service provider. Non-personal data on requests to this website are stored on the hoster's servers. Responsible for hosting this website is:
