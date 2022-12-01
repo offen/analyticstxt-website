@@ -9,7 +9,7 @@
 `)}});var Cl=b(Ar=>{var Am=mn(),Im=pl(),Rm=gl(),Sl=ii(),km=El(),{defaultVersion:gn}=Sl;Ar.validate=Dm;function Dm(t,{draftName:e=gn}={}){let[r,n]=Ol(t);return n||ai(r,e)}Ar.parse=Pl;function Pl(t,{draftName:e=gn,lax:r=!1}={}){let[n,s]=Ol(t);if(s)return[null,s];let i=r?null:ai(n,e);return[n,i]}Ar.serialize=Mm;function Mm(t,{draftName:e=gn,lax:r=!1}={}){let n=r?null:ai(t,e);return n?[null,n]:Fm(t)}Ar.explain=Vm;function Vm(t,{draftName:e=gn,lax:r=!1,format:n}={}){let[s,i]=Pl(t);return i?[null,i]:xm(s,n)}function ai(t,e){let r=Sl[e];if(!r)throw new Error(`Schema for ${e} is unknown.`);let n=new Am({allErrors:!0});Im(n),Rm(n);let s=n.compile(r);if(s(t))return null;let a=s.errors.filter(function(l){return l.keyword==="errorMessage"}).sort(function(l,d){return l.schemaPath.localeCompare(d.schemaPath)}).map(function(l){return l.message}).join(" ");return new Error(a)}function Fm(t){let e=[];for(let r of t._ordering||Object.keys(t)){let{values:n,comments:s}=t[r];if(!Array.isArray(n)||n.some(i=>typeof i!="string"))return[null,new Error("Only string arrays can be used as values")];if(Array.isArray(s))for(let i of s)e.push(`# ${i}`);e.push(`${ql(r)}: ${n.join(", ")}`)}return[e.join(`
 `)+`
 `,null]}function Ol(t){let e={_ordering:[]},r=[];for(let[n,s]of t.split(/\r?\n/).entries()){let i;try{i=Um(s)}catch(y){let v=new Error(`Unexpected error parsing line ${n+1}: ${y.message}`);return[null,v]}let{error:a,isEmpty:l,comment:d,field:f,values:p}=i;if(a){let y=new Error(`Failed to parse line ${n+1}: ${a.message}`);return[null,y]}if(!l){if(d){r.push(d);continue}if(f in e){let y=new Error(`Field "${f}" redefined on line ${n+1}. Field names can only occur once.`);return[null,y]}e._ordering.push(f),e[f]={values:p},r.length&&(e[f].comments=r),r=[]}}return[e,null]}function Um(t){t=t.trim();let e={error:null,field:null,values:null,comment:null,isEmpty:!1};if(!t)return de(ee({},e),{isEmpty:!0});if(/^#/.test(t))return de(ee({},e),{comment:t.replace(/^#\s+/,"")});let[r,n]=t.split(":");if(!r||!n){let s=new Error("No field name or value found.");return de(ee({},e),{error:s})}return de(ee({},e),{field:ql(r),values:zm(n)})}function ql(t){return t.split("").map((e,r)=>r?e:e.toUpperCase()).join("")}function zm(t){return t.split(",").map(e=>e.trim())}function xm(t,e){try{return[km(t,e),null]}catch(r){return[null,r]}}});var Lm=b((gy,Il)=>{var{validate:Nl,parse:Tl,serialize:jl,explain:Al}=Cl(),oi=ii();Il.exports={validate:Nl,mustValidate:$n(Nl),parse:Tl,mustParse:$n(Tl),serialize:jl,mustSerialize:$n(jl),explain:Al,mustExplain:$n(Al),defaultVersion:oi.defaultVersion,schema:oi[oi.defaultVersion]};function $n(t){return function(){let e=t.apply(null,[].slice.call(arguments));if(Array.isArray(e)){if(e[1])throw e[1];return e[0]}if(e)throw e}}});return Lm();})();void(function(Vue){new Vue({el:'#navigation',data:{active:false},methods:{toggle:function(){this.active=!this.active}}})})(window.Vue)
-void(function(Vue,parser,ClipboardJS){new Vue({el:'#wizard',delimiters:['<%=','%>'],data:{step:1,presets:[{name:'Offen',doc:`
+void(function(Vue,parser,ClipboardJS){new Vue({el:'#wizard',delimiters:['<%=','%>'],data:{step:1,presets:[{name:'Offen Fair Web Analytics',doc:`
 # analytics.txt file for www.example.com
 Author: Your Name <your.name@example.com>
 Collects: url, referrer, device-type
@@ -26,7 +26,7 @@ Tracks: sessions, users
 Varies: none
 Shares: per-user
 Implements: gdpr
-Deploys: offen
+Deploys: Offen Fair Web Analytics
 `},{name:'Google Analytics',doc:`
 # analytics.txt file for www.example.com
 Author: Your Name <your.name@example.com>

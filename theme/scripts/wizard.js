@@ -6,7 +6,7 @@ void (function (Vue, parser, ClipboardJS) {
       step: 1,
       presets: [
         {
-          name: 'Offen',
+          name: 'Offen Fair Web Analytics',
           doc: `
 # analytics.txt file for www.example.com
 Author: Your Name <your.name@example.com>
@@ -24,7 +24,7 @@ Tracks: sessions, users
 Varies: none
 Shares: per-user
 Implements: gdpr
-Deploys: offen
+Deploys: Offen Fair Web Analytics
 `
         },
         {
