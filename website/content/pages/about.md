@@ -13,7 +13,7 @@ sitemap_priority: 0.5
 
 We are happy to work with [NLnet Foundation,](https://nlnet.nl/){: target="_blank"} which actively supports our efforts as part of its [Next Generation Search and Discovery](https://nlnet.nl/discovery/){: target="_blank"} initiative.
 
-Furthermore we develop [Offen](https://www.offen.dev/){: target="_blank"}, a fair web analytics tool that treats operators and users as equal parties.
+Furthermore we develop [Offen Fair Web Analytics](https://www.offen.dev/){: target="_blank"}, a fair web analytics tool that treats operators and users as equal parties.
 
 ## Contact
 
