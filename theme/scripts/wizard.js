@@ -28,7 +28,7 @@ Deploys: Offen Fair Web Analytics
 `
         },
         {
-          name: 'Google Analytics',
+          name: 'Google Analytics V3',
           doc: `
 # analytics.txt file for www.example.com
 Author: Your Name <your.name@example.com>

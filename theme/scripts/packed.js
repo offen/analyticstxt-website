@@ -27,7 +27,7 @@ Varies: none
 Shares: per-user
 Implements: gdpr
 Deploys: Offen Fair Web Analytics
-`},{name:'Google Analytics',doc:`
+`},{name:'Google Analytics V3',doc:`
 # analytics.txt file for www.example.com
 Author: Your Name <your.name@example.com>
 Collects: url, referrer, device-type, ip-address, geo-location, user-agent, visit-duration, custom-events
